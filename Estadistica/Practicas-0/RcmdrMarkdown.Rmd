@@ -1,0 +1,53 @@
+---
+title: "Replace with Main Title"
+author: "Your Name"
+date: "`r Sys.Date()`"  # Uses current date
+---
+
+
+```{r echo=FALSE, message=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+
+```{r}
+load("/home/jorge/Clases/Estadistica/Practicas-0/vrPart.RData")
+```
+
+
+```{r}
+setwd("/home/jorge/Clases/Estadistica/Practicas-0")
+```
+
+
+```{r}
+str(vrPart)
+```
+
+
+```{r}
+levels(vrPart$gender)
+```
+
+
+```{r}
+summary(vrPart)
+```
+
+
+```{r}
+with(vrPart, Barplot(gender, xlab="gender", ylab="Frequency", label.bars=TRUE))
+```
+
+

@@ -1,0 +1,292 @@
+---
+title: "Replace with Main Title"
+author: "Your Name"
+date: "`r Sys.Date()`"  # Uses current date
+---
+
+
+```{r echo=FALSE, message=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+
+```{r}
+setwd("/home/jorge/Clases/Estadistica/Practicas-1")
+```
+
+
+```{r}
+Practica_1a <- readXL("/home/jorge/Clases/Estadistica/Practicas-1/23_24GR_Tema3_problemas.xlsx", rownames=FALSE, header=TRUE, na="", sheet="1a", 
+  stringsAsFactors=TRUE)
+```
+
+Variable cualitativa: tipo de obstáculo que un robot encuentra en su camino. La información recogida programando un robot móvil, en cuanto al tipo de obstáculo que registra el robot, figura en la hoja de datos 1a. Construye con R la distribución de frecuencias y representa gráficamente el resultado. 
+
+```{r}
+local({
+  .Table <- with(Practica_1a, table(obstáculo))
+  cat("\ncounts:\n")
+  print(.Table)
+  cat("\npercentages:\n")
+  print(round(100*.Table/sum(.Table), 2))
+})
+```
+
+
+```{r}
+t<-table(Practica_1a$obstáculo)
+```
+
+
+```{r}
+t*100/sum(t)
+```
+
+
+```{r}
+with(Practica_1a, Barplot(obstáculo, xlab="obstáculo", ylab="Frequency", label.bars=TRUE))
+```
+
+```{r}
+with(Practica_1a, Barplot(obstáculo, xlab="obstáculo", ylab="Frequency", label.bars=TRUE))
+```
+
+```{r}
+library(colorspace, pos=15)
+```
+
+
+```{r}
+with(Practica_1a, piechart(obstáculo, xlab="", ylab="", main="obstáculo", col=rainbow_hcl(4), scale="percent"))
+```
+
+```{r}
+with(Practica_1a, piechart(obstáculo, xlab="", ylab="", main="obstáculo", col=rainbow_hcl(4), scale="percent"))
+```
+
+```{r}
+with(Practica_1a, Barplot(obstáculo, xlab="obstáculo", ylab="Frequency", label.bars=TRUE))
+```
+
+```{r}
+with(Practica_1a, piechart(obstáculo, xlab="", ylab="", main="obstáculo", col=rainbow_hcl(4), scale="percent"))
+```
+
+
+```{r}
+plot(table)
+```
+
+
+```{r}
+Practica_1b <- readXL("/home/jorge/Clases/Estadistica/Practicas-1/23_24GR_Tema3_problemas.xlsx", rownames=FALSE, header=TRUE, na="", sheet="1b", stringsAsFactors=TRUE)
+```
+
+
+```{r}
+t<-table(Practica_1b$obstáculo)
+```
+
+
+```{r}
+t*100/sum(t)
+```
+
+
+```{r}
+t*100/sum(t)
+```
+
+
+```{r}
+t
+```
+
+
+```{r}
+t
+```
+
+
+```{r}
+t<-table(Practica_1b$obstáculo)
+```
+
+
+```{r}
+t<-table(Practica_1b$tiempo.ejec)
+```
+
+
+```{r}
+t
+```
+
+
+```{r}
+library(abind, pos=16)
+```
+
+
+```{r}
+library(e1071, pos=17)
+```
+
+
+```{r}
+numSummary(Practica_1b[,"tiempo.ejec", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+numSummary(Practica_1b[,"tiempo.ejec", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+binnedCounts(Practica_1b[,"tiempo.ejec", drop=FALSE])
+```
+
+```{r}
+numSummary(Practica_1b[,"tiempo.ejec", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+binnedCounts(Practica_1b[,"tiempo.ejec", drop=FALSE])
+```
+
+
+```{r}
+breaks=seq(0,102,17)
+```
+
+
+```{r}
+binnedCounts(Practica_1b[,"tiempo.ejec", drop=FALSE],breaks=seq(0,102,17))
+```
+
+
+```{r}
+with(Practica_1b, Hist(tiempo.ejec, scale="frequency", breaks="Sturges", col="darkgray"))
+```
+
+```{r}
+with(Practica_1b, Hist(tiempo.ejec, scale="frequency", breaks="Sturges", col="darkgray"))
+```
+
+
+```{r}
+with(Practica_1b, Hist(tiempo.ejec, scale="frequency", breaks=seq(0,102,17),col="darkgray"))
+```
+
+```{r}
+with(Practica_1b, Hist(tiempo.ejec, labels=T, scale="frequency", breaks=seq(0,102,17),col="darkgray"))
+```
+
+```{r}
+h<-with(Practica_1b, Hist(tiempo.ejec, labels=T, scale="frequency", breaks=seq(0,102,17),col="darkgray"))
+```
+
+
+```{r}
+h
+```
+
+
+```{r}
+Practica_1.2 <- readXL("/home/jorge/Clases/Estadistica/Practicas-1/23_24GR_Tema3_problemas.xlsx", rownames=FALSE, header=TRUE, na="", sheet="2", stringsAsFactors=TRUE)
+```
+
+
+```{r}
+local({
+  .Table <- with(Practica_1.2, table(clasificación))
+  cat("\ncounts:\n")
+  print(.Table)
+  cat("\npercentages:\n")
+  print(round(100*.Table/sum(.Table), 2))
+})
+local({
+  .Table <- with(Practica_1.2, table(obstáculo))
+  cat("\ncounts:\n")
+  print(.Table)
+  cat("\npercentages:\n")
+  print(round(100*.Table/sum(.Table), 2))
+})
+```
+
+```{r}
+local({
+  .Table <- xtabs(~clasificación+obstáculo, data=Practica_1.2)
+  cat("\nFrequency table:\n")
+  print(.Table)
+  .Test <- chisq.test(.Table, correct=FALSE)
+  print(.Test)
+})
+```
+
+```{r}
+local({
+  .Table <- xtabs(~obstáculo+clasificación, data=Practica_1.2)
+  cat("\nFrequency table:\n")
+  print(.Table)
+  .Test <- chisq.test(.Table, correct=FALSE)
+  print(.Test)
+})
+```
+
+```{r}
+local({
+  .Table <- xtabs(~obstáculo+clasificación, data=Practica_1.2)
+  cat("\nFrequency table:\n")
+  print(.Table)
+  cat("\nTotal percentages:\n")
+  print(totPercents(.Table))
+  .Test <- chisq.test(.Table, correct=FALSE)
+  print(.Test)
+})
+```
+
+```{r}
+local({
+  .Table <- xtabs(~obstáculo+clasificación, data=Practica_1.2)
+  cat("\nFrequency table:\n")
+  print(.Table)
+  cat("\nTotal percentages:\n")
+  print(totPercents(.Table))
+  .Test <- chisq.test(.Table, correct=FALSE)
+  print(.Test)
+})
+```
+
+```{r}
+with(Practica_1.2, Barplot(obstáculo, xlab="obstáculo", ylab="Frequency", label.bars=TRUE))
+```
+
+```{r}
+with(Practica_1.2, Barplot(obstáculo, by=clasificación, style="divided", legend.pos="above", xlab="obstáculo", ylab="Frequency", label.bars=TRUE))
+```
+
+```{r}
+with(Practica_1.2, Barplot(obstáculo, by=clasificación, style="divided", legend.pos="above", xlab="obstáculo", ylab="Percent", scale="percent", label.bars=TRUE))
+```
+
+```{r}
+with(Practica_1.2, Barplot(obstáculo, by=clasificación, style="divided", legend.pos="above", xlab="obstáculo", ylab="Percent", scale="percent", label.bars=TRUE))
+```
+
+
+```{r}
+.Table <- xtabs(~obstáculo+clasificación, data=Practica_1.2)
+```
+
+
+```{r}
+mosaicplot(.Table, shade=T)
+```
+
+
+

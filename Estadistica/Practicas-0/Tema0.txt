@@ -1,0 +1,41 @@
+
+> load("/home/jorge/Clases/Estadistica/Practicas-0/vrPart.RData")
+
+> setwd("/home/jorge/Clases/Estadistica/Practicas-0")
+
+> str(vrPart)
+'data.frame':	13 obs. of  12 variables:
+ $ pid                      : num  1 2 3 4 5 6 7 8 9 10 ...
+ $ handedness               : Factor w/ 1 level "Right": 1 1 1 1 1 1 1 1 1 1 ...
+ $ gender                   : Factor w/ 3 levels "Female","Male",..: 1 2 1 1 1 2 2 1 2 2 ...
+ $ age                      : num  26 26 23 23 25 24 25 23 25 28 ...
+ $ forearmLength            : num  0.262 0.244 0.265 0.256 0.268 0.33 0.283 0.268 0.262 0.288 ...
+ $ forearmMarkerDist        : num  0.122 0.115 0.107 0.091 0.085 0.175 0.074 0.105 0.167 0.099 ...
+ $ indexFingerLength        : num  0.076 0.098 0.075 0.073 0.072 0.107 0.091 0.086 0.093 0.092 ...
+ $ upperarmLength           : num  0.272 0.279 0.265 0.288 0.263 0.269 0.297 0.26 0.335 0.356 ...
+ $ upperarmMarkerDist       : num  0.129 0.157 0.105 0.106 0.16 0.099 0.165 0.108 0.136 0.104 ...
+ $ height                   : num  1.67 1.88 1.65 1.69 1.79 1.94 1.82 1.69 1.88 1.85 ...
+ $ rightShoulderMarkerDist.X: num  0.032 0.057 0.039 0.044 0.036 0.073 0.066 0.033 0.031 0.067 ...
+ $ rightShoulderMarkerDist.Y: num  0.151 0.102 0.145 0.103 0.095 0.087 0.062 0.12 0.079 0.117 ...
+
+> levels(vrPart$gender)
+[1] "Female" "Male"   "Other" 
+
+> summary(vrPart)
+      pid     handedness    gender       age        forearmLength    forearmMarkerDist indexFingerLength upperarmLength   upperarmMarkerDist
+ Min.   : 1   Right:13   Female:5   Min.   :20.00   Min.   :0.2440   Min.   :0.0740    Min.   :0.07200   Min.   :0.2550   Min.   :0.0950    
+ 1st Qu.: 4              Male  :7   1st Qu.:23.00   1st Qu.:0.2620   1st Qu.:0.0910    1st Qu.:0.07600   1st Qu.:0.2650   1st Qu.:0.1050    
+ Median : 7              Other :1   Median :25.00   Median :0.2680   Median :0.1070    Median :0.08600   Median :0.2790   Median :0.1080    
+ Mean   : 7                         Mean   :24.46   Mean   :0.2757   Mean   :0.1155    Mean   :0.08762   Mean   :0.2912   Mean   :0.2016    
+ 3rd Qu.:10                         3rd Qu.:26.00   3rd Qu.:0.2880   3rd Qu.:0.1420    3rd Qu.:0.09300   3rd Qu.:0.3210   3rd Qu.:0.1570    
+ Max.   :13                         Max.   :28.00   Max.   :0.3300   Max.   :0.1750    Max.   :0.11700   Max.   :0.3560   Max.   :1.1510    
+     height      rightShoulderMarkerDist.X rightShoulderMarkerDist.Y
+ Min.   :1.650   Min.   :0.03100           Min.   :0.0620           
+ 1st Qu.:1.690   1st Qu.:0.03600           1st Qu.:0.0950           
+ Median :1.790   Median :0.04400           Median :0.1070           
+ Mean   :1.792   Mean   :0.07092           Mean   :0.1088           
+ 3rd Qu.:1.880   3rd Qu.:0.06600           3rd Qu.:0.1200           
+ Max.   :1.940   Max.   :0.35500           Max.   :0.1510           
+
+> with(vrPart, Barplot(gender, xlab="gender", ylab="Frequency", label.bars=TRUE))
+
