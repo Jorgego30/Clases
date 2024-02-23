@@ -1,35 +1,52 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int numero_a_numero(vector<int> numeros){
+void numero_a_numero(vector<int> numeros){
+    clock_t begin = clock();
     int menor=100000;
     for (int i=0; i<numeros.size(); i++){
-        for (int j=0; j != numeros.size(); j++){
-            if (numeros[j] < numeros[i]){
+        for (int j=0; j < numeros.size(); j++){
+            if (numeros[j] < numeros[i] && numeros[j]<menor){
                 menor = numeros[j];
             }
         }
     }
-
-    return menor;
+    clock_t end = clock(); 
+    double segundos = double(end - begin)/CLOCKS_PER_SEC;
+    cout << fixed << endl;
+    cout << "El programa con complejidad O(n²) da el minimo de: " << menor << " con un tiempo de ejecucion de: " << segundos << endl;
 }
 
-int recorrer_lista (vector<int> numeros){
+void recorrer_lista (vector<int> numeros){
     int menor = 100000;
+    clock_t begin = clock();
     for (int i=0; i<numeros.size(); i++){
         if (numeros[i] < menor){
             menor = numeros[i];
         }
     }
-
-    return menor;
-
+    clock_t end = clock();
+    double segundos = double(end - begin)/CLOCKS_PER_SEC;
+    cout << fixed << endl;
+    cout << "El programa com complejidad O(n) da el minimo de: " << menor << " con un tiempo de ejecucion de: " << segundos << endl;
 }
 
 int main(){
-    vector <int> numeros = {10,23,435,4,565,32,321,2,543};
+    srand(time(NULL));
+    vector <int> numeros;
+    
+    for (int i=0; i<10000; i++){
+        numeros.push_back(1+rand()%(101-1));
+    }
 
-    cout << numero_a_numero(numeros) << endl;
+    cout << "La lista es: ";
 
-    cout << recorrer_lista(numeros) << endl;
+    for (int i=0; i<numeros.size(); i++){
+        cout << numeros[i] << ", "; 
+    }
+    cout << endl;
+
+    numero_a_numero(numeros);
+
+    recorrer_lista(numeros);
 }

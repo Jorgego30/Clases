@@ -102,8 +102,8 @@ def create_triangle(center, v1, v2, l1, l2):
 	return points
 
 
-v1=[1,0,0]
-v2=[0,1,0]
+v1=[-1,0,0]
+v2=[0,-1,0]
 l1=10
 l2=10
 triangulo = (create_triangle(0,v1,v2,l1,l2))
