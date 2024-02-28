@@ -2,8 +2,8 @@
 using namespace std;
 
 void numero_a_numero(vector<int> numeros){
-    clock_t begin = clock();
     int menor=100000;
+    clock_t begin = clock();
     for (int i=0; i<numeros.size(); i++){
         for (int j=0; j < numeros.size(); j++){
             if (numeros[j] < numeros[i] && numeros[j]<menor){
