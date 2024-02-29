@@ -48,5 +48,8 @@ Ejercicio 15:
 Ejercicio 16:
     Para convertir el algoritmo anterior en uno con complejidad O(1) se usa la funcion sort() que ordena el vector y despues se accede a la primera posicion.
 
-Ejercicio 17
-    Se crea un vector aleatorio
+Ejercicio 17:
+    Se crea un vector aleatorio y se crea una funcion de complejidad 0(n), ya que tiene que recorrer todo el vector, para sumar todos sus elementos. Para que fuese de complejidad O(1) tendria que ser un vector de un solo numero o hacerlo con alguna funcion de numpy.
+
+Ejercicio 18:
+     Se crea un vector aleatorio y se crea una funcion de complejidad 0(n^2), ya que tiene que recorrer todo el vector dos veces, para mirar si el numero esta varias veces en el vector, esta funcion esta implementada con listas, la siguiente funcion es de complejidad O(n) ya que solo recorre el vector una vez, esta implementada con diccionarios. Al ejecutar el programa se hace claro que los diccionarios son mas eficientes 
