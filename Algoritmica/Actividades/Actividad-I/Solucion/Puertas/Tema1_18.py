@@ -16,10 +16,13 @@ def main():
     # print(f"La salida de la puerta XOR es: {c5.obtenerSalida()}")
     firstClaus = PuertaAND("Primera clausura")
     secondClaus = PuertaAND("Segunda clausura")
-    print(firstClaus.obtenerSalida())
-    print(secondClaus.obtenerSalida())
-    firstUnion = PuertaOR(firstClaus,secondClaus)
-    print(firstUnion.obtenerSalida())
+    firstDigit = firstClaus.ejecutarLogicaDePuerta() 
+    secondDigit = secondClaus.ejecutarLogicaDePuerta() 
+    NORClaus = PuertaNOR("Puerta NOR")
+    NORDigit = NORClaus.ejecutarLogicaDePuerta()
+    print(NORDigit)
+    # final = PuertaNOR('C')
+  
     # print(f"\nEl resultado de NOT((A AND B) OR (C AND D))")
 # NOT(A and B) and NOT (C and D).
 main()

@@ -2,9 +2,8 @@
 using namespace std;
 
 void recorrer_lista(std::vector<int> numeros) {
-    set<int> conjunto_numeros(numeros.begin(), numeros.end());
-    
     clock_t begin = clock();
+    set<int> conjunto_numeros(numeros.begin(), numeros.end());
     int menor = *conjunto_numeros.begin();
     clock_t end = clock();
     

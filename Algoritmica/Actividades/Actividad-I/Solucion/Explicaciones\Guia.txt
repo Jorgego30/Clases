@@ -1,0 +1,51 @@
+Ejercicio 1 (Dentro de la carpeta Puertas):
+    Dentro del archivo Class_Puertas.py (tomado desde los codigos proporcionados por Efren en el campus virtual) se han añadido las clases PuertaNAND, PuertaNOR y PuertaXOR. Para la puerta NAND se ha tomado la puerta AND como referencia invirtiendo los resultados, se ha hecho lo mismo con la NOR usando la OR, la puerta XOR es una puerta logica que devuelve 0 si ambas entradas son iguales asi que eso mismo se comprueba en el if.
+
+Ejercicio 2 (Dentro de la carpeta Puertas):
+
+Ejercicio 3 (Dentro de la carpeta Fracciones):
+    Dentro del archivo Class_Fracciones.hpp (tomado desde los codigos proporcionados por Efren en el campus virtual) se han añadido los metodos getNum, getDen y los respectivos metodos de operadores relacionales correspondientes. El metodo getNum devuelve el numerador de la fraccion, el metodo getDen devuelve el denominador de la fraccion, el metodo operator< devuelve la comprobacion de si una fraccion es menor a otra, el metodo operator<= devuelve la comprobacion de si una fraccion es menor o igual a otra, el metodo operator> devuelve la comprobacion de si una fraccion es mayor a otra, el metodo operator>= devuelve la comprobacion de si una fraccion es mayor o igual a otra, el metodo operator!= devuelve la comprobacion de si una fraccion es diferente a otra. Tambien se ha modificado el constructor para que lance excepciones en caso de que los parametros recibidos para construir la fraccion sean erroneos. (En el archivo Tema1_17.cpp (tambien tomado de los codigos de Efren para ser modificado posteriormente) se pueden comprobar todos estos cambios funcionando)
+
+Ejercicio 4 (Dentro de la carpeta Fracciones):
+    Dentro del archivo Class_Fracciones.hpp (tomado desde los codigos proporcionados por Efren en el campus virtual) se hizo una modificacion al constructor para comprobar que los datos fuesen correctos, con esta modificacion se corrigieron los fallos que pudiera haber en el funcionamiento de los operadores
+
+Ejercicio 5 (Dentro de la carpeta Fecha):
+    Dentro del archivo Class_Fechas.py (tomado desde los codigos proporcionados por Efren en el campus virtual) se han añadido los metodos es_mayor, es_igual, __add__ y __sub__, el metodo es_mayor compara dos fechas y dice si una es mayor a la otra, el metodo es_igual comprueba si dos fechas son iguales, para los metodos __add__ y __sub__ se han usado los llamados metodos magicos de python para sumar y restar fechas respectivamente. Ademas se han añadido validaciones a los parametros pasados para conformar una fecha. (El archivo Tema1_16.py es el que contiene ejemplos de todos los metodos para comprobar que funcionan)
+
+Ejercicio 6 (Dentro de la carpeta Hora):
+    Dentro del archivo Class_Hora.py se ha creado la clase Hora con los metodos es_menor, es_mayor, es_igual, __add__, __sub__ y getSegundosTotales. El metodo es_menor compara dos horas y dice si una es menor a otra, el metodo es_mayor compara dos horas y dice si una es mayor a la otra, el metodo es_igual comprueba si dos horas son iguales, para los metodos __add__ y __sub__ se han usado los llamados metodos magicos de python para sumar y restar horas respectivamente, el metodo getSegundosTotales calcula y devuelve el total de segundos teniendo en cuenta horas y minutos. Este archivo tambien cuenta con una comprobacion de si los parametros dados para formar la hora son validos. (El archivo Ejercicio-Horas.py es el que contiene ejemplos de los metodos para comprobar que funcionan)
+
+Ejercicio 7 (Dentro de la carpeta Polinomios):
+    Dentro del archivo Class_Polinomio.py se importa numpy y se usa la parte de la libreria dedicada a los polinomios para crear los polinomios, se crean los metodos __add__,__sub__, __mul__ y __truediv__ basandonos en los llamados metodos magicos de python, el metodo __add__ usa numpy para sumar los polinomios, el metodo __sub__ usa numpy para restar los polinomios, el metodo __mul__ usa numpy para multiplicar los polinomios, el metodo __truediv__ usa numpy para dividir los polinomios. (El archivo Polinomios.py es el que contiene ejemplos de los metodos para comprobar que funcionan)
+
+Ejercicio 8 (Dentro de la carpeta Complejo):
+    Dentro del archivo Class_Complejo.py se usa la funcion complex() predefinida en python para crear los numeros complejos, se crean los modulos de operaciones relacionales menor que (__lt__), menor o igual que (__le__), mayor que (__gt__), mayor o igual que (__ge__), igual a (__eq__), los metodos de operaciones suma (__add__), resta (__sub__), multiplicacion (__mul__), division (__truediv__), valor absoluto (valor_absoluto) (Usa la funcion abs predefinida en python), conjugado (conjugado), y metodos para obtener la parte real (getReal) y la parte imaginaria (getImaginary). (El archivo Complejo.py es el que contiene ejemplos de los metodos para comprobar que funcionan)
+
+Ejercicio 9 (Dentro de la carpeta Dado):
+    El archivo Class_Juego.py (cuyo codigo principalmente ha salido de la siguiente pagina: https://ideone.com/8WcnQm , proporcionada por Efren) ha sido modificado para que los dados pudiesen tener mas de 6 caras hasta un maximo de 20 y para que diga quien ha sido el ganador. (El archivo Juego.py es el que contiene ejemplos de los metodos para comprobar que funcionan)
+
+Ejercicio 10 (Dentro de la carpeta Fracciones):
+    La clase fracciones fue desarrollada directamente en cpp por lo que este ejercicio se resuelve anteriormente (veanse ejercicios 3 y 4)
+
+- Los siguientes ejercicios se encuentran todos en la carpeta Complejidad
+
+Ejercicio 11:
+    La primera funcion cuenta con una complejidad O(n²) ya que hay un bucle de n iteraciones dentro de otro bucle con n iteraciones mientras que la segunda funcion cuenta con un solo bucle de n iteraciones lo que la convierte en una funcion de complejidad O(n)
+
+Ejercicio 12:
+    Este algoritmo tiene una complejidad de O(1) ya que como se ve al ejecutar el programa los tiempos son practicamente constantes por muchas veces que lo ejecutes.
+
+ Ejercicio 13:
+    Este algoritmo tiene una complejidad de O(1) ya que como se ve al ejecutar el programa los tiempos son practicamente constantes por muchas veces que lo ejecutes.
+
+Ejercicio 14:
+    Este algoritmo demuestra que la eliminacion de un elemento en diccionarios es mas eficiente que en listas
+
+Ejercicio 15:
+    Este ejercicio convierte el vector a un set lo que elimina numeros repetidos y ordena los numeros, despues se usa un puntero para acceder al primer elemento del set, crear el set tiene una complejidad de O(nlog(n))
+
+Ejercicio 16:
+    Para convertir el algoritmo anterior en uno con complejidad O(1) se usa la funcion sort() que ordena el vector y despues se accede a la primera posicion.
+
+Ejercicio 17
+    Se crea un vector aleatorio

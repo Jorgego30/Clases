@@ -1,4 +1,5 @@
-import time
+import random,numpy as np,time
+
 
 def suma_vector(vector):
     inicio = time.time()
@@ -9,8 +10,7 @@ def suma_vector(vector):
     tiempo_ejecucion = fin - inicio
     return suma, tiempo_ejecucion
 
-# Ejemplo de uso
-mi_vector = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+mi_vector = np.array([random.randint(0, 100000) for _ in range(10000)])
 
 resultado, tiempo = suma_vector(mi_vector)
 

@@ -3,11 +3,10 @@ using namespace std;
 
 void indexacion(vector<int>a){
     clock_t begin = clock();
-    for (int i=0; i<a.size(); i++){
-        int b = a[i];
-    }
+    int b = a[6];
     clock_t end = clock(); 
     double segundos = double(end - begin)/CLOCKS_PER_SEC;
+    
     cout << fixed << endl;
     cout << "La indexacion de un vector tiene una complejidad de O(1) como se ve en el tiempo: " << segundos << endl;
 }
