@@ -1,0 +1,208 @@
+Act1 C++
+El código en C++ implementa clases para modelar operaciones lógicas NOR, NAND y XOR utilizando puertas lógicas. Para la clase PuertaNOR, se define un constructor que toma dos entradas booleanas y un método para realizar la operación NOR. De manera similar, la clase PuertaNAND tiene un constructor y un método para la operación NAND.
+
+La clase XOR utiliza instancias de PuertaNOR y PuertaNAND para realizar la operación XOR. En el método operacion_xor, se implementa XOR como (A NAND B) NAND (A NOR B).
+
+En el main, se ejemplifica el uso de la clase XOR con entradas booleanas y se imprime el resultado. Este diseño modular y orientado a objetos permite una fácil extensión y reutilización del código para otras operaciones lógicas.
+
+Act2 C++
+El código en C++ demuestra la equivalencia lógica entre dos expresiones booleanas utilizando puertas lógicas. Se crean las clases PuertaAND y PuertaNOT para modelar las operaciones lógicas AND y NOT, respectivamente.
+
+En el main, se definen entradas booleanas A, B, C y D. Se realiza la evaluación de la expresión lógica NOT((A and B) or (C and D)) utilizando instancias de PuertaAND y PuertaNOT. Luego, se evalúan las expresiones NOT(A and B) y NOT(C and D) por separado.
+
+Finalmente, se verifica la equivalencia lógica entre las dos expresiones mediante una comparación. Si ambas expresiones son equivalentes, se imprime en la consola "Las expresiones son equivalentes", de lo contrario, se imprime "Las expresiones no son equivalentes".
+
+El código destaca el uso de clases para encapsular la lógica de las operaciones lógicas, lo que facilita la comprensión y mantenimiento del código.
+
+Act3 Clase
+El código en Python define la clase `Fraccion` para representar fracciones matemáticas. En el constructor `__init__`, se verifica que tanto el numerador como el denominador sean enteros antes de asignarlos a los atributos de la clase. Los métodos `getNum` y `getDen` devuelven el numerador y denominador, respectivamente.
+
+Las operaciones aritméticas (suma, resta, multiplicación, división) están implementadas mediante los métodos `__add__`, `__sub__`, `__mul__`, y `__truediv__`. Se utiliza la función `mcd` para calcular el máximo común divisor y simplificar la fracción resultante.
+
+Se implementan métodos de comparación (`__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, `__ge__`) para realizar comparaciones entre fracciones, aprovechando la función `mcd` en algunos casos.
+
+En general, la clase `Fraccion` facilita las operaciones y comparaciones de fracciones de manera robusta y utiliza una función auxiliar `mcd` para simplificar fracciones.
+
+Act3 Programa
+En el código en C++, se utiliza la clase `Fraccion` previamente definida (incluida en "Fraccion.h") para realizar operaciones con fracciones. En el `main`, se instancia la clase `Fraccion` con valores específicos y se realizan pruebas con los métodos `getNum` y `getDen` para obtener el numerador y denominador, respectivamente.
+
+Se llevan a cabo pruebas de operadores relacionales (`==`, `>`) para comparar las fracciones y se imprime en la consola el resultado de estas comparaciones. Además, se incluye un bloque `try-catch` para manejar posibles excepciones, como aquellas generadas al intentar crear una fracción con denominador cero.
+
+El código muestra cómo utilizar la clase `Fraccion` de manera práctica, realizando operaciones y comparaciones con fracciones y manejando posibles errores mediante excepciones.
+
+Act4 Clases
+En el código en Python, la clase `Fraccion` se ha diseñado para garantizar que el denominador sea un entero y positivo. En el constructor (`__init__`), se verifica que ambos, el numerador y el denominador, sean enteros. Si el denominador es negativo, se ajustan ambos para mantener la fracción con signo correcto.
+
+Los métodos aritméticos (`__add__`, `__sub__`, `__mul__`, `__truediv__`) realizan operaciones básicas con fracciones, simplificando el resultado con la función `mcd` que calcula el máximo común divisor.
+
+Se implementan métodos de comparación (`__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, `__ge__`) para comparar fracciones y se utiliza la función `mcd` en algunos de ellos.
+
+La función auxiliar `mcd` calcula el máximo común divisor utilizando el algoritmo de Euclides.
+
+En conjunto, el código proporciona una implementación robusta y completa para manipular y comparar fracciones matemáticas en Python.
+
+Act4 Programa 
+En este código de ejemplo en Python, se demuestra el uso de la clase `Fraccion`. Se importa la clase desde un archivo que contiene su definición. Luego, se crean dos instancias de `Fraccion`, `fraccion1` y `fraccion2`, con valores específicos, incluido un denominador negativo para `fraccion2`.
+
+Se llevan a cabo pruebas de los métodos `getNum` y `getDen` para obtener el numerador y denominador de `fraccion1`. Además, se realizan pruebas de operadores relacionales (`==` y `>`) para comparar las fracciones y se imprime el resultado en la consola.
+
+Se utiliza un bloque `try-except` para manejar posibles excepciones, como aquellas generadas al intentar crear una fracción con denominador cero o al intentar realizar operaciones inválidas.
+
+En resumen, el código ilustra cómo utilizar la clase `Fraccion` en un escenario práctico, realizando operaciones y comparaciones con fracciones y manejando posibles errores mediante excepciones.
+
+Act5 Clases
+En este código en Python, la clase `Fecha` se ha diseñado para representar y manipular fechas. En el constructor (`__init__`), se realizan comprobaciones para asegurar que los valores proporcionados para día, mes y año sean enteros, y que la fecha sea válida (por ejemplo, no permitiendo días negativos o un mes fuera del rango de 1 a 12).
+
+El método `__str__` devuelve una representación formateada de la fecha en formato "dd/mm/yyyy".
+
+El método `bisiesto` verifica si el año de la fecha es bisiesto según las reglas habituales (divisible por 4, no divisible por 100 a menos que también sea divisible por 400).
+
+El método `es_menor` compara dos fechas para determinar cuál es menor.
+
+El método `dias_en_mes` devuelve la cantidad de días en un mes específico, considerando si el año es bisiesto para el mes de febrero.
+
+En resumen, este código proporciona una implementación básica de una clase `Fecha` con funcionalidades relacionadas con la manipulación de fechas y comprobaciones de validez.
+
+Act5 Programa
+En este código en Python, se está utilizando la clase `Fecha` importada desde el archivo `fecha`. Se crea una instancia `mi_fecha` con la fecha 27 de febrero de 2022 y se imprime la representación de la fecha en la consola.
+
+Luego, se crea otra instancia `otra_fecha` con la fecha 15 de junio de 2023. Se realiza una comparación de fechas usando el método `es_menor`, y se imprime en la consola si la fecha actual es anterior o posterior a la otra fecha.
+
+En resumen, este código ilustra un ejemplo práctico de uso de la clase `Fecha`, creando instancias de fechas y realizando comparaciones entre ellas para determinar su relación temporal.
+
+Act6 Clase
+En este código en Python, se define la clase `Hora`, que tiene un constructor `__init__` que recibe los valores de hora y minuto como parámetros. Se realizan validaciones para asegurar que ambos valores sean enteros y estén en rangos válidos.
+
+El método `__str__` permite obtener una representación en formato de cadena de la instancia de la clase `Hora`, mostrando la hora y el minuto en formato de dos dígitos.
+
+Luego, se ejemplifica el uso de la clase creando una instancia `mi_hora` con la hora 14 y 30 minutos, y se imprime la representación de la hora en la consola.
+
+En resumen, este código muestra cómo utilizar la clase `Hora` para representar y mostrar la información de una hora específica.
+
+Act6 Programa 
+Este código en Python demuestra el uso de la clase `Hora` importada desde el módulo `hora`. Primero, se crea una instancia `mi_hora` con la hora 14 y 30 minutos, y se imprime la representación de la hora en la consola.
+
+Luego, se intenta crear una instancia `hora_invalida` con valores no válidos (hora 25 y minuto 70), lo cual debería generar una excepción de tipo `ValueError`. En caso de que se produzca una excepción, se captura y se imprime un mensaje de error indicando la naturaleza del problema.
+
+Este código ilustra cómo utilizar la clase `Hora` y cómo manejar excepciones en caso de que se intenten crear instancias con valores no permitidos.
+
+Act7 Clases
+Este código en Python define la clase `Polinomio`, que representa un polinomio con coeficientes dados. Aquí hay una breve explicación de las funciones y métodos:
+
+- `__init__(self, coeficientes)`: Constructor de la clase que inicializa el polinomio con una lista de coeficientes.
+
+- `__str__(self)`: Método para obtener una representación en cadena del polinomio, mostrando los términos no nulos.
+
+- `__add__(self, otro_polinomio)`: Método para sumar dos polinomios, devolviendo un nuevo polinomio.
+
+- `__sub__(self, otro_polinomio)`: Método para restar dos polinomios, devolviendo un nuevo polinomio.
+
+- `__mul__(self, otro_polinomio)`: Método para multiplicar dos polinomios, devolviendo un nuevo polinomio.
+
+- `evaluar(self, x)`: Método para evaluar el polinomio dado un valor `x`, devolviendo el resultado de la evaluación.
+
+Este código proporciona una implementación básica de las operaciones de suma, resta, multiplicación y evaluación para polinomios. Puedes utilizar instancias de esta clase para representar y manipular polinomios en tu programa.
+
+Act7 Programa 
+En este código, se utiliza una clase llamada `Polinomio` que parece estar definida en un archivo externo llamado "polinomio.py". La clase `Polinomio` permite la manipulación de polinomios mediante la sobrecarga de operadores. A continuación, se crean dos polinomios, `polinomio1` y `polinomio2`, utilizando la instancia de la clase `Polinomio` con los coeficientes dados.
+
+Se demuestra la suma, resta y multiplicación de polinomios mediante la sobrecarga de los operadores `+`, `-` y `*`. Los resultados de estas operaciones se imprimen en la consola.
+
+Además, se muestra cómo evaluar un polinomio en un valor específico (`valor_x`) utilizando el método `evaluar`. El resultado de esta evaluación también se imprime.
+
+En resumen, este código ilustra la creación y manipulación de polinomios mediante una clase `Polinomio` bien estructurada, proporcionando un ejemplo claro de cómo realizar operaciones algebraicas básicas con polinomios.
+
+Act8 Clases
+El código define una clase llamada `Complejo` en Python para representar números complejos. La clase tiene un constructor para inicializar los atributos real e imaginario, un método para la representación en cadena que mejora la legibilidad, y métodos especiales para sobrecargar los operadores de suma, resta y multiplicación.
+
+Se crea un ejemplo de uso de la clase `Complejo` donde se instancian dos números complejos (`complejo1` y `complejo2`). Luego, se realizan operaciones de suma, resta y multiplicación utilizando los operadores sobrecargados, y los resultados se imprimen en la consola. Este código proporciona una implementación sencilla y funcional para manipular números complejos en Python.
+
+Act8 Programa
+El código importa la clase `Complejo` desde un archivo externo llamado "complejo.py" y demuestra su uso. Se crean dos números complejos (`complejo1` y `complejo2`) mediante instancias de la clase `Complejo`. Luego, se realizan operaciones de suma, resta y multiplicación utilizando los operadores sobrecargados definidos en la clase.
+
+Los resultados de estas operaciones se imprimen en la consola. Este código muestra cómo utilizar la implementación de la clase `Complejo` sin necesidad de tener su código fuente en el mismo archivo, demostrando así la modularidad y reutilización de código en Python.
+
+Act9 Clase
+El código implementa dos clases en Python: `Jugador` y `JuegoDados`. La clase `Jugador` tiene un constructor que recibe el nombre del jugador, el número de dados y el número de caras en los dados. El método `tirar_dados` simula el lanzamiento de todos los dados del jugador y devuelve la puntuación total.
+
+La clase `JuegoDados` tiene un constructor que recibe una lista de jugadores y el número de turnos. El método `jugar` simula el juego durante el número de turnos especificado, mostrando los resultados de cada turno y determinando al ganador al final.
+
+En el ejemplo de uso, se crean dos jugadores (`jugador1` y `jugador2`) con diferentes configuraciones de dados. Luego, se instancia la clase `JuegoDados` con estos jugadores y se juega durante 3 turnos. Los resultados de cada turno se imprimen en la consola, y al final se anuncia al ganador.
+
+Este código ilustra la creación de clases en Python para simular un juego de dados entre varios jugadores, demostrando la organización y modularidad del código orientado a objetos.
+
+Act9 Programa
+En este código, se importan las clases Jugador y JuegoDados desde un archivo externo llamado "juego_dados.py" y se ejemplifica su uso. Se crean tres jugadores (jugador1, jugador2 y jugador3) con diferentes configuraciones de dados y luego se instancia la clase JuegoDados con estos jugadores para iniciar un juego de dados con 5 turnos.
+
+El juego se ejecuta llamando al método jugar, que simula el lanzamiento de dados para cada jugador durante el número especificado de turnos. Los resultados de cada turno, así como el ganador al final del juego, se imprimen en la consola.
+
+Este ejemplo demuestra cómo utilizar las clases definidas en un archivo externo,
+from juego_dados import Jugador, JuegoDados
+
+Act10 Clases
+El código en C++ define la clase `Fraccion`, que modela números fraccionarios. En el constructor, se valida el denominador y se simplifica la fracción mediante el máximo común divisor (MCD). La clase incluye métodos para realizar operaciones aritméticas y de comparación, sobrecargando los operadores `+`, `-`, `*`, `/`, `==`, y `!=`. También proporciona métodos para obtener el numerador y el denominador.
+
+Además, hay funciones estáticas `validarDenominador` y `mcd` para la validación y cálculo del MCD respectivamente. La función amiga `operator<<` sobrecarga el operador de inserción para imprimir fracciones en el formato "numerador/denominador". Este código ofrece una implementación básica y funcional para manipular fracciones en C++.
+
+Act10 Programa
+En este código en C++, comienzo incluyendo las librerías necesarias, como `<iostream>`, y luego importo la declaración de la clase `Fraccion` desde el archivo de encabezado "Fraccion.hpp". En la función `main()`, instancio dos objetos de la clase `Fraccion` (`fraccion1` y `fraccion2`) con valores iniciales. Después, realizo diversas operaciones aritméticas entre estas fracciones, como suma, resta, multiplicación y división, almacenando los resultados en variables correspondientes.
+
+Para visualizar los resultados, utilizo `std::cout` para imprimir las fracciones originales y los resultados de las operaciones en la consola. Además, comparo las fracciones para verificar si son iguales o no, e imprimo mensajes correspondientes. Este código ejemplifica el uso práctico de la clase `Fraccion` al realizar operaciones y comparaciones entre fracciones en un programa simple.
+
+Act11
+Este código en C++ utiliza la biblioteca estándar para medir el rendimiento de operaciones de obtención y asignación en un contenedor unordered_map. Se crea un unordered_map grande con un millón de elementos, y luego se mide el tiempo necesario para obtener un elemento aleatorio y asignar un nuevo valor a un elemento aleatorio. La generación de índices aleatorios se realiza utilizando la biblioteca <random>. Se utiliza <chrono> para medir el tiempo con alta precisión. Este código demuestra cómo evaluar el rendimiento de operaciones comunes en contenedores utilizando técnicas de medición de tiempo en C++.
+
+Act12
+Este código en C++ demuestra la medición de rendimiento al acceder a elementos de un vector mediante el operador de indexación. Comienza creando un vector grande con un millón de elementos, asignando valores consecutivos a cada uno. Luego, se mide el tiempo necesario para acceder repetidamente a un elemento aleatorio del vector utilizando la biblioteca <chrono> para medir el tiempo con alta precisión. La generación de índices aleatorios se realiza con la biblioteca <random>. Este código ilustra cómo evaluar la eficiencia de las operaciones de acceso en un contenedor vectorial en C++.
+
+Act13
+Este código en C++ realiza una evaluación de rendimiento sobre las operaciones de obtención y asignación en un contenedor unordered_map. Comienza creando un mapa no ordenado (unordered_map) grande con un millón de elementos, asignando a cada clave un valor igual a la clave. Luego, mide el tiempo necesario para obtener repetidamente un elemento aleatorio del mapa y asignar un nuevo valor a un elemento aleatorio. La generación de índices aleatorios se realiza utilizando la biblioteca <random>, y se emplea <chrono> para medir el tiempo con alta precisión. Los resultados de tiempo obtenidos se imprimen en microsegundos, proporcionando información sobre la eficiencia de estas operaciones en el contexto de un unordered_map.
+
+Act14
+En este código, se ha generado una lista grande (`lista_grande`) y un diccionario grande (`diccionario_grande`) con un millón de elementos cada uno. Luego, se selecciona aleatoriamente un índice de la lista (`indice_a_eliminar_lista`) y una llave del diccionario (`llave_a_eliminar_diccionario`) para simular la eliminación de un elemento en ambos casos.
+
+La eliminación de un elemento de una lista se realiza con la instrucción `del lista_grande[indice_a_eliminar_lista]`, mientras que la eliminación de un elemento de un diccionario se realiza con `del diccionario_grande[llave_a_eliminar_diccionario]`.
+
+Se utiliza el módulo `time` para medir el tiempo de ejecución de ambas operaciones y se imprimen los resultados.
+
+Es importante mencionar que la complejidad temporal de la eliminación de un elemento en una lista es O(n), donde "n" es la longitud de la lista, ya que los elementos posteriores al índice eliminado deben ser desplazados. En cambio, la eliminación de un elemento en un diccionario tiene una complejidad de O(1), ya que el acceso y eliminación de un elemento por su llave son operaciones de tiempo constante.
+
+Por lo tanto, en este código, es probable que veas que la eliminación en el diccionario es más eficiente en términos de tiempo que la eliminación en la lista, especialmente a medida que aumenta el tamaño de la lista.
+
+Act15
+En este código, se ha implementado una función llamada `quickselect_con_repeticiones` que utiliza el algoritmo de selección rápida para encontrar el k-ésimo elemento más pequeño en una lista. Se eliminan los elementos duplicados usando un conjunto (`lista_sin_repeticiones`) y se elige un pivote aleatorio de entre esos elementos únicos.
+
+Luego, se divide la lista en tres subconjuntos: elementos menores que el pivote (`menores`), elementos iguales al pivote (`iguales`), y elementos mayores que el pivote (`mayores`). Dependiendo de la posición relativa de `k` con respecto a las longitudes de estos subconjuntos, la función recursivamente busca en la sublista adecuada.
+
+La complejidad temporal de este algoritmo es en promedio O(n), donde "n" es la longitud de la lista original. Sin embargo, en el peor caso, puede alcanzar una complejidad cuadrática (O(n^2)), aunque esto es poco probable debido al uso del pivote aleatorio.
+
+En el ejemplo de uso, se solicita al usuario ingresar una lista de números y el valor de `k`, y se imprime el resultado de la función `quickselect_con_repeticiones`. Se maneja la excepción para casos de entrada inválida. Es importante notar que el valor de `k` se verifica para asegurarse de que sea válido para la longitud de la lista sin repeticiones.
+
+Act16
+En este código, se ha creado una función llamada `seleccion_lineal_con_repeticiones` que toma una lista y un valor `k` como entrada y utiliza un diccionario llamado `contador` para contar la frecuencia de cada elemento en la lista. Luego, se crea una lista llamada `elementos_unicos` que contiene los elementos únicos de la lista.
+
+La función verifica si el valor de `k` es válido (mayor o igual a 0 y menor que la longitud de la lista de elementos únicos) y devuelve el k-ésimo elemento más pequeño. Si `k` no es válido, la función retorna `None`.
+
+La complejidad temporal de esta función es O(n), donde "n" es la longitud de la lista original. Esto se debe a que se realiza un único bucle for para contar la frecuencia de los elementos en la lista.
+
+En cuanto a la pregunta sobre si hay algún caso en el que la complejidad sea O(1), en este caso no es posible lograr una complejidad constante, ya que la función necesita procesar todos los elementos de la lista para contar sus frecuencias.
+
+En el ejemplo de uso, se solicita al usuario ingresar una lista de números y el valor de `k`, y se imprime el resultado de la función `seleccion_lineal_con_repeticiones`. En caso de una entrada inválida, se maneja la excepción y se muestra un mensaje adecuado.
+
+Act17
+En este código, se ha creado una función llamada `suma_vector` que recibe un vector como argumento y utiliza un bucle for para recorrer cada elemento del vector y acumular la suma en la variable `suma`.
+
+La complejidad temporal de esta función es O(n), donde "n" es la longitud del vector. Esto se debe a que la función realiza una operación constante por cada elemento del vector, por lo que el tiempo de ejecución es proporcional al tamaño del vector.
+
+En cuanto a la pregunta sobre si hay algún caso en el que la complejidad sea O(1), en este caso no es posible lograr una complejidad constante. La razón es que la función necesita recorrer todos los elementos del vector para calcular la suma. En un algoritmo de este tipo, donde se requiere procesar todos los elementos de entrada, la complejidad siempre será al menos lineal (O(n)).
+
+En resumen, la función `suma_vector` tiene una complejidad temporal O(n), y no hay casos en los que pueda ser O(1) debido a la naturaleza del problema de sumar todos los elementos del vector.
+
+Act18
+En este código, se ha creado una función llamada `contar_repeticiones` que recibe un vector como argumento y utiliza un diccionario llamado `frecuencia` para realizar un conteo de la frecuencia de cada elemento en el vector. Luego, se itera sobre el vector y se actualiza el diccionario. Finalmente, se utiliza una expresión generadora para contar cuántos valores tienen una frecuencia igual o mayor a 2.
+
+La elección de un diccionario (`frecuencia`) en lugar de una lista es ventajosa en términos de eficiencia temporal, ya que la búsqueda en un diccionario tiene una complejidad O(1), mientras que en una lista es O(n).
+
+La función principal (`main`) solicita al usuario la entrada del vector, lo convierte a una lista de enteros y utiliza la función `timeit` para medir el tiempo de ejecución de la función `contar_repeticiones` con un número significativo de repeticiones (1,000,000 en este caso). Finalmente, se imprime el resultado del conteo y el tiempo de ejecución en nanosegundos.
+
+Es importante destacar que la complejidad temporal de la función `contar_repeticiones` es O(n), donde "n" es la longitud del vector, ya que se recorre el vector una vez y las operaciones en el diccionario son de tiempo constante.

@@ -1,0 +1,31 @@
+Actividad 1, Algoritmica e Estructura de datos:
+
+Ejercicio1:
+Se han crado ls clases llamadas Xor, Nand y Nor ademas de validar los valores de los pines para que no puedan ser distintos que 0 y 1
+
+Ejercicio2:
+Esta resuelto en donde se encuentran los ejemplos del ejercicio1
+
+Ejercicio3:
+Se comprueba si los datos introducidos son enteros y se introducen las funciones getNUM Y getDEN. Se introducen tambien los operadores relacionales restantes.
+
+Ejercicio4:
+En rasgos generales lo que hacemos es reforzar la fncion para que así no 'rompa' al intoducir datos erróneos en el numerador y denominador.
+
+Ejercicio5:
+Se ha hecho robusta mediante la aplicacion de try-except y ademas se le ha agregado la funcion para comprobar si una fecha es mayor que la otra.
+
+Ejercicio6:
+Se ha creado la clase desde 0.
+
+Ejercicio7:
+Creamos la clse polinomio para poder operar con ellos.
+
+Ejercicio8:
+Creamos de cero la clase complejo para operar con ellos.
+
+Ejercicio 9:
+Se ha creado la clase ademas de validar los datos .
+
+Ejercicio10:
+Al desarrollar la clase farcion en c++ ya la tenemos.
