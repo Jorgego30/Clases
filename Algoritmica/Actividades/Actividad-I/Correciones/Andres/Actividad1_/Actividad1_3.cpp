@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
     Fraction x(1, 2);
-    Fraction y(2.1111110, 4);
+    Fraction y(2.1111110, 417.12);
     cout << x << " + " << y << " = " << x + y << endl;
     cout << x << " + " << y << " = " << x + y << endl;
     if (x == y)
@@ -35,5 +35,7 @@ int main()
         cout << "x no es y" << endl;
     else
         cout << "x es igual y" << endl;
+
+    cout << "Numerador" << x.getNum() << endl << "Denominador " << x.getDen() << endl;
 
 }

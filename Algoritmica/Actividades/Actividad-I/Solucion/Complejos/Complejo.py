@@ -1,13 +1,16 @@
 from ClassComplejo import *
 
-complejo1 = Complejo(10,-20)
-print(f"Tu complejo es: {complejo1}")
+# complejo1 = Complejo(10,-20)
+# print(f"Tu complejo es: {complejo1}")
 
-parteReal = float(input("Dime la parte real del numero (con el signo): "))
-parteImaginaria = float(input("Dime la parte imaginaria del numero (con el signo): "))
+# parteReal = float(input("Dime la parte real del numero (con el signo): "))
+# parteImaginaria = float(input("Dime la parte imaginaria del numero (con el signo): "))
 
-complejo2 = Complejo(parteReal,parteImaginaria)
-print(f"Tu complejo es: {complejo2}")
+# complejo2 = Complejo(parteReal,parteImaginaria)
+# print(f"Tu complejo es: {complejo2}")
+complejo1 = Complejo(5, -2)
+complejo2 = Complejo(2, -3)
+
 
 if(complejo1 < complejo2):
     print(f"{complejo1} es menor que {complejo2}")

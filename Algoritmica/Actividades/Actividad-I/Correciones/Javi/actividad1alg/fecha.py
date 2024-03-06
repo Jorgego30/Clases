@@ -2,7 +2,7 @@
 
 class Fecha:
     def __init__(self, dia, mes, año):
-        if not isinstance(dia, int) | not isinstance(mes, int) | not isinstance(año, int):
+        if not isinstance(dia, int) or not isinstance(mes, int) or not isinstance(año, int):
             raise ValueError("Día, mes y año deben ser enteros.")
 
         if mes < 1 | mes > 12 | dia < 1 | dia > self.dias_en_mes(mes, año):

@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-    Fraction x(1, 2);
+    Fraction x(1, -2);
     Fraction y(2.1111110, 4);
     cout << x << " + " << y << " = " << x + y << endl;
     cout << x << " + " << y << " = " << x + y << endl;

@@ -14,7 +14,7 @@ void PrintMap(Map& m)
 }
 int busca(int v[], int x)
 {
-    for (int i = 0; i <= MAXN; i++)
+    for (int i = 0; i <= 1000; i++)
         if (i == x)
             return v[i];
     return -1;

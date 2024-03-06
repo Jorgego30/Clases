@@ -3,7 +3,7 @@
 from fecha import Fecha
 
 # Ejemplo de uso de la clase Fecha
-mi_fecha = Fecha(27, 2, 2022)
+mi_fecha = Fecha(35, 1, 2022)
 print("Fecha actual:", mi_fecha)
 
 otra_fecha = Fecha(15, 6, 2023)

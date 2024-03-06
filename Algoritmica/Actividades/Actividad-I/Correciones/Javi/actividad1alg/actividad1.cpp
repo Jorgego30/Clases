@@ -1,8 +1,9 @@
-'''actividad 1:Cree dos nuevas clases de puertas, una llamada PuertaNOR y otra llamada PuertaNAND. Las puertas NAND
+/*actividad 1:Cree dos nuevas clases de puertas, una llamada PuertaNOR y otra llamada PuertaNAND. Las puertas NAND
 funcionan como puertas AND que tienen una NOT conectada a la salida. Las puertas NOR funcionan como
-puertas OR que tienen una NOT conectada a la salida. Cree la clase XOR'''
+puertas OR que tienen una NOT conectada a la salida. Cree la clase XOR*/
 
 #include <iostream>
+using namespace std;
 
 // Definición de la clase PuertaNOR
 class PuertaNOR {

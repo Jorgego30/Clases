@@ -1,5 +1,5 @@
-'''actividad11: Escribe dos funciones para encontrar el número mínimo en una lista. La primera función debe comparar
-cada número de una lista con todos los demás de la lista. 𝑶𝑶(𝒏𝒏𝟐𝟐). La segunda función debe ser lineal 𝑶𝑶(𝒏𝒏)'''
+/*'''actividad11: Escribe dos funciones para encontrar el número mínimo en una lista. La primera función debe comparar
+cada número de una lista con todos los demás de la lista. 𝑶𝑶(𝒏𝒏𝟐𝟐). La segunda función debe ser lineal 𝑶𝑶(𝒏𝒏)'''*/
 #include <iostream>
 #include <vector>
 

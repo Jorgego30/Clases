@@ -1,5 +1,5 @@
-'''actividad13:Diseña un experimento para verificar que las operaciones de obtención y asignación de ítems para
-diccionarios son 𝑶𝑶(𝟏𝟏).'''
+/*actividad13:Diseña un experimento para verificar que las operaciones de obtención y asignación de ítems para
+diccionarios son 𝑶𝑶(𝟏𝟏).*/
 #include <iostream>
 #include <unordered_map>
 #include <chrono>

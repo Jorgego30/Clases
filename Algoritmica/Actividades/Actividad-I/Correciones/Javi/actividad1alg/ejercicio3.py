@@ -29,3 +29,6 @@ print("¿Fracción 1 menor que Fracción 2?", fraccion1 < fraccion2)
 print("¿Fracción 1 menor o igual que Fracción 2?", fraccion1 <= fraccion2)
 print("¿Fracción 1 mayor que Fracción 2?", fraccion1 > fraccion2)
 print("¿Fracción 1 mayor o igual que Fracción 2?", fraccion1 >= fraccion2)
+
+print(fraccion1.getNum())
+print(fraccion1.getDen())

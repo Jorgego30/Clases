@@ -1,8 +1,9 @@
-'''actividad12:Diseña un experimento para verificar que el operador indexación para listas es 𝑶𝑶(𝟏𝟏)'''
+/*'''actividad12:Diseña un experimento para verificar que el operador indexación para listas es 𝑶𝑶(𝟏𝟏)'''*/
 #include <iostream>
 #include <vector>
 #include <chrono>
 #include <random>
+using namespace std;
 
 int main() {
     // Crear un vector grande

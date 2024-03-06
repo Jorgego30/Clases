@@ -1,6 +1,6 @@
-'''actividad2:Cree una serie de puertas que demuestren que la siguiente ecuación NOT((A and B) or (C and D)) es
+/*actividad2:Cree una serie de puertas que demuestren que la siguiente ecuación NOT((A and B) or (C and D)) es
 equivalente a NOT(A and B) and NOT (C and D). Asegúrese de usar algunas de sus nuevas puertas en la
-simulación.'''
+simulación.*/
 #include <iostream>
 
 class PuertaAND {

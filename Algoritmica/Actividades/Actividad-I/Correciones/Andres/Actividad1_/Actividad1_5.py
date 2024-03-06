@@ -11,7 +11,7 @@ def borrar_pantalla():
 
 borrar_pantalla()
 try:
-    print(Fecha(15,12,1990))
+    print(Fecha(29,2,1991))
     print(Fecha(30,12,2024))
     print(Fecha.es_menor(Fecha(15,12,1990),Fecha(30,12,2024)))
 except(ValueError):
