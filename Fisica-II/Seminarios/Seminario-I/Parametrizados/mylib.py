@@ -1,3 +1,5 @@
+import numpy as np
+
 def create_line(center, dir_vector, length, steps):
 	v = np.array(dir_vector)
 	v = v / np.linalg.norm(v)

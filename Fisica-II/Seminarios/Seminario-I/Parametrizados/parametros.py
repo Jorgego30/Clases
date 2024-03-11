@@ -15,7 +15,9 @@ desc="Codigo Python parametrizado."
 def main():
 	parser = optparse.OptionParser(description=desc, version='%prog version 1.0')
 	parser.add_option('-c', '--center', help='Centro de la figura', action='store')
-	parser.add_option('-d', '--dimension', help='Longitud de los segmentos o radio del polıgono', actioparser.add_option('-s', '--steps', help='Numero de puntos', action='store'))
+	parser.add_option('-d', '--dimension', help='Longitud de los segmentos o radio del polıgono', action='store')
+	parser.add_option('-s', '--steps', help='Numero de puntos', action='store')
+
 	parser.set_defaults(center='0 0 0', dimension=8, steps=10)
 	options, arguments = parser.parse_args()
 #**************************************************************************************
