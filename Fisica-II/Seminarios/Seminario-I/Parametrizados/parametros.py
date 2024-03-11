@@ -23,7 +23,7 @@ def main():
 #**************************************************************************************
 	c_i=str(options.center).split()
 	center=[]
-	for i in range (0,3,1): center.append(np.float(c_i[i]))
+	for i in range (0,3,1): center.append(np.float64(c_i[i]))
 	
 	print(center)
 
