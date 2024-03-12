@@ -53,5 +53,3 @@ def Rotv(eje,v,x):
 		return np.dot(Roty(x),v)
 	elif(eje.lower()=='z'):
 		return np.dot(Rotz(x),v)
-
-print(Rotv('x',[1,1,1],pi))
