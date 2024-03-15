@@ -1,0 +1,1 @@
+El metodo add de la clase ListaNoOrdenada crea un nodo al principio de la lista. Ejecutar en orden inverso los dos pasos de este metodo resultaria en una referencia invalida ya que estariamos apuntando a un nodo desconectado de la lista. Esto podria crear problemas como la perdida de datos o fugas de memoria.
