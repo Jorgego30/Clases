@@ -66,8 +66,9 @@ public:
         // Agregar el elemento actual de la segunda lista a la primera lista
         add(current->getData()); 
         current = current->getNext();
+        }
     }
-}
+
     int size()
     { //cereates a "current" pointer that iterates through the list until it reaches null
         Node *current = head;
@@ -118,6 +119,68 @@ public:
     }
 
     friend ostream& operator<<(ostream& os, const UnorderedList& ol);
+  
+    int inicio() const {
+        return head->getData();
+    }
+
+    int fin() const {
+
+        Node *current = head;
+        while (current->getNext() != nullptr) {
+            current = current->getNext(); 
+        }
+
+        return current->getData(); 
+    }
+
+    int siguiente(int valor) const {
+        Node* current = head;
+
+        // Buscar el nodo con el valor proporcionado
+        while (current != nullptr && current->getData() != valor) {
+            current = current->getNext();
+        }
+
+        // Verificar si se encontró el nodo
+        if (current != nullptr && current->getNext() != nullptr) {
+            // Devolver el valor del nodo siguiente
+            return current->getNext()->getData();
+        } else {
+            // Si el nodo no se encontró o es el último de la lista, devolver un valor predeterminado
+            cerr << "No se pudo encontrar el nodo siguiente para el valor dado." << endl;
+            return -1; // Valor predeterminado en caso de que no se encuentre el nodo siguiente
+        }
+    }
+
+    int anterior(int valor) const {
+        if (head == nullptr) {
+            // Si la lista está vacía, no hay nodo anterior
+            cerr << "La lista está vacía." << endl;
+            return -1; // Valor predeterminado en caso de lista vacía
+        }
+
+        // Caso especial: Si el valor proporcionado es el primero en la lista, no tiene nodo anterior
+        if (head->getData() == valor) {
+            cerr << "El valor proporcionado es el primero en la lista y no tiene nodo anterior." << endl;
+            return -1; // Valor predeterminado para el primer nodo
+        }
+
+        Node* current = head;
+        while (current->getNext() != nullptr) {
+            if (current->getNext()->getData() == valor) {
+                // Si se encuentra el nodo con el valor dado, devolver el valor del nodo actual
+                return current->getData();
+            }
+            current = current->getNext();
+        }
+
+        // Si no se encontró el nodo con el valor proporcionado, o si es el último nodo de la lista
+        cerr << "No se pudo encontrar el nodo anterior para el valor dado." << endl;
+        return -1; // Valor predeterminado en caso de que no se encuentre el nodo anterior
+    }
+
+
 };
 
 ostream &operator<<(ostream &os, const UnorderedList &ol)
