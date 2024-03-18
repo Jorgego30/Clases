@@ -1,0 +1,41 @@
+Ejercicio - 1:
+    Se usa la Clase Estructuras Lineales dada por Efren para importar el tipo de dato Pila, a partir de ahi se construyen las funciones que pasan una expresion de infija a prefija
+
+Ejercicio - 2:
+    Se modifica el codigo "Tema2_07.py" dado por Efren para que acepte numeros float y se le añade tambien tratamiento de algunos errores
+
+Ejercicio - 3:
+    Se añade un print al final de cada operacion para mostrar la pila a medida que va haciendo las operaciones
+
+Ejercicio - 4:
+    Se añade el metodo concatenacion a la Clase Colas
+
+Ejercicio - 5:
+    Se hacen varias simulaciones con distintos numeros de paginas por minuto
+
+Ejercicio - 6:
+    Se modifica el archivo Class_Impresion para usar colas de prioridad
+
+Ejercicio - 7:
+    Especificacion hecha en el codigo
+
+Ejercicio - 8:
+    Se modifica el archivo de la Clase Colas de Prioridad para usar listas enlazadas ordenadas
+
+Ejercicio - 9:
+    Se crean los disitintos metodos requeridos por el enunciado
+
+Ejercicio - 10:
+    Se añade el metodo anexar a la clase ListaNoOrdenada, tiene una complejidad de O(n) ya que tiene que recorrer toda la lista que anexa
+
+Ejercicio - 11:
+    Se crean los disitintos metodos requeridos por el enunciado
+
+Ejercicio - 12:
+    Se crean los disitintos metodos requeridos por el enunciado
+
+Ejercicio - 13:
+    Explicado en el txt del ejercicio
+
+Ejercicio - 14:
+    El metodo Size() [tamaño] tiene una complejidad de O(1) ya que es un valor que se puede aumentar o disminuir, no requiere recorrer toda la lista para conocer su tamaño

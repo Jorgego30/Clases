@@ -27,7 +27,7 @@ conjSec.inserta(31)
 conjSec.inserta(22)
 conjSec.inserta(132)
 conjSec.inserta(32)
-conjSec.inserta(12)
+conjSec.inserta('a')
 
 
 print(f"El segundo conjunto es: {conjSec}\nTiene {conjSec.tamaño()} elementos")

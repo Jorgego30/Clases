@@ -1,12 +1,3 @@
-"""
----------------------|-------------------------|
-Expresiones infijas  |   Expresiones prefijas  |
-(A+B)*(C+D)*(E+F)    |   *(+AB)*(+CD)(+EF)*     |
-A+((B+C)*(D+E))      |   +A(*(+BC)(+DE))       |
-A*B*C*D+E+F          |   *AB*CD++E+F            |
----------------------|-------------------------|
-"""
-
 from Class_Estructuras_lineales import Pila
 
 def infija_a_prefija(expresionInfija):
@@ -49,6 +40,6 @@ def normaliza(expr):
     return Nexpr
 
 
-print(infija_a_prefija(normaliza("(A+B)*(C+D)*(E+F)")))
+print(infija_a_prefija(normaliza("(A2+ B)*(C+D)*(E+F)")))
 print(infija_a_prefija(normaliza("A+((B+C)*(D+E))")))
 print(infija_a_prefija(normaliza("A*B*C*D+E+F ")))

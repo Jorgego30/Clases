@@ -54,7 +54,7 @@ def hacerAritmetica(operador, operandoIzquierda, operandoDerecha):
         raise ValueError("Operador no reconocido")
 
 
-print(evaluacionNotacionSufija('42.5 5 6 * +'))  # Resultado esperado: 72.5
+print(evaluacionNotacionSufija('42.5 4 5 6 * +'))  # Resultado esperado: 72.5
 print(evaluacionNotacionSufija('72 8 + 3 2 + /'))  # Resultado esperado: 16.0
 print(evaluacionNotacionSufija('3 0 /'))  # Resultado esperado: Error: División por cero
 print(evaluacionNotacionSufija('10 2 %'))  # Resultado esperado: Error: Símbolo no reconocido

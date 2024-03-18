@@ -36,5 +36,22 @@ def nuevaTareaImpresion():
         return False
 
 
+print("\Primer experimento, 5 paginas por minuto\n")
+
 for i in range(10):
     simulacion(3600, 5)
+
+print("\nSegundo experimento, 10 paginas por minuto\n")
+
+for i in range(10):
+    simulacion(3600, 10)
+    
+print("\Tercer experimento, 15 paginas por minuto\n")
+
+for i in range(10):
+    simulacion(3600, 15)
+
+print("\nCuarto experimento, 2 paginas por minuto\n")
+
+for i in range(10):
+    simulacion(3600, 2)
