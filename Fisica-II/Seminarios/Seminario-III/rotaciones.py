@@ -8,19 +8,15 @@ import numpy as np
 global pi
 pi = np.pi
 
-def matrizAntisimetrica(eje):
-	
-	matriz = np.zeros((3,3))
-	
-	matriz[0][0] = eje[0]
-	matriz[0][1] = -eje[2]
-	matriz[0][2] = eje[1]
-	matriz[1][0] = eje[2]
-	matriz[2][0] = -eje[1]
+def matrizAntisimetrica(vector):
 
-	print(matriz)
+    x = vector[0]
+    y = vector[1]
+    z = vector[2]
 
-	return matriz
+    matriz = np.array([[0,-z,y],[z,0,-x],[-y,x,0]])
+
+    return matriz
 
 def rotacionRodrigues(eje,angulo):
 	s = np.round(np.sin(angulo),3)
