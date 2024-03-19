@@ -27,7 +27,7 @@ class ListaNoOrdenada:
         añaden, eliminan y modifican items en la lista.
     """
 
-    def _init_(self):
+    def __init__(self):
         """
             efecto: Crea y devuelve la lista vacía
         """
@@ -217,3 +217,11 @@ class ListaNoOrdenada:
 #Nuevo  metodo tamaño con complejidad temporal O(1)
     def tamano(self):
         return self.tamano
+    
+miLista = ListaNoOrdenada()
+miLista.agregar(1)
+miLista.agregar(2)
+miLista.agregar(3)
+
+print(miLista)
+print('El tamaño de mi lista es: ',miLista.tamano())

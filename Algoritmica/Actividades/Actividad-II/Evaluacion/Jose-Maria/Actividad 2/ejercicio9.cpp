@@ -60,7 +60,7 @@ public:
 
     Conjunto diferenciaConjuntos(const Conjunto& otroConjunto) const {// compara dos conjuntos y devuelve los elementos que aparezcan en uno y no en el otro, requerimiento: dos conjuntos
         Conjunto resultado;
-        Conjunto resultado;
+        
         for (int elemento : elementos) {
             if (!otroConjunto.pertenece(elemento)) {
                 resultado.inserta(elemento);
