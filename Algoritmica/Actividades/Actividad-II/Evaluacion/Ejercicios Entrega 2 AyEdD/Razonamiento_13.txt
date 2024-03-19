@@ -1,0 +1,29 @@
+def agregar_bien(self,item):
+        """
+            requerimientos: Una lista y un item
+            modifica: La lista
+            efecto: Inserta el item en la lista como primer item de la lista.
+
+        """
+        temp = Nodo(item)
+        temp.asignarSiguiente(self.cabeza)
+        self.cabeza = temp
+
+Método correctamente escrito.
+
+def agregar_mal(self,item):
+        """
+            requerimientos: Una lista y un item
+            modifica: La lista
+            efecto: Inserta el item en la lista como primer item de la lista.
+
+        """
+        self.cabeza = temp
+        temp.asignarSiguiente(self.cabeza)
+        temp = Nodo(item)
+        
+        
+Método incorrecto.
+
+Si se ejecuta el método agregar de forma inversa, se perderían todos los elementos anteriores de la lista y solo se 
+conservaría el nuevo elemento agregado como la nueva cabeza produciendo un comportamiento incorrecto.

@@ -1,0 +1,61 @@
+Ejercicio 1:
+
+Este código convierte una expresión aritmética en notación infija a notación prefija utilizando dos funciones principales: infijo2postfijo y infijo2prefijo.
+La función operador verifica si un carácter es un operador o no, la función prioridad asigna prioridades a los operadores, la función infijo2postfijo convierte la expresión infija en una expresión postfija y la función infijo2prefijo convierte la expresión infija en una expresión prefija.
+En el main, se realizan pruebas con expresiones infijas, y se imprime su equivalente en notación prefija.
+
+Ejercicio 2:
+
+En este código ultilizamos la pila de la clase Class_Estructuras_lineales, en el código pedimos que se introduzca una expresion y con el algoritmo de la calculadora polaca evaluamos la expresión, la calculamos y mostramos su resultado.
+
+Ejercicio 3:
+
+El código para este ejercicio es muy similar al del anterior solamente que mostramos la pila durante todo el proceso y tira de la clase Class_Estructuras_lineales_P.
+
+Ejercicio 4:
+
+Creamos  la lista 1, que es una cola, y después agregamos elementos y la mostramos. Ahora repetimos el proceso anterior pero para la lista 2 mostrando también los elementos. Creamos la lista final, que es una cola, y dada esta lista concatenamos en su interior la lista 1 y la lista 2. Este ejercicio funciona apartir de la clase Class_Estructuras_lineales_P.
+
+Ejercicio 5:
+
+El código hace las simulaciones de dos impresiones durante una hora, con una velocidad de impresión de 5 páginas por minuto y posteriormente 10 páginas por minuto. Utiliza una cola para administrar las tareas de impresión y registra los tiempos de espera de cada tarea. Finalmente, calcula el tiempo de espera promedio de las tareas y muestra los resultados junto con el número de tareas pendientes.
+
+Ejercicio 6:
+
+El código simula la impresión durante una hora, con una velocidad de impresión de 6 páginas por minuto. Utiliza una cola de prioridad para administrar las tareas de impresión, donde las tareas se organizan según su prioridad. Calcula el tiempo de espera promedio de las tareas y muestra el resultado junto con el número de tareas pendientes al final de cada simulación. Es practicamente igual al código del ejercicio 5 sólo que ahora hacemos una cola de prioridad en vez de una cola normal.
+
+Ejercicio 7:
+
+La especificación informal del Tad se realiza dentro del ejercicio 7.txt.
+
+Ejercicio 8:
+
+Utilizando la clase Class_Listas_Ordenadas.hpp creamos una lista no ordenada, introducimos números sin un orden específico. La ordenamos y la imprimimos y vemos que se ordena gracias al algoritmo, y finalmente mostramos el tamaño de la lista.
+
+Ejercicio 9:
+
+Mejoramos la clase Class_Conjuntos_P con los métodos especificados y creamos un ejercicio para verificar su funcionamiento. La especificación informal está hecha en el archivo ej_9_tad.txt.
+
+Ejercicios 10 y 14:
+
+Para la parte del ejercicio 10 utilizamos la lista noordenada de Class_Estructuras_lineales_P, creamos una lista y agregamos números sin criterio, después utilizamos el método buscar para ver si encuentra los números 4, 6 y 8 que no están en la lista que creamos inicialmente, por lo tanto no los encuentra y al ejecutar nos devuelve False, seguidamente creamos una lista con estos tres números y anexamos dicha lista a la que creamos al principio, ahora buscamos de nuevo los números 4, 6 y 8, y ahora sí los encuentra. Para la parte del ejercicio 14 creamos el método tamaño que tiene la complejidad temporal O(n) ya que hay un bucle while que hace funcionar este método. 
+
+Ejercicio 11:
+
+Utilizamos la lista no ordenada de Class_Estructuras_lineales_P, creamos una lista no ordenada, le agregamos valores y ponemos a prueba los métodos creados.
+
+Ejercicio 12:
+
+Utiliza una lista ordenada de Class_Estructuras_lineales_P, creamos una lista agregándole números sin criterio y ponemos a prueba los métodos implementados en la clase.
+
+Ejercicio 13:
+
+La explicación está en el archivo Razonamiento_13.txt.
+
+
+
+
+
+
+
+

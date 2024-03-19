@@ -1,0 +1,32 @@
+----------  TAD Conjunto  ----------
+
+
+
+# # # Descripcion del TAD Conjunto # # #
+
+Crea un conjunto de objetos unicos no ordenados al que se pueden añadir, eliminar y hacer otro tipo de operaciones con conjuntos 
+
+
+# # # Operaciones del TAD Conjunto # # #
+
+TAD con operaciones __init__, inserta, __str__, borrar, tamaño, pertenece, union, interseccion, diferencia e incluye.
+
+__init__(): Crea un conjunto vacio.
+
+inserta(elemento): Añade el elemento al conjunto.
+
+__str__(): Muestra los datos del conjunto como un tipo de dato de tipo string.
+
+tamaño(): Muestra un valor del tamano del conjunto.
+
+pertenece(elemento): Indica si el elemento esta en el conjunto.
+
+borrar(elemento): Elimina del conjunto el elemento deseado.
+
+union(parametro2): Realiza la union de dos conjuntos.
+
+interseccion(parametro2): Realiza la interseccion de dos conjuntos.
+
+diferencia(parametro2): Realiza la suma de dos conjuntos dados como dato y despues hace la resta entre el resultado de dichas sumas.
+
+incluye(parametro): Indica si el parametro introducido se encuentra en el conjunto o no.
