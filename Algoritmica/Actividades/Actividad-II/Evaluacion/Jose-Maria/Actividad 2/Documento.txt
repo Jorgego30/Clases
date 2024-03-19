@@ -1,0 +1,105 @@
+Invertir la expresión infija.
+    Reemplazar cada paréntesis izquierdo '(' con un paréntesis derecho ')' y viceversa.
+    Resolver los operadores dentro de cada par de paréntesis (comenzando por los más internos) hasta que la expresión quede completamente agrupada.
+    Agregar los operadores a la izquierda de cada grupo de operandos, respetando el orden de precedencia.
+    Eliminar todos los paréntesis.
+
+Una vez obtenida la expresión prefija, se puede evaluar la expresión dándole valores a los operandos utilizando el algoritmo de evaluación de expresiones prefijas que consiste en:
+
+    Leer el siguiente elemento de la expresión (empezando por el primero).
+    Si es un operando, apilarlo en una pila.
+    Si es un operador, sacar los dos últimos elementos de la pila, aplicar el operador y apilar el resultado en la pila.
+    Repetir los pasos 1 al 3 hasta que se haya leído toda la expresión.
+    El resultado final estará en la cima de la pila.
+
+2.    Crear una pila vacía para los operandos.
+    Leer la expresión de izquierda a derecha.
+    Si el elemento es un número, convertirlo a float o int y apilarlo en la pila.
+    Si el elemento es un operador, sacar los dos últimos elementos de la pila, aplicar el operador y apilar el resultado en la pila.
+    Si se intenta sacar un elemento de una pila vacía o se intenta dividir por cero, lanzar una excepción y manejarla adecuadamente.
+    Al finalizar la lectura de la expresión, el resultado final estará en la cima de la pila.
+
+3.para evaluar las expresiones sufijas y mostrar la pila a medida que se procesa cada operando y operador, se puede utilizar el algoritmo que se muestra a continuación:
+
+    Crear una pila vacía.
+    Leer la expresión de izquierda a derecha.
+    Si el elemento es un número, apilarlo en la pila.
+    Si el elemento es un operador, sacar los dos últimos elementos de la pila, aplicar el operador y apilar el resultado en la pila.
+    Mostrar la pila en cada iteración.
+    Al finalizar la lectura de la expresión, el resultado final estará en la cima de la pila.
+
+
+
+4.La implementación del método concatenar primero comprueba si la otra cola está vacía; si lo está, no hay nada que concatenar. 
+Si la cola actual está vacía, se copia la referencia al inicio y fin de la otra cola en la cola actual. Si ambas colas tienen 
+elementos, se establece el puntero siguiente del último nodo de la cola actual para que apunte al inicio de la otra cola, y se 
+actualiza el puntero fin de la cola actual para que apunte al último nodo de la otra cola.
+
+5.El modelo de simulación puede ser descrito mediante los siguientes componentes:
+Reloj: lleva la cuenta del tiempo de simulación.
+Lista de eventos: contiene todos los eventos que pueden ocurrir en la simulación, como la llegada de un usuario, el fin de una tarea de impresión, etc.
+Cola de usuarios: contiene a los usuarios que están esperando para imprimir sus tareas.
+Impresora: representa la impresora del laboratorio.
+Estadísticas: se utilizan para recopilar información sobre la simulación, como el número de tareas de impresión completadas, el tiempo promedio de espera de los usuarios, etc.
+
+6.En este programa, primero definimos la estructura TrabajoImpresion para representar un trabajo de impresión con un nombre, 
+el número de páginas que tiene y su prioridad. Luego, definimos la función auxiliar OrdenPorPrioridad que compara dos trabajos de 
+impresión por su prioridad. Esta función se utiliza para ordenar los trabajos de impresión en la cola de prioridad.
+
+
+7.La implementación de la cola doble se puede realizar utilizando una lista enlazada doblemente enlazada. En esta implementación, 
+cada nodo de la lista contendrá un elemento y dos punteros, uno que apunta al siguiente nodo y otro que apunta al nodo anterior. 
+El inicio de la cola doble se puede representar con un puntero que apunta al primer nodo de la lista, y el final de la cola doble
+se puede representar con un puntero que apunta al último nodo de la lista.
+
+
+8.Este programa define una clase Nodo para representar cada elemento de la cola de prioridad, y una clase ColaPrioridad que implementa las operaciones necesarias para insertar y eliminar elementos en la cola de prioridad, y para imprimir los elementos en la cola.
+La función insertar se encarga de insertar un nuevo nodo en la posición correcta de la lista enlazada, según su prioridad. Si la cola de prioridad está vacía, el nuevo nodo se convierte en el inicio de la cola. Si el nuevo nodo tiene una prioridad mayor que la del inicio de la cola, entonces el nuevo nodo se convierte en el nuevo inicio de la cola. Si la prioridad del nuevo nodo es menor o igual a la del inicio de la cola, se inserta en la posición adecuada en la lista enlazada.
+La función eliminar elimina el nodo con la mayor prioridad de la cola de prioridad, que es el primer nodo en la lista enlazada.
+La función imprimir recorre la lista enlazada y muestra los valores y las prioridades de cada nodo en la cola de prioridad.
+Para usar esta implementación, puede crear una nueva instancia de la clase ColaPrioridad y llamar a las funciones insertar, eliminar e imprimir según sea necesario.
+
+
+9.El TAD Conjunto representa una colección de elementos sin repetición y sin un orden específico. Cada elemento dentro del conjunto debe ser único y no hay posibilidad de que se repita.
+La clase Conjunto debe tener los siguientes métodos:
+
+    agregar(elemento): Agrega un elemento al conjunto.
+    eliminar(elemento): Elimina un elemento dado del conjunto.
+    tamaño(): Devuelve el tamaño del conjunto.
+    pertenece(elemento): Devuelve verdadero si el elemento dado está presente en el conjunto, de lo contrario, devuelve falso.
+    unión(conjunto): Devuelve un conjunto que es la unión de dos conjuntos.
+    intersección(conjunto): Devuelve un conjunto que es la intersección de dos conjuntos.
+    diferencia(conjunto): Devuelve un conjunto que es la diferencia entre dos conjuntos.
+    incluye(conjunto): Devuelve verdadero si el conjunto dado está incluido en el conjunto, de lo contrario, devuelve falso.
+
+10.La complejidad de tiempo del método anexar es O(n), donde n es el tamaño de la lista que se está anexando. Esto se debe a
+ que se debe recorrer cada elemento de la lista para agregarlos a la lista no ordenada.
+
+
+11.El método fin devuelve el nodo final de la lista, el método primero devuelve el primer nodo de la lista, el método 
+siguiente devuelve el siguiente nodo después del nodo actual y el método anterior devuelve el nodo anterior al nodo actual.
+ Estos métodos pueden ser útiles para recorrer la lista y realizar operaciones específicas en los nodos.
+
+12.La complejidad de tiempo del método agregar es O(n), ya que en el peor caso debe recorrer toda la lista para encontrar 
+la posición adecuada donde insertar el nuevo elemento. Los métodos buscar, borrar e indice tienen una complejidad de O(log n)
+gracias a que utilizan una búsqueda binaria. Los métodos extraer, primero, fin, siguiente y anterior tienen una complejidad de
+tiempo O(1), ya que solo acceden a los extremos o a una posición específica de la lista. El método extraer_pos tiene una
+complejidad de tiempo O(n), ya que tiene que recorrer la lista hasta la posición deseada para extraer el elemento.
+
+
+13.Invertir el orden de los dos pasos del método agregar en la Lista_No_Ordenada resultaría en una referencia inválida. El primer 
+paso del método es crear un nuevo nodo y asignarle el valor a agregar, mientras que el segundo paso es hacer que el nuevo nodo apunte
+al primer nodo actual de la lista. Si se invierten los pasos, primero se intentaría hacer que el nuevo nodo apunte al primer nodo 
+actual de la lista, antes de que se haya creado el nuevo nodo, lo que daría como resultado una referencia inválida.
+Este tipo de referencia inválida podría resultar en errores en tiempo de ejecución, como una violación de acceso o una excepción. 
+Por ejemplo, si se intentara acceder al valor almacenado en el nodo antes de que se cree el nodo, se produciría una violación de 
+acceso. Por lo tanto, es importante seguir el orden correcto de los pasos en el método agregar para garantizar una lista válida 
+y evitar errores en tiempo de ejecución.
+
+14.Si se incluye la información del tamaño de la lista como un dato adicional en la cabeza de la lista, el método tamano se 
+vuelve mucho más eficiente. En lugar de tener que recorrer toda la lista para contar los nodos, simplemente se puede leer el valor 
+almacenado en la cabeza de la lista.
+
+Para modificar la clase ListaNoOrdenada, se puede agregar un nuevo atributo tam que almacene el tamaño actual de la lista. 
+En el constructor, se inicializa este atributo en cero, y se modifica el método agregar para que aumente el valor de tam cada 
+vez que se agrega un nuevo nodo.
