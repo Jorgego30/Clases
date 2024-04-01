@@ -1,0 +1,30 @@
+Especificacion informal TAD Cola Doble:
+
+Cola Doble=TAD con operaciones Cola Doble, tamano, estaVacia, inspeccionar,agregar en el final y en la frente de la cola, borrar frente o cola.
+
+DESCRIPCIÓN:
+
+Los valores del TAD cola doble son colas de elementos del tipo tipoelem.
+ Las colas son mutables: incluir y extraer,añaden y eliminan elementos de la pila,respectivamente, son colecciones ordenadas de items similar a la cola con dos extremos y lo que lo hace diferente es que se pueden agregar y/o borrar en cualquier extremo.
+
+OPERACIONES:
+
+ColaDoble() devuelve (coladoble), efecto: devuelve la cola doble vacía.
+
+tamano(C:cola doble) devuelve (int), requerimientos: La cola C, efecto: devuelve int como número de ítems de la cola.
+
+estaVacia (C:cola doble), devuelve(booleano), requerimientos: La cola doble C, efecto: Devuelve true si P es la pila vacía, y false en caso contrario.
+
+inspeccionar (C:cola doble) devuelve(tipoelem), requerimientos: La cola doble C es no vacía, devuelve el item de la posicion index de la cola pero no lo elimina.
+
+frente() devuelve el primer elemento de la cola, requerimientos: La cola doble c es no vacía.
+
+ultimo() devuelve el ultimo elemento de la cola, requerimientios: la cola doble c es no vacía.
+
+agregarFrente(item), requerimientos: La cola doble y el ítem.
+
+agregarFinal(item), requerimientos: La cola doble y el item.
+
+borrarFinal(), elimina y devuelve el item que está al final de la cola doble. Se modifica la cola doble, requerimientos: la cola doble.
+
+borrarFrente(), elimina y devuelve el item que está en la frente de la cola doble. La cola doble se modifica, requerimientos: la cola doble

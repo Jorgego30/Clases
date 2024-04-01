@@ -1,0 +1,6 @@
+La clase conjunto ussa los siguietes metodos:
+1-_init__(self): este es el constructor de la clase. Inicializa una lista vaíca llamada 'elementos', que almacenará los elemnetos del conjunto.
+2- inserta(self, elemnto):Este método permite insertar un elemento en el conjunto. Primero verifica si el elemento ya está presente en el conjunto. Si no lo está, lo añade a la lista de elementos.
+3- __str__(self): Este método devuelve una representación en forma de cadena del conjunto. Los elementos del conjunto se enumeran entre llaves {} y están separados por comas.
+4- tamaño(self):Este método devuelve el número de elementos en el conjunto, es decir, el tamaño del conjunto.
+5-pertenece(self, elemento): Este método verifica si un elemento dado pertenece al conjunto. Devuelve True si el elemento está en la lista de elementos del conjunto; de lo contrario, devuelve False.

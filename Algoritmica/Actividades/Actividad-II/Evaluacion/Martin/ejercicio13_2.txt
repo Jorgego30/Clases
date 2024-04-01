@@ -1,0 +1,16 @@
+Cuando se ejecutan en orden inverso los dos pasos del método agregar de la clase ListaNoOrdenada,
+es decir, primero se asigna el siguiente nodo y luego se actualiza la cabeza de la lista, se generaría una referencia circular.
+
+def agregar(self, item):
+    
+
+    temp = Nodo(item)
+    temp.asignarSiguiente(self.cabeza)  # Este paso asigna el siguiente nodo a 'temp'
+    self.cabeza = temp  # Luego se actualiza la cabeza de la lista
+
+En este escenario, temp apuntaría al nodo siguiente que anteriormente era la cabeza de la lista. Y la cabeza de la lista, 
+self.cabeza, apuntaría al mismo nodo que temp. Esto formaría una referencia circular entre los nodos, lo que podría causar problemas como:
+Dificultades para determinar el final de la lista o problemas de pérdida de memoria.
+
+Para evitar estos problemas, es importante actualizar primero la cabeza de la lista y luego asignar el siguiente nodo en el método agregar. De esta manera,
+se mantiene la estructura lineal de la lista enlazada y se evitan las referencias circulares.
