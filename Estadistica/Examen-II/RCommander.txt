@@ -1,0 +1,24 @@
+
+> setwd("/home/jorge/Clases")
+
+> Dataset <- readXL("/home/jorge/Descargas/23-24GR evaluaciÃ³n continua T3_ICpH.xlsx", rownames=FALSE, header=TRUE, na="", sheet="Datos1", stringsAsFactors=TRUE)
+
+> with(Dataset, (t.test(adhesion, cristal, alternative='two.sided', conf.level=.90, paired=TRUE)))
+
+	Paired t-test
+
+data:  adhesion and cristal
+t = 3.8149, df = 19, p-value = 0.001169
+alternative hypothesis: true mean difference is not equal to 0
+90 percent confidence interval:
+ 2.604666 6.923334
+sample estimates:
+mean difference 
+          4.764 
+
+> qt(c(0.001169), df=0.9, lower.tail=TRUE)
+[1] -498.8476
+
+> qt(c(0.001169), df=0.9, lower.tail=FALSE)
+[1] 498.8476
+

@@ -1,0 +1,81 @@
+---
+title: "Replace with Main Title"
+author: "Your Name"
+date: "`r Sys.Date()`"  # Uses current date
+---
+
+
+```{r echo=FALSE, message=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+```{r}
+setwd("/home/jorge/Clases")
+```
+
+
+```{r}
+Dataset <- readXL("/home/jorge/Descargas/23-24GR evaluaciÃ³n continua T3_ICpH.xlsx", rownames=FALSE, header=TRUE, na="", sheet="Datos1", stringsAsFactors=TRUE)
+```
+
+```{r}
+t.test(adhesion~pH, alternative='two.sided', conf.level=.95, var.equal=FALSE, data=Dataset)
+```
+
+```{r}
+t.test(adhesion~pH, alternative='two.sided', conf.level=.90, var.equal=TRUE, data=Dataset)
+```
+
+```{r}
+with(Dataset, (t.test(adhesion, cristal, alternative='two.sided', conf.level=.90, paired=TRUE)))
+```
+
+
+```{r}
+with(Dataset, (t.test(adhesion, cristal, alternative='two.sided', conf.level=.90, paired=TRUE)))
+```
+
+```{r}
+qt(c(2.604666,6.923334), df=0.9, lower.tail=TRUE)
+```
+
+```{r}
+qt(c(2.604666), df=0.9, lower.tail=TRUE)
+```
+
+
+```{r}
+qt(c(2.604666), df=0.9, lower.tail=FALSE)
+```
+
+```{r}
+qt(c(3.8149), df=0.9, lower.tail=TRUE)
+```
+
+
+```{r}
+qt(c(4.764), df=0.9, lower.tail=TRUE)
+```
+
+
+```{r}
+qt(c(0.001169), df=0.9, lower.tail=TRUE)
+```
+
+
+```{r}
+qt(c(0.001169), df=0.9, lower.tail=FALSE)
+```
+
+
