@@ -75,8 +75,8 @@ def exp_matrix(S, theta):
 #Se preparan las opciones para que el codigo pueda recibir parametros
 parser = OptionParser()
 parser.add_option("-a", "--a1", type="float", default=90, help="Ángulo de rotación para la primera articulación (grados)")
-parser.add_option("-b", "--a2", type="float", default=-45, help="Ángulo de rotación para la segunda articulación (grados)")
-parser.add_option("-c", "--a3", type="float", default=45, help="Ángulo de rotación para la tercera articulación (grados)")
+parser.add_option("-b", "--a2", type="float", default=-90, help="Ángulo de rotación para la segunda articulación (grados)")
+parser.add_option("-c", "--a3", type="float", default=90, help="Ángulo de rotación para la tercera articulación (grados)")
 (options, args) = parser.parse_args()
 
 #Se pasan los angulos a radianes
