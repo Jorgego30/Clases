@@ -1,0 +1,48 @@
+
+> GomezGarciaJorge <- readXL("/home/jorge/Downloads/asignaciÃ³n datos LAB2 5_4_24.xlsx", rownames=FALSE, 
++   header=TRUE, na="", sheet="a11", stringsAsFactors=TRUE)
+
+> GomezGarciaJorge <- within(GomezGarciaJorge, {
++   round.trip <- as.factor(round.trip)
++ })
+
+> str(GomezGarciaJorge)
+'data.frame':	100 obs. of  5 variables:
+ $ participante         : num  1 2 3 4 5 6 7 8 9 10 ...
+ $ round.trip           : Factor w/ 10 levels "1","2","3","4",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ times_sec_baseline.gr: num  7.47 5.89 7.91 7.11 7.5 ...
+ $ times_sec_carrying.gr: num  8.07 7.65 8.66 7.2 8.24 ...
+ $ times_sec_robot.gr   : num  13.1 15.3 14.3 13.7 14.2 ...
+
+> save("GomezGarciaJorge", file="/home/jorge/Clases/Estadistica/Practicas/GomezGarciaJorge.RData")
+
+> summary(GomezGarciaJorge)
+  participante    round.trip times_sec_baseline.gr times_sec_carrying.gr times_sec_robot.gr
+ Min.   : 1.0   1      :10   Min.   : 5.895        Min.   : 6.678        Min.   :11.94     
+ 1st Qu.: 3.0   2      :10   1st Qu.: 7.819        1st Qu.: 9.325        1st Qu.:14.80     
+ Median : 5.5   3      :10   Median : 8.512        Median :11.026        Median :17.16     
+ Mean   : 5.5   4      :10   Mean   : 8.467        Mean   :12.029        Mean   :17.65     
+ 3rd Qu.: 8.0   5      :10   3rd Qu.: 9.129        3rd Qu.:13.467        3rd Qu.:20.11     
+ Max.   :10.0   6      :10   Max.   :10.364        Max.   :25.708        Max.   :26.27     
+                (Other):40                                                                 
+
+> library(abind, pos=24)
+
+> library(e1071, pos=25)
+
+> numSummary(GomezGarciaJorge[,"times_sec_carrying.gr", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+     mean       sd      IQR       0%      25%      50%      75%     100%   n
+ 12.02862 3.845997 4.142151 6.678164 9.325041 11.02558 13.46719 25.70755 100
+
+> numSummary(GomezGarciaJorge[,"times_sec_carrying.gr", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+     mean       sd      IQR       0%      25%      50%      75%     100%   n
+ 12.02862 3.845997 4.142151 6.678164 9.325041 11.02558 13.46719 25.70755 100
+
+> with(GomezGarciaJorge, Hist(times_sec_carrying.gr, scale="frequency", breaks="Sturges", col="darkgray"))
+
+> with(GomezGarciaJorge, Hist(times_sec_carrying.gr, scale="frequency", breaks="Sturges", col="darkgray"))
+
+> Boxplot(times_sec_carrying.gr~round.trip, data=GomezGarciaJorge, id=list(method="y"))
+
+> with(GomezGarciaJorge, Hist(times_sec_carrying.gr, scale="frequency", breaks="Sturges", col="darkgray"))
+

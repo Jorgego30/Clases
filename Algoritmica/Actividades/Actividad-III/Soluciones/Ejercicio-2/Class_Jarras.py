@@ -22,6 +22,8 @@ class Jarra:
             if (litrosEnJarra2 > otherJar.capacidad):
                 litrosEnJarra1 = litrosEnJarra2 - otherJar.capacidad
                 litrosEnJarra2 = 0
+            else:
+                litrosEnJarra1 = self.capacidad
 
             print(f"Se llena la jarra de {otherJar.capacidad} con el liquido que estuviese en la otra jarra, ahora esta segunda jarra tiene {litrosEnJarra2} mientras que la primera tiene {litrosEnJarra1}")
 
