@@ -16,11 +16,22 @@ int coeficiente(int n, int k){
     return resto;
 }
 
+// Calcula el producto de todos los números en una fila del Triángulo de Pascal
+long long multiplicarFila(int n) {
+    long long producto = 1;
+    for (int i = 0; i <= n; ++i) {
+        producto *= coeficiente(n, i);
+    }
+    return producto;
+}
+
 // La siguiente funcion imprime por pantalla el triangulo de Pascal con el metodo binario
 void trianguloBinario(int numeroFilas){
     vector <int> valores;
     // Se define la variable espacios para poder formatear bien el triangulo
     int espacios = numeroFilas-1;
+    // Variable para almacenar el resultado de la fila anterior
+    long double resultadoFilaAnterior = 1;
     // El siguiente for es el que imprime el triangulo
     for (int i=0; i < numeroFilas; i++){
         // El siguiente for imprime los espacios convenientes a la izquierda de los numeros (Solo a la izquierda ya que el lado derecho se formatea solo)
@@ -35,6 +46,16 @@ void trianguloBinario(int numeroFilas){
                 cout << " " << numero;
             }
 
+        // Multiplicar los números en la fila actual
+        long long producto = multiplicarFila(i);
+
+        // Dividir entre el resultado de la fila anterior
+        long double resultado = producto / resultadoFilaAnterior;
+        cout << " (Resultado: " << resultado << ")";
+
+        // Se actualiza el resultado de la fila anterior
+        resultadoFilaAnterior = producto;
+
         // Se inserta un salto de linea
         cout << endl;
 
@@ -42,35 +63,6 @@ void trianguloBinario(int numeroFilas){
         espacios--;
 
         valores.clear();
-    }
-}
-
-void trianguloDinamico(int n){
-     
-    // Se crea un vector arbitrario
-    int arr[n][n]; 
- 
-    // Se define la variable espacios para poder formatear bien el triangulo
-    int espacios = n-1;
-    // El siguiente for es el que imprime el triangulo
-    for (int line = 0; line < n; line++){
-        // El siguiente for imprime los espacios convenientes a la izquierda de los numeros (Solo a la izquierda ya que el lado derecho se formatea solo)
-        for (int j=0; j<espacios; j++){
-            cout << " ";
-        }
-        // Cada linea tiene el mismo numero de numeros que el numero al que corresponde la linea
-        for (int i = 0; i <= line; i++){
-        // El primer y el ultimo numero es 1
-        if (line == i || i == 0)
-            arr[line][i] = 1;
-           
-        // El resto de numeros son la suma de los dos de arriba de izquierda y derecha
-        else
-            arr[line][i] = arr[line - 1][i - 1] + arr[line - 1][i];
-        cout << arr[line][i] << " ";
-        }
-        cout << "\n";
-        espacios--;
     }
 }
 
@@ -101,5 +93,4 @@ int main(){
     }
 
     trianguloBinario(numeroFilas);
-    trianguloDinamico(numeroFilas);
 }

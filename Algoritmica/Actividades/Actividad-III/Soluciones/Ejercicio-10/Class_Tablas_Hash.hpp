@@ -1,91 +1,47 @@
+
 #include <iostream>
-#include <string>
-using namespace std;
+#include <vector>
 
-class HashTable{
-    public:
-    static const int size=11; // initial size of hash table is prime to help with collision resolution
-    int slots[size]; // list to hold key items
-    string data[size]; // list to hold data values
+class HashTable {
+private:
+    static const int size = 32767; // Tamaño máximo de la tabla
+    std::vector<std::pair<int, std::string>> table[size]; // Tabla hash como un arreglo de vectores de pares clave-valor
+    int comparisons; // Variable para almacenar el número de comparaciones realizadas durante la última operación de búsqueda
 
-    int hashfunction(int key) { // implements remainder method
-        return key%size;
+public:
+    HashTable() : comparisons(0) {}
+    int getSize() const {
+        return size; // Devuelve el tamaño máximo de la tabla
+    }
+    // Función hash
+    int hash(int key) {
+        return key % size;
     }
 
-      // Computes original hashvalue, and if slot is
-      // not empty iterates until empty slot is found
-    int rehash(int oldhash) {
-        return (oldhash+1)%size;
+    // Insertar un elemento en la tabla
+    void put(int key, const std::string& value) {
+        int index = hash(key); // Calcular el índice hash
+        table[index].push_back(std::make_pair(key, value)); // Insertar el par clave-valor en la lista correspondiente
     }
 
-    // Function that assumes there will eventually be
-    // an empty slot unless the key is alread present in the slot
-    void put(int key, string val){
-        int hashvalue = hashfunction(key);
-        int count = 0;
-
-        if (data[hashvalue]=="") {
-            slots[hashvalue] = key;
-            data[hashvalue] = val;
-        } else {
-            if (slots[hashvalue] == key) {
-                data[hashvalue] = val;
-            } else {
-                int nextslot = rehash(hashvalue);
-
-                while (data[nextslot]!="" && slots[nextslot] != key) {
-                    nextslot = rehash(nextslot);
-
-                    count++;
-                    if (count>size) {
-                        cout<<"TABLE FULL"<<endl;
-                        return;
-                    }
-                }
-                if (data[nextslot]=="") {
-                    slots[nextslot]=key;
-                    data[nextslot]=val;
-                } else {
-                    data[nextslot] = val;
-                }
+    // Buscar un elemento en la tabla
+    int get(int key, std::string& value) {
+        int index = hash(key); // Calcular el índice hash
+        comparisons = 0; // Restablecer el contador de comparaciones
+        for (const auto& pair : table[index]) {
+            comparisons++; // Incrementar el contador de comparaciones
+            if (pair.first == key) { // Si se encuentra la clave
+                value = pair.second; // Asignar el valor asociado a la clave
+                return index; // Devolver el índice donde se encontró la clave
             }
         }
+        // Si la clave no se encuentra
+        return -1;
     }
 
-    // computes the initial hash value
-    // if value is not in the initial slot, uses
-    // rehash to locate the next position
-    string get(int key) {
-        int startslot = hashfunction(key);
-
-        string val;
-        bool stop=false;
-        bool found=false;
-        int position = startslot;
-        while(data[position]!="" && !found && !stop) {
-            if (slots[position]==key) {
-                found = true;
-                val = data[position];
-            } else {
-                position=rehash(position);
-                if (position==startslot) {
-                    stop=true;
-                }
-            }
-
-        }
-        return val;
+    // Obtener el número de comparaciones realizadas durante la última operación de búsqueda
+    int getComparisons() const {
+        return comparisons;
     }
-
-    friend ostream& operator<<(ostream& stream, HashTable& hash);
 };
 
-
-
-ostream& operator<<(ostream& stream, HashTable& hash) {
-    for (int i=0; i<hash.size; i++) {
-        stream<<hash.slots[i]<<": "<<hash.data[i]<<endl;
-    }
-
-    return stream;
-}
