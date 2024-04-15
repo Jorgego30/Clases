@@ -1,3 +1,4 @@
+import time
 from random import randint
 
 def crearVector(n):
@@ -6,38 +7,49 @@ def crearVector(n):
         vector.append(randint(1, 100))
     return vector
 
+def bubbleSort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
 def bubbleSortBidireccional(arr):
     n = len(arr)
     izquierda = 0
     derecha = n - 1
     while izquierda < derecha:
-        # Pasada hacia adelante
         for i in range(izquierda, derecha):
             if arr[i] > arr[i + 1]:
                 arr[i], arr[i + 1] = arr[i + 1], arr[i]
         derecha -= 1
-
-        # Pasada hacia atrás
         for i in range(derecha, izquierda, -1):
             if arr[i] < arr[i - 1]:
                 arr[i], arr[i - 1] = arr[i - 1], arr[i]
         izquierda += 1
-
     return arr
 
-# Ejemplo de uso
-longitud = int(input("Introduzca la longitud del vector: "))
-vector = crearVector(longitud)
-print("Lista original:", vector)
-print("Lista ordenada:", bubbleSortBidireccional(vector))
+# Benchmark para el algoritmo de ordenamiento burbuja tradicional
+def benchmark_bubble_sort(arr):
+    start_time = time.time()
+    sorted_arr = bubbleSort(arr)
+    end_time = time.time()
+    return end_time - start_time
 
-"""
-Pros:
+# Benchmark para el algoritmo de ordenamiento burbuja bidireccional
+def benchmark_bidirectional_bubble_sort(arr):
+    start_time = time.time()
+    sorted_arr = bubbleSortBidireccional(arr)
+    end_time = time.time()
+    return end_time - start_time
 
-Puede ser más eficiente que el bubble sort tradicional en ciertos casos, ya que puede mover los elementos más grandes o más pequeños hacia sus posiciones correctas más rápidamente.
-Funciona bien con listas que tienen elementos desordenados tanto al principio como al final.
-Contras:
-
-Aunque puede ser más eficiente en ciertas situaciones, el bubble sort bidireccional sigue siendo un algoritmo de complejidad temporal cuadrática y puede ser lento en listas grandes o cuando la lista está completamente desordenada.
-La implementación es más compleja que el bubble sort tradicional, lo que puede dificultar su comprensión y mantenimiento.
-"""
+# Realizar el benchmark para diferentes tamaños de lista
+for n in [100, 1000, 10000]:
+    arr = crearVector(n)
+    time_bubble = benchmark_bubble_sort(arr)
+    time_bidirectional = benchmark_bidirectional_bubble_sort(arr)
+    print(f"Tamaño de la lista: {n}")
+    print(f"Tiempo de ejecución de bubble sort: {time_bubble} segundos")
+    print(f"Tiempo de ejecución de bubble sort bidireccional: {time_bidirectional} segundos")
+    print()

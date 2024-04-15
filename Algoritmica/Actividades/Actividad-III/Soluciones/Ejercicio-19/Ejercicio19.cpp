@@ -82,10 +82,3 @@ int main() {
 
     return 0;
 }
-/*
-La diferencia en la velocidad de ejecución entre los algoritmos de ordenamiento puede variar según el tamaño de la lista y las características de los datos. Sin embargo, en general, se espera que el ordenamiento por inserción y el ordenamiento por Shell sean más eficientes que el ordenamiento burbuja.
-
-El ordenamiento burbuja es conocido por ser uno de los algoritmos de ordenamiento más ineficientes, ya que su complejidad temporal es cuadrática, lo que significa que su tiempo de ejecución aumenta significativamente con el tamaño de la lista. En contraste, el ordenamiento por inserción y el ordenamiento por Shell tienen complejidades temporales mejores, aunque no tan eficientes como otros algoritmos más avanzados como el ordenamiento rápido (quicksort) o el ordenamiento por mezcla (mergesort).
-
-Al realizar pruebas con una lista de 500 enteros, es probable que observes que el ordenamiento por inserción y el ordenamiento por Shell son mucho más rápidos que el ordenamiento burbuja. Esto resalta la importancia de elegir algoritmos de ordenamiento eficientes dependiendo del tamaño de los datos y los requisitos de rendimiento de la aplicación. En general, se recomienda evitar el uso de algoritmos de ordenamiento cuadráticos como el ordenamiento burbuja para conjuntos de datos de tamaño considerable.
-*/

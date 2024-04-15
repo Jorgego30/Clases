@@ -1,0 +1,85 @@
+Ejercicio 1:
+    Se crea la clase lista enlazada con un metodo para invertirla, esto se hace con recursividad llamando al siguiente y cambiando las posiciones
+
+Ejercicio 2:
+    Se crea la clase jarras donde se crea la funcion transpose que va pasando liquido de una jarra a otra hasta que se obtenga el objetivo pedido
+
+Ejercicio 3:
+    Aqui se utilizan dos formas de crear el triangulo de pascal, una binomial que consiste en usar la formula normal y otra recursiva que va sumando los dos numeros de la linea anterior
+
+Ejercicio 4:
+    Se usa el algoritmo de programacion dinamica para devolver distintos cambios y distintos valores de monedas en los que se incluye una moneda de ocho centimos
+
+Ejercicio 5:
+    Se usa el algoritmo de programacion dinamica para calcular las obras de arte que se pueden robar
+
+Ejercicio 6:
+    Se utiliza recursividad para calcular el valor maximo de un tramo haciendo que se llame a la funcion hasta que se encuentre dentro de este tramo, con esto busca el valor maximo dentro de ese tramo
+
+Ejercicio 7:
+    Se utiliza el algoritmo de divide y venceras como explican los apuntes y se calcula el valor que devolveria la posicion k que seria la mediana, tiene una complejidad de O(n) ya que en cada llamada recursiva se reduce el tamaño del problema a la mitad 
+
+Ejercicio 8:
+    Misma clase que en el dos ya que la clase esta generalizada
+
+Ejercicio 9:
+    Se utiliza el triangulo de Pascal por metodo binomial y se crea una funcion para hacer la multiplicacion de las filas, despues se divide el resultado por el resultado de la fila anterior y asi se consigue la aproximacion
+
+Ejercicio 10:
+    El punto en el que el número promedio de comparaciones para las búsquedas sin éxito comienza a aumentar considerablemente puede considerarse como un indicador de que la tabla hash es demasiado pequeña. En este punto, es probable que las colisiones sean más frecuentes, lo que afectará negativamente el rendimiento de la búsqueda en la tabla hash. Es importante ajustar el tamaño de la tabla hash para mantener un equilibrio entre el consumo de memoria y el rendimiento de la búsqueda.
+
+Ejercicio 11:
+    Las estrategias alternativas de selección de pivote pueden funcionar mejor o peor que la estrategia estándar dependiendo de varios factores:
+
+    Distribución de los datos: La estrategia estándar de selección de pivote toma el primer elemento como pivote. Funciona bien cuando los datos están uniformemente distribuidos. Sin embargo, si los datos están ordenados o casi ordenados, esta estrategia puede llevar a un rendimiento deficiente. Las estrategias alternativas, como elegir un pivote aleatorio o el pivote medio de tres, pueden ayudar a mitigar este problema.
+
+    Eficiencia en el peor de los casos: La estrategia del pivote medio de tres es especialmente útil para mejorar el rendimiento en el peor de los casos del algoritmo de ordenamiento rápido. Al seleccionar un pivote que esté más cerca del valor medio del conjunto de datos, se reduce la probabilidad de que el algoritmo tenga un rendimiento deficiente en conjuntos de datos específicos.
+
+    Complejidad de implementación: Algunas estrategias pueden ser más simples de implementar que otras. La estrategia estándar de selección de pivote es simple y directa, ya que simplemente selecciona el primer elemento como pivote. En contraste, el pivote medio de tres requiere una comparación adicional para seleccionar el pivote medio. La complejidad de implementación puede ser un factor importante dependiendo del contexto.
+
+    Costo de cálculo del pivote: La selección de un pivote aleatorio puede ser más costosa computacionalmente que simplemente seleccionar el primer elemento como pivote. Sin embargo, en conjuntos de datos grandes, el beneficio de una distribución más uniforme de los pivotes puede superar el costo adicional de calcular un pivote aleatorio.
+
+    En resumen, las estrategias alternativas pueden ser preferibles a la estrategia estándar en casos donde los datos no están uniformemente distribuidos, se desea mejorar el rendimiento en el peor de los casos o se necesita una implementación más robusta. Sin embargo, es importante evaluar el rendimiento de cada estrategia en el contexto específico de la aplicación y los datos que se están ordenando.
+
+Ejercicio 12:
+    Se crean las distintas funciones que representan los metodos de ordenacion y se prueban con listas aleatorias
+
+Ejercicio 13:
+    La búsqueda binaria es significativamente más eficiente que la búsqueda secuencial, especialmente si la lista está ordenada. La búsqueda binaria podría encontrar el elemento deseado en un máximo de aproximadamente 8 pasos, mientras que la búsqueda secuencial podría requerir hasta 200 comparaciones en el peor de los casos.
+
+Ejercicio 14:
+    Los resultados muestran que la busqueda binaria recursiva es mas lenta que la iterativa, ambas encuentran el resultado y cuanto mas grande sea la lista mayor sera la diferencia de tiempo
+
+Ejercicio 15:
+    Se implementa el metodo __len__ para poder conseguir el tamaño del TAD Vector Asociativo o, tabla hash
+
+Ejercicio 16:
+    En una tabla hash que utiliza encadenamiento para resolver colisiones, eliminar un elemento implica eliminarlo de la lista enlazada correspondiente al índice calculado para ese elemento. Aquí hay un enfoque paso a paso para eliminar un elemento en una tabla hash con encadenamiento:
+
+    Calcular el índice hash del elemento que se desea eliminar.
+    Ir a la posición en la tabla hash correspondiente a ese índice.
+    Recorrer la lista enlazada en esa posición y encontrar el elemento que se desea eliminar.
+    Eliminar el elemento de la lista enlazada.
+
+    En el caso del direccionamiento abierto, eliminar un elemento puede ser más complicado, especialmente si se está utilizando una estrategia como sondaje lineal o sondaje cuadrático. En estos métodos, si eliminas un elemento, podrías romper la secuencia de búsqueda y hacer que algunos elementos se vuelvan inaccesibles.
+
+    Para manejar estas circunstancias especiales en el direccionamiento abierto, se pueden tomar varias medidas, como marcar los elementos eliminados en lugar de eliminarlos físicamente, reorganizar la tabla hash después de un cierto número de eliminaciones, o utilizar esquemas más complejos como el marcado de tumbas (tombstone marking) para indicar que un elemento ha sido eliminado pero mantener la secuencia de búsqueda intacta. Estas estrategias pueden ser más complicadas de implementar y pueden requerir un mayor costo computacional en comparación con el encadenamiento.
+
+Ejercicio 17:
+    Se modifica la clase Tabla Hash para que tenga un tamaño de 11, tambien se usa el metodo de redimensionar por si la lista se vuelve muy grande
+
+Ejercicio 18:
+    Se crea el metodo de rehash por de forma cuadrática
+
+Ejercicio 19:
+    La diferencia en la velocidad de ejecución entre los algoritmos de ordenamiento puede variar según el tamaño de la lista y las características de los datos. Sin embargo, en general, se espera que el ordenamiento por inserción y el ordenamiento por Shell sean más eficientes que el ordenamiento burbuja.
+
+    El ordenamiento burbuja es conocido por ser uno de los algoritmos de ordenamiento más ineficientes, ya que su complejidad temporal es cuadrática, lo que significa que su tiempo de ejecución aumenta significativamente con el tamaño de la lista. En contraste, el ordenamiento por inserción y el ordenamiento por Shell tienen complejidades temporales mejores, aunque no tan eficientes como otros algoritmos más avanzados como el ordenamiento rápido (quicksort) o el ordenamiento por mezcla (mergesort).
+
+    Al realizar pruebas con una lista de 500 enteros, es probable que observes que el ordenamiento por inserción y el ordenamiento por Shell son mucho más rápidos que el ordenamiento burbuja. Esto resalta la importancia de elegir algoritmos de ordenamiento eficientes dependiendo del tamaño de los datos y los requisitos de rendimiento de la aplicación. En general, se recomienda evitar el uso de algoritmos de ordenamiento cuadráticos como el ordenamiento burbuja para conjuntos de datos de tamaño considerable.
+
+Ejercicio 20:
+    Aunque al principio no es tan destacable a medida que va creciendo la lista se hace evidente la diferencia entre el algoritmo de ordenacion burbuja normal y el bidireccional siendo mas rapido este ultimo reduciendo el tiempo practicamente a la mitad
+
+Ejercicio 21:
+    Se realizan ordenaciones por el metodo de shell usando distintos incrementos

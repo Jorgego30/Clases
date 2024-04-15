@@ -46,18 +46,3 @@ for tamano in tamano_arreglos:
     print(f"Tiempo con pivote medio de tres: {tiempo_medio_tres:.6f} segundos")
     print()
 
-
-"""
-Las estrategias alternativas de selección de pivote pueden funcionar mejor o peor que la estrategia estándar dependiendo de varios factores:
-
-Distribución de los datos: La estrategia estándar de selección de pivote toma el primer elemento como pivote. Funciona bien cuando los datos están uniformemente distribuidos. Sin embargo, si los datos están ordenados o casi ordenados, esta estrategia puede llevar a un rendimiento deficiente. Las estrategias alternativas, como elegir un pivote aleatorio o el pivote medio de tres, pueden ayudar a mitigar este problema.
-
-Eficiencia en el peor de los casos: La estrategia del pivote medio de tres es especialmente útil para mejorar el rendimiento en el peor de los casos del algoritmo de ordenamiento rápido. Al seleccionar un pivote que esté más cerca del valor medio del conjunto de datos, se reduce la probabilidad de que el algoritmo tenga un rendimiento deficiente en conjuntos de datos específicos.
-
-Complejidad de implementación: Algunas estrategias pueden ser más simples de implementar que otras. La estrategia estándar de selección de pivote es simple y directa, ya que simplemente selecciona el primer elemento como pivote. En contraste, el pivote medio de tres requiere una comparación adicional para seleccionar el pivote medio. La complejidad de implementación puede ser un factor importante dependiendo del contexto.
-
-Costo de cálculo del pivote: La selección de un pivote aleatorio puede ser más costosa computacionalmente que simplemente seleccionar el primer elemento como pivote. Sin embargo, en conjuntos de datos grandes, el beneficio de una distribución más uniforme de los pivotes puede superar el costo adicional de calcular un pivote aleatorio.
-
-En resumen, las estrategias alternativas pueden ser preferibles a la estrategia estándar en casos donde los datos no están uniformemente distribuidos, se desea mejorar el rendimiento en el peor de los casos o se necesita una implementación más robusta. Sin embargo, es importante evaluar el rendimiento de cada estrategia en el contexto específico de la aplicación y los datos que se están ordenando.
-
-"""
