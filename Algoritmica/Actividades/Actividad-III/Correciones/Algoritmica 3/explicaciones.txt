@@ -1,0 +1,51 @@
+    -Actividad_01.py:
+Clase usada: Class_ListaEnlazada.py
+Se crea una lista añadiendo sus nodos, despues se invierte y se imprime por pantalla
+
+    -Actividad_02.cpp:
+Clase usada: Class_Jarra.hpp
+Se hace uso de la Class_Jarra para obtener 2 litros de agua en la jarra de 4 usando otra de 3
+
+    -Actividad_03.cpp:
+Clase usada: Class_triangulopascal.hpp
+Se hace uso de la Class_triangulopascal para dibujar el triangulo de Pascal aceptando el numero de filas dado por el usuario
+
+    -Actividad_04.cpp:
+Clase usada: Class_cambiarmonedas.hpp
+Usando la Class_cambiarmonedas y el algoritmo de programacion dinamica, encontrar el menor numero de monedas para completar unas vueltas de 33 centimos
+
+    -Actividad_06.py:
+Obtencion del valor maximo de un tramo de manera recursiva
+
+    -Actividad_07.py:
+Aplicando el esquema Divide y venceras, se obtiene el valor de la mediana para el vector V
+
+    -Actividad_08.py:
+Clase usada: Class_Jarra.py
+Generalizacion de la Actividad_02
+
+    -Actividad_09.py:
+Modificacion de la Actividad_03 para el calculo aproximado del numero e
+
+    -Actividad_10.cpp:
+Calculo del numero promedio de comparaciones necesarias de la tabla hash
+
+    -Actividad_12.py:
+Creacion de una lista aleatoria y ordenada por los diferentes algoritmos que se mencionan
+
+    -Actividad_13.cpp:
+Diferencia entre una busqueda secuencial y una busqueda binaria
+
+    -Actividad_14.cpp:
+Realizacion de una prueba de referencia sobre una lista ordenada, con las funciones de busqueda binaria recursiva e iterativa.
+Ambas busquedas reciben el mismo resultado.
+
+    -Actividad_15.cpp:
+Clase usada: Class_VectorAsociativo.hpp
+Implementacion del metodo tamaño para el uso del TAD Vector Asociativo
+
+    -Actividad_16.py:
+Implementacion del metodo eliminar en la clase TablaHash
+    -Actividad_17.py:
+Clase usada: Class_Hash.py
+

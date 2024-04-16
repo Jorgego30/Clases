@@ -1,0 +1,64 @@
+Ejercicio 1:
+	Programa = Actividad_3_1.cpp
+	Clase de apoyo = Class_Listas_No_Ordenadas2.hpp
+Ejercicio 2:
+	Programa = Actividad_3_2.cpp
+	Clase de apoyo = Class_Jarras.hpp
+Ejercicio 3:
+	Programa = Actividad_3_3.py
+	Clase de apoyo = No hay clase de apoyo
+Ejercicio 4:
+	Programa = Actividad3_04.py
+	Clase de apoyo = Ninguna
+Ejercicio 5:
+	Programa = Actividad3_05.py
+	Clase de apoyo = Ninguna
+Ejercicio 6:
+	Programa = Actividad_3_6.py
+	Clase de apoyo = Ninguna
+Ejercicio 7:
+	Programa = Actividad3_07.py
+	Clase de apoyo = Ninguna
+Ejercicio 8:
+	Programa = Actividad_3_8.cpp
+	Clase de apoyo = Class_Jarras.hpp
+Ejercicio 9:
+	Programa = Actividad_3_9.py
+	Clase de apoyo = Ninguna
+Ejercicio 10:
+	Programa = Actividad_3_10.py
+	Clase de apoyo = Ninguna
+Ejercicio 11:
+	Programa = Actividad3_11.py
+	Clase de apoyo = Ordenamiento_11.py
+Ejercicio 12:
+	Programa = Actividad3_12.cpp
+	Clase de apoyo = Class_Ordenamiento.hpp
+Ejercicio 13:
+	Programa = Actividad3_13.py
+	Clase de apoyo = Busqueda_13_14.py
+Ejercicio 14:
+	Programa = Actividad3_14.py
+	Clase de apoyo = Busqueda_13_14.py
+Ejercicio 15:
+	Programa = Actividad_3_15.py
+	Clase de apoyo = Class_Tablas_Hash.py
+Ejercicio 16:
+	Programa = Actividad_3_16.py
+	Clase de apoyo = Class_Tablas_Hash4.py
+Ejercicio 17:
+	Programa = Actividad_3_17.py
+	Clase de apoyo = Class_Tablas_Hash2.py
+Ejercicio 18:
+	Programa = Actividad_3_18.py
+	Clase de apoyo = Class_Tablas_Hash3.py
+Ejercicio 19:
+	Programa = Actividad3_19.cpp
+	Clase de apoyo = Ordenamiento_19.hpp
+Ejercicio 20:
+	Programa = Actividad3_20.cpp
+	Clase de apoyo = Ordenamiento_20.hpp
+Ejercicio 21:
+	Programa = Actividad3_21.cpp
+	Clase de apoyo = Ordenamiento_21.hpp
+
