@@ -32,7 +32,7 @@ def robot_structure():
 	p = np.array([1, 0, -1])
 	
 	#Se define la matriz homogenea de rotacion (T_matrix es una funcion creada posteriormente)
-	M0 = T_matrix(np.eye(3), p)
+	M0 = T_matrix(np.transpose(np.array([[0,0,-1],[0,1,0],[1,0,0]])), p)
 	return S1, S2, S3, M0
 
 
@@ -74,7 +74,7 @@ def exp_matrix(S, theta):
 
 #Se preparan las opciones para que el codigo pueda recibir parametros
 parser = OptionParser()
-parser.add_option("-a", "--a1", type="float", default=0, help="Ángulo de rotación para la primera articulación (grados)")
+parser.add_option("-a", "--a1", type="float", default=180, help="Ángulo de rotación para la primera articulación (grados)")
 parser.add_option("-b", "--a2", type="float", default=0, help="Ángulo de rotación para la segunda articulación (grados)")
 parser.add_option("-c", "--a3", type="float", default=0, help="Ángulo de rotación para la tercera articulación (grados)")
 (options, args) = parser.parse_args()
@@ -100,12 +100,12 @@ fig = plt.figure()
 ax = fig.add_subplot(111, projection= '3d')
 
 # Definimos el origen y el final de cada eslabón en la posición cero y en la posición final del robot
-p10ini = np.array([0, 0, 0, 1])
-p11ini = np.array([1, 0, 0, 1])
+p10ini = np.array([0, 0, 2, 1])
+p11ini = np.array([2, 0, 2, 1])
 p20ini = p11ini
-p21ini = np.array([1, 0, -1, 1])
+p21ini = np.array([2, 0, 0, 1])
 p30ini = p21ini
-p31ini = np.array([2, 0, -1, 1])
+p31ini = np.array([4, 0, 0, 1])
 p10fin = p10ini
 p11fin = T1 @ p11ini
 p20fin = p11fin
@@ -114,33 +114,36 @@ p30fin = p21fin
 p31fin = T1 @ T2 @ T3 @ p31ini
 
 # Dibuja el primer eslabón en posicion 0
-ax.plot([p10ini[0], p11ini[0]], [p10ini[1], p11ini[1]], 'r', linewidth=4)
+#ax.plot([p10ini[0], p11ini[0]], [p10ini[1], p11ini[1]], [p10ini[2], p11ini[2]], 'r', linewidth=4)
 # Dibuja el primer eslabon rotado
-ax.plot([p10fin[0], p11fin[0]], [p10fin[1], p11fin[1]], 'r', linewidth=4)
+ax.plot([p10fin[0], p11fin[0]], [p10fin[1], p11fin[1]], [p10fin[2], p11fin[2]], 'r', linewidth=4)
 
 # Dibuja el segundo eslabón
-ax.plot([p20ini[0], p21ini[0]], [p20ini[1], p21ini[1]], 'g', linewidth=4)
+#ax.plot([p20ini[0], p21ini[0]], [p20ini[1], p21ini[1]], [p20ini[2], p21ini[2]], 'g', linewidth=4)
 # Dibuja el segundo eslabon rotado 
-ax.plot([p20fin[0], p21fin[0]], [p20fin[1], p21fin[1]], 'g', linewidth=4)
+ax.plot([p20fin[0], p21fin[0]], [p20fin[1], p21fin[1]], [p20fin[2], p21fin[2]], 'g', linewidth=4)
 
 # Dibuja el tercer eslabón
-ax.plot([p30ini[0], p31ini[0]], [p30ini[1], p31ini[1]], 'y', linewidth=4)
+#ax.plot([p30ini[0], p31ini[0]], [p30ini[1], p31ini[1]], [p30ini[2], p31ini[2]], 'y', linewidth=4)
 # Dibuja el tercer eslabon rotado
-ax.plot([p30fin[0], p31fin[0]], [p30fin[1], p31fin[1]], 'y', linewidth=4)
+ax.plot([p30fin[0], p31fin[0]], [p30fin[1], p31fin[1]], [p30fin[2], p31fin[2]], 'y', linewidth=4)
 
 # Dibuja los puntos de interés
-ax.plot(p10ini[0], p10ini[1], 'b^', markersize=10) # punto inicial de L1
-ax.plot(p11ini[0], p11ini[1], 'r^', markersize=10) # punto final de L1 en la posición inicial
-ax.plot(p11fin[0], p11fin[1], 'r^', markersize=10) # punto final de L1 en la posición final
-ax.plot(p21ini[0], p21ini[1], 'g^', markersize=10) # punto final de L2 en la posición inicial
-ax.plot(p21fin[0], p21fin[1], 'g^', markersize=10) # punto final de L2 en la posición final
-ax.plot(p31ini[0], p31ini[1], 'y^', markersize=10) # punto final de L3 en la posición inicial
-ax.plot(p31fin[0], p31fin[1], 'y^', markersize=10) # punto final de L3 en la posición final
+ax.plot(p10ini[0], p10ini[1], p10ini[2], 'b^', markersize=10) # punto inicial de L1
+#ax.plot(p11ini[0], p11ini[1], p11ini[2], 'r^', markersize=10) # punto final de L1 en la posición 0
+ax.plot(p11fin[0], p11fin[1], p11fin[2], 'r^', markersize=10) # punto final de L1 en la posición rotada
+#ax.plot(p21ini[0], p21ini[1], p21ini[2], 'g^', markersize=10) # punto final de L2 en la posición 0
+ax.plot(p21fin[0], p21fin[1], p21fin[2], 'g^', markersize=10) # punto final de L2 en la posición rotada
+#ax.plot(p31ini[0], p31ini[1], p31ini[2], 'y^', markersize=10) # punto final de L3 en la posición 0
+ax.plot(p31fin[0], p31fin[1], p31fin[2], 'y^', markersize=10) # punto final de L3 en la posición rotada
 
 # Ajusta el tamaño del gráfico y lo guarda
-ax.set_xlim(-1, 5)
-ax.set_ylim(-1, 5)
-ax.set_zlim(-1, 5)
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_zlabel('z')
+ax.set_xlim(-5, 5)
+ax.set_ylim(-5, 5)
+ax.set_zlim(-5, 5)
 plt.tight_layout()
 plt.savefig('3R3D.png')
 
