@@ -1,0 +1,21 @@
+robot:
+    name: libro
+    links:
+      - id: 0
+        length: 1
+        type: revolute
+        link_orientation: [0, 0, 0]
+        joint_coords: [0, 0, 0]
+        joint_axis: [0, 0, 0]
+      - id: 1
+        length: 1
+        type: revolute
+        link_orientation: [0, 1, 0]
+        joint_coords: [0, 1, 0]
+        joint_axis: [0, 1, 0]
+      - id: 2
+        length: 1
+        type: prismatic
+        link_orientation: [0, 0, 1]
+        joint_coords: [0, 0, 1]
+        joint_axis: [0, 0, 1]
