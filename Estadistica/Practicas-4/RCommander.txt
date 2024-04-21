@@ -1,0 +1,109 @@
+
+> load("/home/jorge/Clases/Estadistica/Practicas-4/GomezGarciaJorge.RData")
+
+> setwd("/home/jorge/Clases/Estadistica/Practicas-4")
+
+> datanew<- GomezGarciaJorge [81:100, -c(1,2)]
+
+> datanew$grupo[datanew$times_sec_baseline.gr <= mean(datanew$times_sec_baseline.gr)] <- "participante rápido"
+
+> datanew$grupo[datanew$times_sec_baseline.gr > mean(datanew$times_sec_baseline.gr)] <- "participante lento"
+
+> datanew$grupo<-factor(datanew$grupo) #convertimos la nueva variable grupo en factor
+
+> str(datanew)
+'data.frame':	20 obs. of  4 variables:
+ $ times_sec_baseline.gr: num  7.56 8.99 9.2 10.06 7.54 ...
+ $ times_sec_carrying.gr: num  13.4 11.8 17.5 15.4 16.8 ...
+ $ times_sec_robot.gr   : num  14.8 24 15.3 20.6 16.2 ...
+ $ grupo                : Factor w/ 2 levels "participante lento",..: 2 1 1 1 2 2 2 1 2 1 ...
+
+> Tapply(times_sec_robot.gr ~ grupo, var, na.action=na.omit, data=datanew) # variances by group
+ participante lento participante rápido 
+          15.902672            9.354469 
+
+> var.test(times_sec_robot.gr ~ grupo, alternative='two.sided', conf.level=.95, data=datanew)
+
+	F test to compare two variances
+
+data:  times_sec_robot.gr by grupo
+F = 1.7, num df = 9, denom df = 9, p-value = 0.4414
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.4222579 6.8442218
+sample estimates:
+ratio of variances 
+          1.700008 
+
+
+> t.test(times_sec_robot.gr~grupo, alternative='two.sided', conf.level=.95, var.equal=TRUE, data=datanew)
+
+	Two Sample t-test
+
+data:  times_sec_robot.gr by grupo
+t = 0.29755, df = 18, p-value = 0.7695
+alternative hypothesis: true difference in means between group participante lento and group participante rápido is not equal to 0
+95 percent confidence interval:
+ -2.866005  3.811774
+sample estimates:
+ mean in group participante lento mean in group participante rápido 
+                         18.90399                          18.43111 
+
+
+> with(datanew, (t.test(times_sec_robot.gr, alternative='two.sided', mu=-2.866005,3.811774, conf.level=.95)))
+
+> with(datanew, (t.test(times_sec_robot.gr, times_sec_carrying.gr, alternative='two.sided', conf.level=.95, paired=TRUE)))
+
+	Paired t-test
+
+data:  times_sec_robot.gr and times_sec_carrying.gr
+t = 0.97004, df = 19, p-value = 0.3442
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -1.169403  3.189679
+sample estimates:
+mean difference 
+       1.010138 
+
+
+> local({
++   .Table <- xtabs(~ grupo , data= datanew )
++   cat("\nFrequency counts (test is for first level):\n")
++   print(.Table)
++   prop.test(rbind(.Table), alternative='two.sided', p=.5, conf.level=.95, correct=FALSE)
++ })
+
+Frequency counts (test is for first level):
+grupo
+ participante lento participante rápido 
+                 10                  10 
+
+	1-sample proportions test without continuity correction
+
+data:  rbind(.Table), null probability 0.5
+X-squared = 0, df = 1, p-value = 1
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.299298 0.700702
+sample estimates:
+  p 
+0.5 
+
+
+> t.test(times_sec_robot.gr~grupo, alternative='two.sided', conf.level=.95, var.equal=FALSE, data=datanew)
+
+	Welch Two Sample t-test
+
+data:  times_sec_robot.gr by grupo
+t = 0.29755, df = 16.866, p-value = 0.7697
+alternative hypothesis: true difference in means between group participante lento and group participante rápido is not equal to 0
+95 percent confidence interval:
+ -2.882165  3.827934
+sample estimates:
+ mean in group participante lento mean in group participante rápido 
+                         18.90399                          18.43111 
+
+
+> qt(c(0.7697), df=16.866, lower.tail=TRUE)
+[1] 0.7551074
+
