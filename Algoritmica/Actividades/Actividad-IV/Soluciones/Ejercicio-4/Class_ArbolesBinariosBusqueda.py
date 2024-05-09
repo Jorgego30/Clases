@@ -29,11 +29,13 @@ class ArbolBinarioBusqueda:
                 self._agregar(clave, valor, nodoActual.hijoIzquierdo)
             else:
                 nodoActual.hijoIzquierdo = NodoArbol(clave, valor, padre=nodoActual)
-        else:
+        elif clave > nodoActual.clave:
             if nodoActual.tieneHijoDerecho():
                 self._agregar(clave, valor, nodoActual.hijoDerecho)
             else:
-                nodoActual.hijoDerecho = NodoArbol( clave, valor, padre=nodoActual)
+                nodoActual.hijoDerecho = NodoArbol(clave, valor, padre=nodoActual)
+        else:  # Si la clave ya existe, actualiza la carga útil
+            nodoActual.cargaUtil = valor
 
     def __setitem__(self, c, v):
         self.agregar(c, v)

@@ -35,8 +35,19 @@ def evalPostorden(arbol):
 def imprimirExpresion(arbol):
     valorCadena = ""
     if arbol:
-        valorCadena = '(' + imprimirExpresion(arbol.obtenerHijoIzquierdo())
-        valorCadena = valorCadena + str(arbol.obtenerValorRaiz()) 
-        valorCadena = valorCadena + imprimirExpresion(arbol.obtenerHijoDerecho())+')'
-    return valorCadena
+        # Si hay un hijo izquierdo, agrega paréntesis
+        if arbol.obtenerHijoIzquierdo():
+            valorCadena += "(" + imprimirExpresion(arbol.obtenerHijoIzquierdo())
+        else:
+            valorCadena += imprimirExpresion(arbol.obtenerHijoIzquierdo())
 
+        # Agrega el valor de la raíz
+        valorCadena += str(arbol.obtenerValorRaiz())
+
+        # Si hay un hijo derecho, agrega paréntesis
+        if arbol.obtenerHijoDerecho():
+            valorCadena += imprimirExpresion(arbol.obtenerHijoDerecho()) + ")"
+        else:
+            valorCadena += imprimirExpresion(arbol.obtenerHijoDerecho())
+
+    return valorCadena
