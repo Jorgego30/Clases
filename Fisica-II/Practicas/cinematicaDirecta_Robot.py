@@ -85,6 +85,7 @@ def main():
 	q.append(np.array([L[4],0,L[3]]))
 	q.append(np.array([L[5],0,0]))
 	q.append(np.array([L[6],0,L[7]]))
+	print(q)
 	
 	# Calculamos los ejes de giro y vectores posicion en la configuracion final del robot
 	qs=[]; ws=[]

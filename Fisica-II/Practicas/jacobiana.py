@@ -128,23 +128,70 @@ llave=np.array(llave)
 wx=giro[:,0]; wy=giro[:,1]; wz=giro[:,2]
 vx=giro[:,3]; vy=giro[:,4]; vz=giro[:,5]
 
-fwx=giro[:,0]; fwy=giro[:,1]; fwz=giro[:,2]
-fvx=giro[:,3]; fvy=giro[:,4]; fvz=giro[:,5]
+fwx=llave[:,0]; fwy=llave[:,1]; fwz=llave[:,2]
+fvx=llave[:,3]; fvy=llave[:,4]; fvz=llave[:,5]
 # Generamos grafica con cırculo y elipses
-
+"""
 fig,ax = plt.subplots(2,2)
-ax[0,0].plot(xx,yy)
-ax[0,1].plot(vx,vy)
-ax[1,0].plot(fx,fy)
+ax[0,0].plot(wx, wy)
+ax[0,0].plot(wx, wz)
+ax[0,0].plot(wy, wz)
 limitplot=8
 plt.ylim(top = limitplot, bottom = -limitplot)
 plt.xlim(left = limitplot, right = -limitplot)
 plt.xticks(fontsize= 15)
 plt.yticks(fontsize= 15)
 plt.tight_layout()
+"""
 
+plt.scatter(wx,wy, label='WX/WY')
+plt.scatter(wx,wz, label='WX/WZ')
+plt.scatter(wy,wz, label='WY/WZ')
+limitplot=8
+plt.ylim(top = limitplot, bottom = -limitplot)
+plt.xlim(left = limitplot, right = -limitplot)
+plt.xticks(fontsize= 10)
+plt.yticks(fontsize= 10)
+plt.tight_layout()
+plt.legend(loc='upper right', shadow=True, fontsize='x-large')
 plt.show()
-plt.save("Posicion0.jpg
+
+plt.scatter(vx,vy, label='VX/VY')
+plt.scatter(vx,vz, label='VX/VZ')
+plt.scatter(vy,vz, label='VY/VZ')
+plt.ylim(top = limitplot, bottom = -limitplot)
+plt.xlim(left = limitplot, right = -limitplot)
+plt.xticks(fontsize= 10)
+plt.yticks(fontsize= 10)
+plt.tight_layout()
+plt.legend(loc='upper right', shadow=True, fontsize='x-large')
+plt.show()
+
+plt.scatter(fwx,fwy, label='MX/MY')
+plt.scatter(fwx,fwz, label='MX/MZ')
+plt.scatter(fwy,fwz, label='MY/MZ')
+plt.ylim(top = limitplot, bottom = -limitplot)
+plt.xlim(left = limitplot, right = -limitplot)
+plt.xticks(fontsize= 10)
+plt.yticks(fontsize= 10)
+plt.tight_layout()
+plt.legend(loc='upper right', shadow=True, fontsize='x-large')
+plt.show()
+
+plt.scatter(fvx,fvy, label='FX/FY')
+plt.scatter(fvx,fvz, label='FX/FZ')
+plt.scatter(fvy,fvz, label='FY/FZ')
+
+plt.ylim(top = limitplot, bottom = -limitplot)
+plt.xlim(left = limitplot, right = -limitplot)
+plt.xticks(fontsize= 10)
+plt.yticks(fontsize= 10)
+plt.tight_layout()
+plt.legend(loc='upper right', shadow=True, fontsize='x-large')
+plt.show()
+
+
+# plt.save("Posicion0.jpg)
 
 
 
