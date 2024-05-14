@@ -1,0 +1,197 @@
+---
+title: "Replace with Main Title"
+author: "Your Name"
+date: "`r Sys.Date()`"  # Uses current date
+---
+
+
+```{r echo=FALSE, message=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+
+```{r echo=FALSE}
+# include this code chunk as-is to enable 3D graphs
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+```
+
+```{r}
+setwd("/home/jorge/Clases/Estadistica")
+```
+
+
+```{r}
+load("/home/jorge/Downloads/23-24GR evaluaciÃ³n continua global.xlsx")
+```
+
+
+```{r}
+Dataset <- readXL("/home/jorge/Downloads/23-24GR evaluaciÃ³n continua global.xlsx", rownames=FALSE, header=TRUE, na="", sheet="PUNTOS", stringsAsFactors=TRUE)
+```
+
+```{r}
+Boxplot( ~ puntosProgramaByC, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+Boxplot(puntosProgramaB~ProgramaByC, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+Boxplot( ~ puntosProgramaC, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+Boxplot( ~ puntosProgramaB, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+Boxplot( ~ puntosProgramaC, data=Dataset, id=list(method="y"))
+```
+
+
+```{r}
+Boxplot( ~ puntosProgramaB, data=Dataset, id=list(method="y"))
+```
+
+
+```{r}
+symbox(~ puntosProgramaB, data=Dataset, trans=bcPower, powers=c(-1,-0.5,0,0.5,1))
+```
+
+```{r}
+with(Dataset, lineplot(puntosProgramaB, puntosProgramaC))
+```
+
+```{r}
+Boxplot(puntosProgramaB~ProgramaByC, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+symbox(~ puntosProgramaB, data=Dataset, trans=bcPower, powers=c(-1,-0.5,0,0.5,1))
+```
+
+```{r}
+indexplot(Dataset[,c('puntosProgramaB', 'puntosProgramaC'), drop=FALSE], type='h', id.method='y', id.n=2)
+```
+
+```{r}
+scatterplotMatrix(~puntosProgramaB+puntosProgramaByC+puntosProgramaC, regLine=FALSE, smooth=FALSE, diagonal=list(method="boxplot"), data=Dataset)
+```
+
+```{r}
+Boxplot( ~ puntosProgramaB, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+Boxplot( ~ puntosProgramaC, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+Boxplot( ~ puntosProgramaB, data=Dataset, id=list(method="y"))
+```
+
+
+```{r}
+Boxplot( ~ puntosProgramaC, data=Dataset, id=list(method="y"))
+```
+
+
+```{r}
+Boxplot(puntosProgramaByC~ProgramaByC, data=Dataset, id=list(method="y"))
+```
+
+```{r}
+library(abind, pos=24)
+```
+
+
+```{r}
+library(e1071, pos=25)
+```
+
+
+```{r}
+numSummary(Dataset[,"puntosProgramaByC", drop=FALSE], groups=Dataset$ProgramaByC, statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+numSummary(Dataset[,"puntosProgramaByC", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+numSummary(Dataset[,"puntosProgramaC", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+numSummary(Dataset[,"puntosProgramaB", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+fivenum(Dataset[,"puntosProgramaByC", drop=FALSE])
+```
+
+
+```{r}
+fivenum(Dataset[,"puntosProgramaByC", drop=FALSE])
+```
+
+
+```{r}
+fivenum(Dataset[,"puntosProgramaByC", drop=FALSE])
+```
+
+
+```{r}
+fivenum(Dataset[,"puntosProgramaB", drop=FALSE])
+```
+
+
+```{r}
+Boxplot(puntosProgramaByC~ProgramaByC, data=Dataset, id=list(method="y"))
+```
+
+
+```{r}
+fivenum(Dataset[,"puntosProgramaC", drop=FALSE])
+```
+
+
+```{r}
+RegModel.1 <- lm(bateriaByC~puntosProgramaByC, data=Dataset)
+summary(RegModel.1)
+```
+
+```{r}
+load("/home/jorge/Downloads/23-24GR Estatistica - Tema 5 problema 12  RESOLUCION.pdf")
+```
+
+```{r}
+Dataset <- readXL("/home/jorge/Downloads/23-24GR evaluaciÃ³n continua global.xlsx", rownames=FALSE, header=TRUE, na="", sheet="APRENDIZAJE", stringsAsFactors=TRUE)
+```
+
+```{r}
+with(Dataset, (t.test(eficacia18, eficacia12, alternative='two.sided', conf.level=.95, paired=TRUE)))
+```
+
+```{r}
+qt(c(95), df=7, lower.tail=TRUE)
+```
+
+```{r}
+qt(c(0.95), df=7, lower.tail=TRUE)
+```
+
+
+```{r}
+local({
+  .x <- seq(-5.408, 5.408, length.out=1000)  
+  plotDistr(.x, dt(.x, df=7), cdf=FALSE, xlab="x", ylab="Density", main=paste("t Distribution:  Degrees of freedom=7"))
+})
+```
+

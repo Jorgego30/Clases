@@ -1,0 +1,139 @@
+
+> setwd("/home/jorge/Clases/Estadistica")
+
+> load("/home/jorge/Downloads/23-24GR evaluaciÃ³n continua global.xlsx")
+
+> Dataset <- readXL("/home/jorge/Downloads/23-24GR evaluaciÃ³n continua global.xlsx", rownames=FALSE, header=TRUE, na="", sheet="PUNTOS", stringsAsFactors=TRUE)
+
+> Boxplot( ~ puntosProgramaB, data=Dataset, id=list(method="y"))
+
+> Boxplot( ~ puntosProgramaC, data=Dataset, id=list(method="y"))
+
+
+> Boxplot(puntosProgramaByC~ProgramaByC, data=Dataset, id=list(method="y"))
+
+> library(abind, pos=24)
+
+> library(e1071, pos=25)
+
+> numSummary(Dataset[,"puntosProgramaByC", drop=FALSE], groups=Dataset$ProgramaByC, statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+   mean        sd IQR  0% 25%  50% 75% 100% puntosProgramaByC:n
+B 1.425 0.8945542 1.2 0.0 0.8 1.45 2.0  3.1                  12
+C 2.150 0.8053393 1.0 1.5 1.6 1.70 2.6  3.7                   8
+
+> numSummary(Dataset[,"puntosProgramaByC", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+  mean        sd  IQR 0%   25% 50%   75% 100%  n NA
+ 1.715 0.9137977 0.95  0 1.175 1.6 2.125  3.7 20  2
+
+> numSummary(Dataset[,"puntosProgramaC", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+ mean        sd IQR  0% 25% 50% 75% 100% n NA
+ 2.15 0.8053393   1 1.5 1.6 1.7 2.6  3.7 8 14
+
+> numSummary(Dataset[,"puntosProgramaB", drop=FALSE], statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+  mean        sd IQR 0% 25%  50% 75% 100%  n NA
+ 1.425 0.8945542 1.2  0 0.8 1.45   2  3.1 12 10
+
+> fivenum(Dataset[,"puntosProgramaByC", drop=FALSE])
+[1] 0.00 1.05 1.60 2.25 3.70
+
+> fivenum(Dataset[,"puntosProgramaByC", drop=FALSE])
+[1] 0.00 1.05 1.60 2.25 3.70
+
+> fivenum(Dataset[,"puntosProgramaByC", drop=FALSE])
+[1] 0.00 1.05 1.60 2.25 3.70
+
+> fivenum(Dataset[,"puntosProgramaB", drop=FALSE])
+[1] 0.00 0.80 1.45 2.00 3.10
+
+> Boxplot(puntosProgramaByC~ProgramaByC, data=Dataset, id=list(method="y"))
+
+> fivenum(Dataset[,"puntosProgramaC", drop=FALSE])
+[1] 1.5 1.6 1.7 2.7 3.7
+
+> RegModel.1 <- lm(bateriaByC~puntosProgramaByC, data=Dataset)
+
+> summary(RegModel.1)
+
+Call:
+lm(formula = bateriaByC ~ puntosProgramaByC, data = Dataset)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-25.063 -11.487   0.427   7.769  38.236 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)  
+(Intercept)         19.911      8.258   2.411   0.0268 *
+puntosProgramaByC    5.533      4.273   1.295   0.2118  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 17.02 on 18 degrees of freedom
+  (2 observations deleted due to missingness)
+Multiple R-squared:  0.08519,	Adjusted R-squared:  0.03437 
+F-statistic: 1.676 on 1 and 18 DF,  p-value: 0.2118
+
+
+> load("/home/jorge/Downloads/23-24GR Estatistica - Tema 5 problema 12  RESOLUCION.pdf")
+
+> Dataset <- readXL("/home/jorge/Downloads/23-24GR evaluaciÃ³n continua global.xlsx", rownames=FALSE, header=TRUE, na="", sheet="APRENDIZAJE", stringsAsFactors=TRUE)
+
+> with(Dataset, (t.test(eficacia18, eficacia12, alternative='two.sided', conf.level=.95, paired=TRUE)))
+
+	Paired t-test
+
+data:  eficacia18 and eficacia12
+t = 0.2866, df = 7, p-value = 0.7827
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -5.438007  6.938007
+sample estimates:
+mean difference 
+           0.75 
+
+
+> qt(c(95), df=7, lower.tail=TRUE)
+[1] NaN
+
+> qt(c(0.95), df=7, lower.tail=TRUE)
+[1] 1.894579
+
+> local({
++   .x <- seq(-5.408, 5.408, length.out=1000)  
++   plotDistr(.x, dt(.x, df=7), cdf=FALSE, xlab="x", ylab="Density", main=paste("t Distribution:  Degrees of freedom=7"))
++ })
+
+> with(Dataset, (t.test(eficacia18, eficacia12, alternative='two.sided', conf.level=.95, paired=TRUE)))
+
+	Paired t-test
+
+data:  eficacia18 and eficacia12
+t = 0.2866, df = 7, p-value = 0.7827
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -5.438007  6.938007
+sample estimates:
+mean difference 
+           0.75 
+
+
+> with(Dataset, (t.test(eficacia12, eficacia18, alternative='two.sided', conf.level=.95, paired=TRUE)))
+
+	Paired t-test
+
+data:  eficacia12 and eficacia18
+t = -0.2866, df = 7, p-value = 0.7827
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -6.938007  5.438007
+sample estimates:
+mean difference 
+          -0.75 
+
+
+> pbinom(c(25), size=30, prob=0.9, lower.tail=TRUE)
+[1] 0.1754949
+
+> pbinom(c(25), size=30, prob=0.9, lower.tail=FALSE)
+[1] 0.8245051
+

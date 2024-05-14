@@ -1,0 +1,5 @@
+El algoritmo de Prim utiliza una estructura de datos de cola de prioridad, comúnmente implementada con un montículo binario (heap), para seleccionar y agregar aristas al árbol de expansión mínima. La complejidad temporal del algoritmo de Prim depende de la implementación de esta cola de prioridad.
+
+Si implementamos la cola de prioridad con un montículo binario, la complejidad temporal del algoritmo de Prim usando este enfoque es aproximadamente O(E * log(V)), donde V es el número de vértices y E es el número de aristas en el grafo. Esto se debe a que el algoritmo puede realizar hasta E operaciones de extracción de mínimos (extracciones de la cola de prioridad), y cada una de estas operaciones tiene una complejidad de O(log(V)) cuando se utiliza un montículo binario.
+
+En el peor caso, cuando el grafo es denso (es decir, E es proporcional a V^2), la complejidad del algoritmo de Prim se puede aproximar a O(V^2 * log(V)), y cuando el grafo es disperso (E es proporcional a V), la complejidad se puede aproximar a O(E * log(V)). Sin embargo, la implementación del algoritmo y la estructura de datos utilizada pueden influir en el rendimiento real.

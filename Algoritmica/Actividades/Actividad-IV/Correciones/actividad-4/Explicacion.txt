@@ -1,0 +1,89 @@
+Programa: Ejercicio1.py
+Explicacion:Se ha creado la funcion normaliza que permite introducir expresiones matematicas 
+que no tengan espacios entre caracteres.
+
+Programa: Ejercicio2.py
+Explicacion:Se crean las funciones and , not y or que definen su comportamiento y las evaluamos con la funcion evaluar.
+
+Programa: Ejercicio3.py
+Clase: bst.py y el programa Inoder.py
+Explicacion:Dentro de la clase BST se ha modificado el metodo encontrarSucesor, para que en vez de llamarse a sí mismo llame
+a la funcion Inoder, para que no sea recusivo y sea un recorrido inorden, se prueba la clase usando el metodo delete,
+que es el que llama a la funcion encontrarSucesor
+
+Programa: Ejercicio4.py
+Clase: Class_ArbolesBinariosBusqueda
+Explicacion:Se ha modificado la clase ArbolesBinariosBusqueda, realizamos la comprobacion de que cuando metemos dos
+claves identicas,modifique la carga util en vez de crear un nodo nuevo, e imprimimos el nodo.
+
+Programa: Ejercicio5.py
+Clase: BinaryTree
+Explicacion:Se ha modificado la funcion imprimirExpresion, de la clase BinaryTree, ya no incluye los parentesis extra
+aunque se imprime un None innecesario que no entendemos por qué se imprime, pero la funcion funciona correctamente.
+
+Programa: Ejercicio6
+Clase: Class_binheap.hpp
+Explicacion:Hemos incluido en la clase Class_binheap, la funcion heapsort, para usarla en el metodo construirMonticulo,
+y ordenar la lista en =(nlogn) nos hemos ayudado de la página GeekforGeeks para la funcion de heapsort.
+
+Programa: Ejercicio7
+Clase: Class_binheap_max.hpp
+Explicacion:Se ha modificado la clase de binheap normal para que funcione como Class_binheap_max,
+cambiando los signos de comparacion.
+
+Programa: Ejercicio8.py
+Clase: Class_colaPrioridad
+Explicacion:Hemos creado la clase ColaPrioridad guiandonos con la clase MonticuloBinario, añadiendo el metodo avanzar
+y agregar, e implementando el constructor.
+
+Programa: Ejercicio9
+Class : Class_AVL
+Explicacion:Hemos implementado la eliminación del nodo en AVL , reequilibrando el arbol con el metodo ya escrito en la clase.
+
+Programa: Ejercicio9.py
+Clase: ArbolBinarioAVL
+Explicacion:Hemos creado un arbol con la primera secuencia, y con la ayuda de graphviz hemos creado todos los nodos
+y al final hemos representado el arbol a partir de los nodos. Se muestra el arbol final despues de realizar todas
+las rotaciones.Las rotaciones necesarias para el arbol 1 se hacen en los números: 30,25,3,35,6,2
+Las rotaciones necesarias para el arbol 2 se hacen en los números: 71,39,17,3,20,25,10
+En el programa graphviz no funciona correctamente porque las uniones te las pinta del revés,
+no cambia la rama izquierda por la derecha.Por lo tanto, adjuntamos fotos de como quedarian los arboles y los procesos.
+
+Programa: Ejercicio11.cpp
+Explicacion:Importamos Class_grafos.hpp y hacemos un grafo, primero definimos los vertices y
+despues las aristas con su respectivo peso.
+
+Programa: Ejercicio12.cpp
+Explicacion:Creamos el mismo grafo que en el Ejercicio11 y realizamos una busqueda en anchura en él.
+
+Programa: Ejercicio14.py
+Clases: Class_Grafos; Class_Vertices; priorityQueue.
+Explicacion:Creamos el grafo segun la tabla del Ejercicio11. Despues usamos el algoritmo de dijstra para calcular
+las minimas distancias a cada nodo.Como el algoritmo de dijsktra modifica el grafo si lo volvemos
+a ejecutar con el mismo grafo dara valores incorrectos.
+
+Programa: Ejercicio15.py
+Clase: Class_grafos, Class_Vertices, priorityQueue
+Explicacion:Se ha creado el grafo dado en el enunciado y se ha implementado el algoritmo de Dijkstra para calcular la 
+distancia mínima. Imprimiendo todas las distancias a todos los nodos.
+
+Programa: Ejercicio16.py
+Explicacion:Con el Arbol del Ejercicio15 hemos usado el algoritmo de Prim para encontrar el arbol de expansion minima.
+
+Programa: Ejercicio17
+Explicacion:Es un algoritmo n^2 debido a que hay un bucle dentro de otro bucle, el while es como un for y
+hay otro for dentro del while.
+
+Programa: Ejercicio18.py
+Explicacion:Usando el algoritmo de Prim dado en los apuntes del tema, hemos descrito paso a paso
+el arbol de exapnsion minima dado el grafo de la figura.
+
+Programa: Ejercicio19.py
+Explicacion:Para el grafo creado busca los vertices sin predecesor en una lista que contiene a todos los vertices,
+los elimina y los pasa a otra lista, si el predecesor de otro vertice está en la segunda lista ee vertice 
+ya no tiene predecesor.
+
+Programa: Ejercicio20.py
+Clases: Class_Grafos y Class_verties
+Explicacion:Se usa la ordenacion topologica describiendo paso a paso el proceso. Con la red dada en el enunciado.
+

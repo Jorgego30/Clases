@@ -1,0 +1,326 @@
+clases3:
+Este código implementa dos funciones para trabajar con árboles binarios. La clase `Nodo` define los nodos del árbol, donde cada 
+nodo tiene un valor y referencias a sus nodos hijo izquierdo y derecho. La función `encontrarSucesor` toma un nodo como entrada 
+y devuelve el nodo sucesor más a la izquierda en el árbol. La función `recorridoInordenNoRecursivo` realiza un recorrido inorden
+ del árbol sin utilizar recursión. Utiliza una pila para simular la recursión, comenzando desde la raíz y avanzando hacia la 
+ izquierda mientras se apilan los nodos. Cuando no hay más nodos izquierdos, se saca un nodo de la pila, se imprime su valor 
+ y se mueve al nodo derecho si existe, repitiendo este proceso hasta que la pila esté vacía y no haya más nodos por visitar.
+
+Act3:
+El código comienza importando las clases necesarias de un archivo llamado "Clases3". Luego, crea un árbol binario de búsqueda 
+instanciando nodos y asignando valores a sus nodos hijo izquierdo y derecho. A continuación, llama a la función 
+`recorridoInordenNoRecursivo`, que se espera que implemente un recorrido inorden no recursivo para el árbol binario de búsqueda. 
+Este recorrido se realiza típicamente utilizando un enfoque basado en pilas para simular la recursión. En resumen, el código crea 
+un árbol binario de búsqueda y realiza un recorrido inorden no recursivo sobre él.
+
+Clases4:
+El código implementa un árbol binario de búsqueda en Python utilizando una clase `BinarySearchTree`. Cada nodo del árbol se 
+representa mediante la clase `Node`, que tiene una clave (`key`), un valor asociado (`value`), y referencias a sus nodos hijos 
+izquierdo (`left`) y derecho (`right`). La clase `BinarySearchTree` tiene un método `insert` para insertar nodos en el árbol, 
+donde se utiliza una función auxiliar `_insert_recursive` para insertar de forma recursiva. También incluye un método `search` 
+para buscar un nodo dado su clave. La función auxiliar `_search_recursive` realiza la búsqueda de manera recursiva. Además, hay 
+un método `inorder_traversal` para realizar un recorrido en orden del árbol, que utiliza la función auxiliar `_inorder_traversal_recursive` 
+para imprimir los nodos en orden ascendente de claves. Este diseño modular permite una implementación limpia y eficiente de un 
+árbol binario de búsqueda en Python.
+
+Act4:
+El código utiliza una clase `BinarySearchTree` para implementar un árbol binario de búsqueda en Python. Se inicializa un árbol 
+binario de búsqueda (`bst`) y se insertan varios elementos usando el método `insert`, donde se especifica una clave y un valor 
+asociado. Luego, se imprime el árbol en orden utilizando el método `inorder_traversal`, lo que imprime los nodos en orden 
+ascendente de claves. Después, se intenta insertar una clave existente con un nuevo valor, lo que debería actualizar el valor 
+asociado a esa clave. Finalmente, se imprime el árbol nuevamente para mostrar la actualización. Este código aprovecha la 
+estructura de los árboles binarios de búsqueda para realizar inserciones y actualizaciones eficientes.
+
+Clases5:
+Este código implementa una clase `Node` para representar nodos en un árbol y una función `imprimirExpresion` para imprimir 
+expresiones matemáticas en notación infija. Cada nodo tiene un valor y referencias a los hijos izquierdo y derecho. La función 
+`imprimirExpresion` recibe la raíz del árbol y realiza un recorrido recursivo en el árbol. Si el nodo actual es un operador 
+(`+`, `-`, `*`, `/`), se imprimen paréntesis alrededor de los hijos y el operador. Si el nodo es un número, simplemente se 
+imprime el valor del nodo. Esto permite imprimir expresiones matemáticas de manera legible, manteniendo la jerarquía de 
+operaciones.
+
+Act5:
+Este código crea y representa árboles de expresiones matemáticas utilizando una clase `Node` para representar cada nodo del 
+árbol y una función `imprimirExpresion` para imprimir la expresión en notación infija. Primero, se crea un árbol de expresión 
+simple con dos nodos (un operador de suma y dos operandos) y se imprime la expresión. Luego, se crea un árbol de expresión más 
+complejo con cuatro nodos (un operador de suma, un operador de multiplicación, un operador de división y cuatro operandos) y se 
+imprime esta expresión. La impresión de las expresiones se realiza utilizando la función `imprimirExpresion`, que recorre 
+recursivamente el árbol de expresión para imprimir cada nodo en notación infija.
+
+Clases6:
+Este código define una clase llamada `Heap` en C++ para implementar un montículo (heap). El montículo se implementa utilizando un 
+vector de enteros para almacenar los elementos. La clase `Heap` tiene un método privado llamado `descender` que se utiliza para
+ mantener la propiedad del montículo durante las operaciones de inserción y eliminación. El método `construirMonticulo` construye 
+ un montículo máximo a partir de una lista dada, mientras que el método `heapSort` ordena una lista utilizando el algoritmo de 
+ ordenación heapsort. Durante la construcción del montículo, se recorre la mitad de los elementos del vector y se llama al método
+  `descender` para asegurar que el montículo se mantenga correctamente. Para la ordenación heapsort, se construye inicialmente un 
+  montículo a partir de la lista dada y luego se extraen repetidamente los elementos máximos del montículo y se colocan al final
+   del vector, manteniendo así la propiedad de montículo en cada paso.
+
+Act6:
+Este código implementa el algoritmo de ordenamiento heapsort en C++. La clase `Heap` contiene funciones para construir un 
+montículo (heap) a partir de una lista dada y para ordenar esa lista utilizando heapsort. En el método `descend`, se realiza el 
+ajuste descendente del heap para mantener la propiedad de heap máximo en el índice dado. El método `buildHeap` construye el 
+montículo llamando repetidamente al método `descend` para todos los nodos no hoja del heap. El método `heapSort` utiliza 
+`buildHeap` para construir el montículo inicial y luego realiza la ordenación de la lista intercambiando el primer elemento 
+(el máximo del heap) con el último y llamando a `descend` para restaurar la propiedad del heap en el subárbol restante. 
+Finalmente, en la función `main`, se crea una instancia de `Heap`, se inicializa una lista de números, se ordena utilizando 
+heapsort y se imprime la lista original y la lista ordenada.
+
+Clases7:
+Este código implementa un montículo binario de máximo utilizando la clase MonticuloBinario.
+La función heapify se encarga de mantener la propiedad del montículo, verificando y ajustando los elementos en cada iteración.
+La función swap se utiliza para intercambiar dos elementos en el montículo.
+
+La función insert agrega un nuevo elemento al montículo y reajusta la estructura para mantener la propiedad del montículo.
+La función extractMax extrae y devuelve el elemento máximo del montículo, reajustando la estructura después de la extracción.
+Este código se encuentra en el archivo "MonticuloBinario.h" y define las implementaciones de los métodos de la clase MonticuloBinario.
+
+Clase7;
+Este código define una clase MonticuloBinario en el archivo de encabezado "MonticuloBinario.h".
+La clase tiene un vector privado heap para almacenar los elementos del montículo.
+
+Contiene métodos privados heapify y swap para mantener la propiedad del montículo y para intercambiar elementos, respectivamente.
+Los métodos públicos insert y extractMax permiten agregar elementos al montículo y extraer el máximo, respectivamente.
+Este archivo de encabezado proporciona la interfaz para trabajar con un montículo binario de máximo en C++.
+
+Act7:
+En este código, primero se define una clase llamada MonticuloBinario en el archivo "MonticuloBinario.h" para representar un montículo binario 
+de máximo.Luego, en el archivo "main.cpp", se incluye la definición de esta clase y se crea una instancia de MonticuloBinario.
+A continuación, se insertan varios elementos en el montículo usando el método insert.
+Finalmente, se extrae y muestra el elemento máximo utilizando el método extractMax.
+
+Clases8:
+Para implementar la clase ColaPrioridad utilizando la clase MonticuloBinario, se define una nueva clase ColaPrioridad que utiliza la implementación de MonticuloBinario para proporcionar una cola de prioridad.
+La clase ColaPrioridad tiene un constructor que inicializa la cola de prioridad y dos métodos: agregar para agregar elementos a la cola de 
+prioridad y avanzar para extraer y devolver el elemento con la mayor prioridad.
+
+La clase MonticuloBinario proporciona las operaciones necesarias para mantener el montículo binario como un montículo máximo, incluyendo la 
+inserción de elementos y la extracción del máximo. Al utilizar la clase MonticuloBinario, la clase ColaPrioridad aprovecha su implementación para lograr la funcionalidad deseada.
+
+Clase8;
+Este código implementa una nueva clase llamada PriorityQueue, que utiliza la clase BinaryHeap (Montículo Binario) para crear una cola de prioridad.
+La clase PriorityQueue tiene un constructor que inicializa la cola de prioridad con un montículo binario.
+
+El método agregar permite agregar elementos a la cola de prioridad utilizando el método insert del montículo binario.
+El método avanzar extrae y devuelve el elemento con mayor prioridad utilizando el método extract_max del montículo binario.
+
+Act8:
+Este código crea una nueva clase llamada ColaPrioridad que utiliza la clase MonticuloBinario para implementar una cola de prioridad.
+La clase ColaPrioridad tiene un constructor para inicializar la cola de prioridad y métodos agregar y avanzar.
+El método agregar permite agregar elementos a la cola de prioridad, mientras que el método avanzar extrae y devuelve el elemento con mayor prioridad.
+El programa de prueba crea una instancia de ColaPrioridad, agrega algunos elementos y luego extrae y muestra los elementos de mayor prioridad de la cola uno por uno.
+
+Act11:
+El código implementa una cola de prioridad en C++ utilizando la biblioteca estándar `<queue>` para una cola y `<utility>` 
+para pares. La clase `PriorityQueue` utiliza un `priority_queue` que almacena pares de `string` e `int`, donde el `int` 
+representa la prioridad del elemento. El método `agregar` inserta un nuevo elemento en la cola de prioridad, mientras que 
+`obtener_minimo` extrae y devuelve el elemento con la mínima prioridad. El método `esta_vacia` verifica si la cola de prioridad 
+está vacía. En el programa principal, se crea una cola de prioridad, se agregan elementos con sus respectivas prioridades y luego 
+se extraen y muestran los elementos en orden de prioridad. Después de agregar más elementos, se extraen nuevamente para verificar 
+el orden correcto de extracción según la prioridad. Este código demuestra el uso de una cola de prioridad para manejar elementos 
+con diferentes prioridades de manera eficiente en C++.
+
+Act12;
+Este código implementa una clase Graph para representar un grafo no dirigido utilizando un diccionario de listas por defecto de Python. La clase 
+proporciona un método add_edge para agregar aristas al grafo. Luego, se implementa un método bfs para realizar una búsqueda en anchura desde un 
+nodo inicial dado. Dentro del método bfs, se utiliza un conjunto visited para rastrear los nodos visitados y una cola queue para almacenar los 
+nodos pendientes de explorar. El algoritmo continúa hasta que la cola esté vacía, explorando los nodos vecinos en orden determinístico utilizando 
+una lista ordenada de tuplas de vecinos y pesos. Finalmente, se construye el grafo utilizando una lista de aristas predefinida y se realiza una 
+búsqueda en anchura desde el nodo 1, mostrando el recorrido resultante.
+
+Pregunta13;
+¿Cuál es el tiempo de ejecución O-grande de la función construirGrafo? 
+El tiempo de ejecución de la función construirGrafo depende principalmente del número de aristas que se están agregando al grafo. En el peor de 
+los casos, si todas las aristas se agregan a la lista de adyacencia del grafo, el tiempo de ejecución sería proporcional al número total de aristas. 
+Entonces, el tiempo de ejecución en el peor caso sería 𝑂(E), donde 𝐸  representa el número de aristas en el grafo.
+
+Act14;
+Este código implementa el algoritmo de Dijkstra para encontrar las distancias mínimas desde un nodo de inicio dado a todos los demás nodos en un 
+grafo dirigido y valorado. Comienza definiendo tres clases: MonticuloBinario, ColaPrioridad, y Grafo. La clase MonticuloBinario se utiliza para 
+mantener una estructura de montículo binario para gestionar las prioridades durante el proceso de Dijkstra. La clase ColaPrioridad utiliza el 
+montículo binario para implementar una cola de prioridad. La clase Grafo se utiliza para representar el grafo utilizando un diccionario de 
+adyacencia.
+
+El algoritmo de Dijkstra se implementa en la función dijkstra. Utiliza una cola de prioridad para explorar los nodos en orden de distancia 
+creciente desde el nodo de inicio. En cada iteración, selecciona el nodo con la menor distancia no visitado, lo marca como visitado y actualiza 
+las distancias a sus vecinos si encuentra un camino más corto. Luego, se crea un grafo utilizando una lista de aristas predefinida y se aplica el 
+algoritmo de Dijkstra desde el nodo 1, mostrando las distancias mínimas desde ese nodo a todos los demás nodos del grafo.
+
+Act15;
+Este código implementa el algoritmo de Dijkstra para encontrar el camino más corto desde un nodo de inicio hasta todos los demás nodos en un grafo 
+ponderado dirigido. Comenzando con distancias infinitas para todos los nodos excepto el nodo de inicio, el algoritmo actualiza las distancias a 
+medida que explora el grafo, utilizando una cola de prioridad para seleccionar el próximo nodo a visitar. Cada paso del algoritmo se imprime en 
+la consola, mostrando el nodo actual en proceso y cualquier camino más corto encontrado. Al final, se devuelven las distancias finales desde el 
+nodo de inicio hasta todos los demás nodos en el grafo.
+
+Act16;
+Este código define una clase Grafo que representa un grafo no dirigido con ponderaciones en las aristas. Utiliza un diccionario de listas por 
+defecto para almacenar las aristas del grafo. La clase proporciona un método agregar_arista para agregar una arista al grafo, especificando los 
+nodos conectados y el peso de la arista. También proporciona un método prim que implementa el algoritmo de Prim para encontrar el árbol de 
+expansión de ponderación mínima comenzando desde un nodo de inicio dado.
+
+El algoritmo de Prim comienza desde un nodo de inicio y selecciona repetidamente la arista de menor peso que conecta un nodo visitado con un 
+nodo no visitado, agregándola al árbol de expansión y marcando el nodo conectado como visitado. El proceso continúa hasta que todos los nodos 
+estén visitados.
+
+Al final, el método prim devuelve una lista de aristas que representan el árbol de expansión de ponderación mínima encontrado. Este algoritmo 
+garantiza que el árbol de expansión de ponderación mínima contiene todas las aristas necesarias para conectar todos los nodos del grafo con el 
+menor peso total posible.
+
+Pregunta17;
+¿Cuál es el tiempo de ejecución O-grande para el algoritmo de Prim del árbol de expansión mínimo?
+El tiempo de ejecución del algoritmo de Prim para encontrar el árbol de expansión mínimo depende de la implementación específica y de la 
+estructura de datos utilizada para representar el grafo y mantener la cola de prioridad de las aristas. Sin embargo, en general, el tiempo de 
+ejecución se puede analizar de la siguiente manera:
+Complejidad temporal del bucle principal: El bucle principal del algoritmo de Prim se ejecuta una vez por cada vértice en el grafo. En cada 
+iteración, se selecciona la arista de menor peso que conecta un vértice en el árbol con un vértice fuera del árbol. Por lo tanto, si el grafo tiene 
+V vértices, este bucle principal se ejecutará 𝑉 veces. Búsqueda de la arista de menor peso: En cada iteración del bucle principal, se realiza una 
+búsqueda para encontrar la arista de menor peso que conecta un vértice del árbol con un vértice fuera del árbol. Si se utiliza una estructura de 
+datos eficiente para mantener la cola de prioridad de las aristas, como un montículo binario, esta operación puede realizarse en tiempo 
+𝑂(log⁡𝐸), donde 𝐸 es el número de aristas en el grafo. Dado que 𝐸 puede ser tan grande como 𝑉2 en el peor caso para un grafo completo, la 
+complejidad temporal del algoritmo de Prim se puede expresar como O(VlogE) o O(VlogV2), que se simplifica a O(VlogV). En la práctica, el término 
+logV domina y el tiempo de ejecución del algoritmo de Prim se considera O(VlogV).
+Por lo tanto, la complejidad temporal del algoritmo de Prim para encontrar el árbol de expansión mínimo es 
+𝑂(𝑉log⁡𝑉), donde 𝑉 es el número de vértices en el grafo.
+
+Act18;
+Este código implementa el algoritmo de Prim para encontrar el árbol de expansión de coste mínimo en un grafo ponderado no dirigido. Comenzando 
+desde un nodo de inicio dado, el algoritmo selecciona iterativamente la arista más corta que conecta un nodo visitado con uno no visitado, 
+expandiendo así el árbol de expansión mínimo. Cada paso del algoritmo se imprime en la consola, mostrando la arista seleccionada y cualquier 
+nueva arista agregada a la cola de prioridad. Al final, se imprime el árbol de expansión de coste mínimo encontrado.
+
+Act19;
+Este código presenta una implementación del método transponer para la clase Grafo, que se utiliza para obtener el grafo transpuesto. El grafo 
+transpuesto de un grafo dirigido es otro grafo en el que todas las direcciones de las aristas se invierten.
+El método transponer se ejecuta sobre un objeto de la clase Grafo, invierte la dirección de cada arista en el grafo y devuelve el grafo transpuesto.
+
+El código comienza importando la clase Grafo del archivo Clases19.py. Luego, crea un grafo de ejemplo utilizando el método agregar_arista 
+para agregar varias aristas. A continuación, llama al método transponer para obtener el grafo transpuesto y finalmente muestra tanto el grafo 
+original como el grafo transpuesto.
+
+El grafo original se imprime mostrando todas las aristas tal como se agregaron al grafo, mientras que el grafo transpuesto se imprime mostrando 
+las aristas invertidas, es decir, desde los nodos de destino hacia los nodos de origen en lugar de al revés. Esto proporciona una representación 
+clara de la inversión de direcciones de las aristas en el grafo transpuesto.
+
+Clases19;
+Este código define una clase Grafo que representa un grafo dirigido utilizando un diccionario para almacenar las listas de adyacencia de cada 
+vértice. La clase proporciona un método agregar_arista para agregar aristas al grafo, especificando los nodos de origen y destino de la arista.
+
+El método transponer se encarga de crear y devolver el grafo transpuesto. El grafo transpuesto de un grafo dirigido es otro grafo en el que 
+todas las aristas tienen sus direcciones invertidas. Esto significa que si hay una arista dirigida de A a B en el grafo original, habrá una 
+arista dirigida de B a A en el grafo transpuesto.
+
+El método transponer itera sobre todos los vértices del grafo original y, para cada vértice, itera sobre todas las aristas que salen de ese 
+vértice en el grafo original. Luego, agrega aristas al grafo transpuesto invirtiendo la dirección de las aristas, es decir, cambiando el orden 
+de los vértices de origen y destino.
+
+Act20;
+Este código implementa el algoritmo de Floyd-Warshall para encontrar las distancias mínimas entre todos los pares de vértices en un grafo ponderado 
+con pesos positivos o negativos.
+Primero, se define el valor infinito INF y la función floyd_warshall, que toma como entrada un grafo representado como una lista de adyacencia y 
+devuelve una matriz de distancias mínimas entre todos los pares de vértices.
+
+La función obtener_grafo solicita al usuario ingresar el número de vértices en el grafo y luego solicita las aristas del grafo en el formato 
+'origen destino peso'. Estas aristas se almacenan en la lista de adyacencia del grafo.
+En la función main, se ejecuta un bucle donde se obtiene un grafo del usuario, se aplica el algoritmo de Floyd-Warshall al grafo y se muestran 
+las distancias mínimas entre todos los pares de vértices. El programa ofrece al usuario la opción de ingresar otro grafo o finalizar la ejecución.
+
+Este código proporciona una manera interactiva de calcular las distancias mínimas entre todos los pares de vértices en un grafo, permitiendo al 
+usuario ingresar los datos del grafo en tiempo de ejecución.
+El código proporciona una implementación limpia y eficiente del método transponer que permite obtener el grafo transpuesto de manera sencilla y 
+directa a partir de un grafo dirigido dado.
+
+
+Clasesp1:
+El código define dos clases en Python: `Nodo` y `ArbolBinario`. La clase `Nodo` representa un nodo en un árbol binario, con un 
+valor dado y referencias a sus nodos hijos izquierdo y derecho. La clase `ArbolBinario` representa el árbol binario en sí, con un 
+constructor que inicializa la raíz como `None` y métodos para operar en el árbol. Estos métodos incluyen `numNodos`, que devuelve 
+la cantidad de nodos utilizando un enfoque recursivo, `_numHojasRecursivo`, que devuelve el número de hojas mediante un enfoque 
+recursivo, `profundidad`, que calcula la longitud del camino más largo desde la raíz hasta una hoja, y `espejo`, que devuelve un 
+nuevo árbol que es el espejo del árbol actual, intercambiando los nodos hijos izquierdos y derechos de cada nodo, también 
+utilizando un enfoque recursivo. En resumen, el código proporciona una estructura básica de árbol binario y operaciones para 
+manipularlo, como contar nodos, calcular la profundidad y crear el árbol espejo.
+
+p1:
+El código importa las clases `ArbolBinario` y `Nodo` desde un módulo llamado `Clasesp1`. Luego, crea un objeto `ArbolBinario` 
+llamado `arbol`. Se asignan nodos a la raíz y a sus hijos izquierdo y derecho. Posteriormente, se verifican algunas operaciones 
+del árbol, como la cantidad de nodos, el número de hojas y la profundidad, utilizando los métodos proporcionados por la clase 
+`ArbolBinario`. Después, se crea un árbol espejo llamando al método `espejo()` del árbol original y se imprime tanto el árbol 
+original como su espejo para verificar la operación de espejado. Este código muestra cómo utilizar las clases `ArbolBinario` y 
+`Nodo` para trabajar con árboles binarios y realizar operaciones como calcular la profundidad y crear el árbol espejo.
+
+Clasesp3:
+El código importa la clase `ArbolBinarioBusqueda` desde un módulo externo y utiliza esta clase para crear un árbol binario de 
+búsqueda (ABB) a partir de una lista dada. La implementación de la clase `ArbolBinarioBusqueda` incluye métodos para insertar 
+elementos manteniendo la propiedad de árbol de búsqueda binaria, así como para realizar recorridos en el árbol (preorden, inorden,
+ postorden y por anchura) y para calcular la cantidad de nodos, el número de hojas y la profundidad del árbol de manera recursiva.
+  Estas operaciones permiten manipular eficientemente el árbol binario de búsqueda y obtener información relevante sobre su 
+  estructura.
+
+p3:
+El código importa la clase `ArbolBinarioBusqueda` desde un módulo llamado `Clasesp3` y utiliza esta clase para crear un árbol 
+binario de búsqueda (ABB) a partir de una lista dada. Luego, recorre la lista e inserta cada elemento en el árbol mediante el 
+método `insertar`. Posteriormente, se imprimen los recorridos preorden, inorden, postorden y por anchura del árbol, utilizando 
+los métodos correspondientes de la clase `ArbolBinarioBusqueda`. Finalmente, se verifican los algoritmos para determinar la 
+cantidad de nodos, el número de hojas y la profundidad del árbol, utilizando los métodos `cantidad_nodos`, `cantidad_hojas` y 
+`profundidad` proporcionados por la clase `ArbolBinarioBusqueda`. Este código muestra cómo crear y operar con un árbol binario
+ de búsqueda utilizando la implementación proporcionada en el módulo `Clasesp3`.
+
+Clasesp5_2:
+El código implementa una cola de prioridad utilizando un montículo binario como base. La clase `PriorityQueue` tiene un constructor
+ que inicializa un montículo binario vacío a través de la importación de la clase `BinaryHeap` desde el módulo `Clasesp5`. La 
+ cola de prioridad permite agregar elementos con una clave y una prioridad utilizando el método `agregar`, que inserta una tupla 
+ de clave y prioridad en el montículo. El método `obtener_minimo` extrae y devuelve el elemento con la máxima prioridad del 
+ montículo, ya que el montículo utilizado es un montículo máximo. El método `esta_vacia` verifica si la cola de prioridad está 
+ vacía comprobando si el montículo interno está vacío. Esta implementación proporciona una estructura eficiente para mantener 
+ elementos ordenados por prioridad y realizar operaciones de inserción y extracción en tiempo logarítmico en función del tamaño 
+ de la cola de prioridad.
+
+Clasesp5:
+El código implementa una estructura de datos de montículo binario (Binary Heap) en Python. La clase `BinaryHeap` tiene un 
+constructor que inicializa una lista vacía para almacenar los elementos del montículo. Además, implementa métodos para insertar 
+un nuevo elemento (`insert`) y extraer el máximo elemento (`extract_max`). Para mantener la propiedad de montículo, se utilizan 
+métodos privados `_percolate_up` y `_percolate_down` que realizan el ajuste ascendente y descendente, respectivamente, después deç
+ una inserción o extracción. El ajuste ascendente (`_percolate_up`) compara el elemento insertado con su padre y lo intercambia 
+ si es mayor, mientras que el ajuste descendente (`_percolate_down`) compara el elemento en la posición raíz con sus hijos y lo 
+ intercambia con el mayor hijo si es necesario. Esto garantiza que el elemento máximo esté siempre en la posición raíz del 
+ montículo, lo que permite realizar operaciones de inserción y extracción eficientes en tiempo logarítmico en función del 
+ tamaño del montículo.
+
+
+p5:
+
+El código importa la clase `PriorityQueue` desde el módulo `Clasesp5_2` para crear una cola de prioridad. Luego, se agregan 
+varias tuplas `(clave, prioridad)` a la cola utilizando el método `agregar`, donde cada tupla representa un elemento con una 
+clave y una prioridad. Se extraen elementos de la cola de prioridad utilizando el método `obtener_minimo`, que devuelve el 
+elemento con la máxima prioridad, asegurando que se extraigan los elementos en orden de prioridad. Los elementos extraídos se 
+imprimen para verificar que están en el orden correcto de acuerdo con sus prioridades. Después de agregar más elementos a la 
+cola y volver a extraerlos, se verifica nuevamente el orden de los elementos para asegurarse de que se mantenga la propiedad de 
+la cola de prioridad, donde los elementos se extraen en orden ascendente de prioridad. Este código muestra cómo usar la clase 
+`PriorityQueue` para crear una cola de prioridad y realizar operaciones de inserción y extracción de elementos en función de la 
+prioridad.
+
+P2;
+Este programa en C++ implementa cuatro tipos de recorridos en un árbol binario: preorden, inorden, postorden y en anchura.
+La estructura del árbol se define mediante la estructura TreeNode, que contiene un valor entero y punteros a los nodos hijo izquierdo y derecho.
+
+Las funciones preOrder, inOrder, postOrder y breadthFirst realizan los respectivos recorridos en el árbol.
+En la función main, se construye un árbol con nodos y se realizan los cuatro tipos de recorridos llamando a las funciones correspondientes. 
+Los resultados se imprimen en la consola.
+
+P4;
+Este programa en C++ implementa cuatro tipos de recorridos en un árbol binario: preorden, inorden, postorden y en anchura.
+La estructura del árbol se define mediante la estructura TreeNode, que contiene un valor entero y punteros a los nodos hijo izquierdo y derecho.
+
+Las funciones preOrder, inOrder, postOrder y breadthFirst realizan los respectivos recorridos en el árbol.
+En la función main, se construye un árbol con nodos y se realizan los cuatro tipos de recorridos llamando a las funciones correspondientes. 
+Los resultados se imprimen en la consola.
+
+
+
+
+
+
+
+

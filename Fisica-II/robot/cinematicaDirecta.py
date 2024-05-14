@@ -57,16 +57,20 @@ def main():
 	ids, q, w = leer()
 	numberOfIds = len(ids)
 
-	print(q)
+	print("Vectores posicion: ",q)
+	print("Direcciones de giro: ",w)
+	print()
 
-	#for i in range (0,6,1): t.append(np.deg2rad(float(joints[i])))
+	#for i in range (0, numberOfIds, 1): t.append(np.deg2rad(float(joints[i])))
 	for i in range (0, numberOfIds, 1): t.append((float(joints[i])))
-
+	print("Angulos: ",t)
 	print("Coordenadas en radianes", np.round(t,5))
+	print()
 
 	# Definimos los eslabones
 	# scalefactor=0.001 # por si quiero los resultados en otras unidades
-	L=np.array([0.5, 0.5, 1, 0.5, 1, 0.5, 0.7])
+	scalefactor = 0.001
+	L=np.array([50, 50, 100, 50, 100, 50, 70]) * scalefactor
 	
 	# Calculamos los ejes de giro y vectores posicion en la configuracion final del robot
 	qs=[]; ws=[]
@@ -77,6 +81,10 @@ def main():
 		ws.append(np.array(w[i]))
 		qs.append(np.array(q[i])+qs[i-1])
 	
+	print("Ejes de giro: ",ws)
+	print("Vectores posicion: ",qs)	
+	print()
+
 	# Calculamos las velocidades lineales para construir los ejes helicoidales
 	vs=[]; Si=[]
 	
@@ -84,11 +92,17 @@ def main():
 		vs.append(np.cross(qs[i],ws[i]))
 		Si.append(np.r_[ws[i],vs[i]])
 
-	M=np.array([[1,0,0,L[6]+L[5]+L[4]],[0,1,0,0],[0,0,1,L[0]+L[1]+L[2]+L[3]],[0,0,0,1]])
-	print (M)
+	print("Velocidad lineal: ",vs)
+	print("Velocidad angular: ",Si)
+	print()
+
+	# Matriz homogenea
+	M=np.array([[1,0,0,0],[0,1,0,L[2]+L[3]+L[4]+L[5]+L[6]],[0,0,1,L[0]+L[1]],[0,0,0,1]])
+	print ("Matriz homogenea:\n", M)
+
 	T=np.eye(4)
 	
-	for i in range(0,6,1):
+	for i in range(0,numberOfIds,1):
 		T=np.dot(T,MatrixExp6(VecTose3(Si[i]*t[i])))
 	
 	T=np.dot(T,M)

@@ -1,0 +1,47 @@
+Ejercicio 3:
+    - Usando la clase nodos y la clase arboles binarios de busqueda, modificando esta ultima, se escribe un inorden no recursivo
+
+Ejercicio 4:
+    - Se modifica la clase arbol binario de busqueda para que el metodo agregar puede manejar bien claves duplicadas
+
+Ejercicio 5:
+    - Usando la clase arboles, la clase estructuras lineales y el archivo recorridos se arregla el metodo imprimirExpresion para que no se incluyan los parentesis extra alrededor de los numeros
+
+Ejercicio 6:
+    - Se utiliza el algoritmo de heapsort para poder ordenar una lista (creada usando la clase monticulo) con una complejidad de O(nlogn)
+
+Ejercicio 7:
+    - Se modifica la clase monticulo max para implementar un monticulo binario como un monticulo max
+
+Ejercicio 8:
+    - Se hace que la clase monticulo aplique colas de prioridad con los metodos exclusivos agregar y avanzar
+
+Ejercicio 11:
+    - Se crea el grado usando digraph para poder representarlo graficamente
+
+Ejercicio 12:
+    - Se usa la clase grafos DFS para poder realizar una busqueda de anchura al grafo anterior
+
+Ejercicio 13:
+    - Como se puede ver en el ejercicio el tiempo de ejecucion es alrededor de o(1)
+
+Ejercicio 14:
+    - Se modifica la clase monticulo binario para implementar el metodo decrementarClave, con esto conseguimos que funcione el algoritmo de Dijkstra, este se muestra paso a paso con digraph
+
+Ejercicio 15:
+    - Se utiliza networkx para describir la creacion de un grafo paso a paso con el algoritmo de Dijkstra
+
+Ejercicio 16:
+    - Se utiliza el algoritmo de prim para encontrar el arbol de ponderacion minima, se representa graficamente con networkx
+
+Ejercicio 17:
+    - Explicado en el ejercicio
+
+Ejercicio 18:
+    - Se dibuja el grafo utilizando networkx y mediante el algoritmo de prim se encuentra un arbol de expansion minimo
+
+Ejercicio 19:
+    - Se implementa el metodo transponer en el metodo grafo
+
+Ejercicio 20:
+    - Se usa busqueda en anchura para crear un algoritmo que pueda determinar la ruta mas corta de un vertice a cualquiera de los otros.
