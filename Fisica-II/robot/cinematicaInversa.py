@@ -184,7 +184,7 @@ def main():
     #print(S)
     # Matriz de transformaci´on homog´enea en la posici´on cero del robot
     M=np.array([[1,0,0,0],[0,1,0,L[2]+L[3]+L[4]+L[5]+L[6]],[0,0,1,L[0]+L[1]],[0,0,0,1]])
-
+ 
     thetalist = np.array(t).copy()
     i = 0
     maxiterations = 20
