@@ -48,7 +48,7 @@ def R2Euler(R):
 def main():
 	parser = optparse.OptionParser(description=desc, version='%prog version 1.0')
 	parser.add_option('-j', '--joints', help='Coordenadas de las articulaciones', action='store')
-	parser.set_defaults(joints='0 0 0 0 0 0 0')
+	parser.set_defaults(joints='0.5 0 0 0 0 0 0')
 	options, arguments = parser.parse_args()
 	#**************************************************************************************
 	joints=str(options.joints).split()

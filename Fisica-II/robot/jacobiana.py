@@ -67,12 +67,283 @@ print(J)
 Jp0=np.array(J.subs({t[0]:0, t[1]:0, t[2]:0, t[3]:0, t[4]:0, t[5]:0, t[6]:0}), dtype=float)
 print("Matriz Jacobiana en posicion 0:\n", Jp0)
 
-print("Algunas configuraciones singulares:\n")
-print()
+print("Algunas configuraciones singulares:")
 
-Jp1 = sp.Matrix(J.subs({t[0]:0, t[1]:0, t[3]:0, t[4]:0}))
-print(Jp1)
-print(Jp1.rank())
+rango_J=J.rank()
+condicion=sp.Eq(rango_J, 5) # esta seria la condición para que tengas una singularidad -> rango menor a 6
+
+
+singularidades=sp.solve(condicion, (t[0]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[0], t[1]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[2]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[1], t[2]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[2], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[3], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[3], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[3], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[4], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[2]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[0], t[2], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[2], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[2], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[2], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[3], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[3], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[3], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[4], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[5], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[2]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[1], t[2], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[2], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[2], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[2], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[1], t[3], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[3], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[3], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[1], t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[4], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[1], t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[2], t[3], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2], t[3], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2], t[3], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[2], t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2], t[4], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[2], t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[3], t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[3], t[4], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[3], t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[4], t[5], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[3]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[3], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[3], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[3], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[4], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[1], t[2], t[3], t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[2], t[3], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[2], t[3], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[1], t[2], t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[2], t[4], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[1], t[2], t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[2], t[3], t[4], t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[2], t[3], t[4], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[2], t[3], t[5], t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[2], t[4], t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[3], t[4], t[5], t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[3],t[4]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[3],t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[3],t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[2], t[3], t[4],t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[0], t[2], t[3], t[4],t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[3], t[4], t[5],t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[1], t[2], t[3], t[4],t[5]))
+print(singularidades)
+singularidades=sp.solve(condicion, (t[1], t[2], t[3], t[4],t[6]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[1], t[3], t[4], t[5],t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[2], t[3], t[4], t[5],t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[3], t[4],t[5]))
+print(singularidades)
+
+singularidades=sp.solve(condicion, (t[0], t[2], t[3], t[4], t[5],t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[1], t[2], t[3], t[4], t[5],t[6]))
+print(singularidades)
+
+
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[3], t[4], t[5],t[6]))
+print(singularidades)
+
 """
 radio = 1
 u = np.linspace(0,2*np.pi,100)

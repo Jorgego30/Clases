@@ -4,7 +4,7 @@ from xml.dom import minidom
 import numpy as np
 
 # Leer el archivo YAML
-with open('robot.yaml', 'r') as file:
+with open('robot2.yaml', 'r') as file:
     data = yaml.safe_load(file)
 
 # Iniciar la construcción del archivo URDF
@@ -52,9 +52,9 @@ for i, link in enumerate(data['robot']['links']):
     origin = SubElement(visual, 'origin', attrib={'xyz': ' '.join(map(str, xyz)), 'rpy': ' '.join(map(str, total_link_rotation))})
     geometry = SubElement(visual, 'geometry')
     if link['type'] == 'revolute':
-        cylinder = SubElement(geometry, 'cylinder', attrib={'length': str(link['length']), 'radius': '0.05'})
-    elif link['type'] == 'prismatic':
         box = SubElement(geometry, 'box', attrib={'size': f"0.1 0.1 {link['length']}"})
+    elif link['type'] == 'prismatic':
+        cylinder = SubElement(geometry, 'cylinder', attrib={'length': str(link['length']), 'radius': '0.05'})
     material = SubElement(visual, 'material', attrib={'name': 'blue' if i % 2 == 0 else 'red'})
     robot.append(link_element)
 

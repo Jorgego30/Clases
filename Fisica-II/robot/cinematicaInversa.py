@@ -112,8 +112,6 @@ def CinematicaDirecta(M,S,t):
         return np.dot(T,M)
 
 def Jacobiana(theta):
-    w=getejes() # Definimos ejes de rotaci´on
-    q=getqs() # Definimos vectores q
     # Definimos los eslabones
     scalefactor=0.001 # por si quiero los resultados en otras unidades
     L=np.array([103.0, 80.0, 210.0, 30.0, 41.5, 180.0, 23.7, -5.5])*scalefactor
@@ -152,14 +150,14 @@ def main():
     parser.add_option("-a", "--ang", help="´Angulos de Euler finales para el elemento terminal en grados", action="store")
     parser.add_option("-o", "--eomg", help="Error en la orientaci´on del elemento terminal (0.01 por defecto)", action="store")
     parser.add_option("-e", "--er", help="Error en la posici´on del elemento terminal (0.001 por defecto)", action="store")
-    parser.set_defaults(seed_joints="0 0 0 0 0 0 0", xyz="0 0 0", ang="0 0 0", eomg="0.01", ev="0.001")
+    parser.set_defaults(seed_joints="0.5 0 0 0 0 0 0", xyz="-0.177  0.325  0.1", ang="0. -0. 28.61503162", eomg="0.01", ev="0.001")
     options, arguments = parser.parse_args()
 
 #**************************************************************************************
 
     seed_joints=str(options.seed_joints).split()
     t=[]
-    for i in range (0,6,1): t.append(float(seed_joints[i]))
+    for i in range (0,numberOfIds,1): t.append(float(seed_joints[i]))
 
     xyz=str(options.xyz).split()
     r=[]
@@ -189,22 +187,31 @@ def main():
     i = 0
     maxiterations = 20
     Tsb = CinematicaDirecta(M,S, thetalist) # Resuelve la Cinem´atica Directa para thetalist
+    print(np.linalg.inv(Tsb))
+    print()
+    print(Tsb)
+    print()
+    print(T)
+    print()
 
-    
     Vb = MatrixLog6(np.dot(np.linalg.inv(Tsb), T)) # vector Giro para ir a la posici´on deseada en {b}
+    print(Vb)
+    print()
+
     Vs = np.dot(Adjunta(Tsb), se3ToVec(Vb)) # vector Giro en el SR de la base {s}
-    
+    print(Vs)    
+    print()
 
 
-"""
     # condici´on de convergencia: m´odulo de velocidad angular < eomg y velocidad lineal < ev
     err = np.linalg.norm([Vs[0], Vs[1], Vs[2]]) > eomg or np.linalg.norm([Vs[3], Vs[4], Vs[5]]) > ev
-
     while err and i < maxiterations:
         J=Jacobiana(thetalist)
+        print(J)
         J=np.array(J.tolist()).astype(np.float64)
         thetalist = thetalist + np.dot(np.linalg.pinv(J), Vs)
         
+        """
         while thetalist[0] < -3.053:
             thetalist[0]=thetalist[0]+1/2*np.pi
         while thetalist[0] > 3.053:
@@ -234,7 +241,7 @@ def main():
             thetalist[5]=thetalist[5]+1/2*np.pi
         while thetalist[5] > 2.573:
             thetalist[5]=thetalist[5]-1/2*np.pi
-
+        """
         #print(thetalist,"\n")
         i = i + 1
         Tsb = CinematicaDirecta(M, S, thetalist)
@@ -249,7 +256,7 @@ def main():
     print ("Error en w:", np.round(np.linalg.norm([Vs[0], Vs[1], Vs[2]]),8))
     print ("Error en v:", np.round(np.linalg.norm([Vs[3], Vs[4], Vs[5]]),8))
     print ("N´umero de iteraciones:", i)
-"""
+
 
 if __name__=="__main__" :
    main()
