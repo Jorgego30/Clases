@@ -18,8 +18,8 @@ def VecToso3(w):
     return np.array([[0,-w[2],w[1]], [w[2],0,-w[0]], [-w[1],w[0],0]])
 
 # convierte un vector giro o eje helicoidal en matriz 4x4 se3
-def VecTose3(V): 
-    return np.r_[np.c_[VecToso3([V[0], V[1], V[2]]), [V[3], V[4], V[5]]], np.zeros((1, 4))]
+def VecTose3(V):
+	return np.r_[np.c_[VecToso3([V[0], V[1], V[2]]), [V[3], V[4], V[5]]], np.zeros((1, 4))]
 
 # extrae un vector de 3 componentes de una matriz antisimetrica so3
 def so3ToVec(so3mat): 
@@ -59,20 +59,22 @@ def getS(): # Devuelve los ejes helicoidales del robot Niryo One en la posici´o
         Si.append(np.r_[ws[i],vs[i]])
     return Si
 
-def MatrixExp6(se3mat): # convierte un vector giro en forma matricial 4x4 se3 en una MTH a trav´es de la exponencial
-    se3mat = np.array(se3mat) # vector giro en representaci´on matricial se3 (4x4)
-    v=se3mat[0: 3, 3] # extraemos el vector v*theta (velocidad lineal)
-    omgmattheta=se3mat[0: 3, 0: 3] # extraemos omega*theta en forma matricial 3x3 (so3)
-    omgtheta = so3ToVec(omgmattheta) # lo pasamos a forma vectorial
-    if (np.linalg.norm(omgtheta))<1.e-6: # en el caso de que no haya giro (omega despreciable)
-        return np.r_[np.c_[np.eye(3), v], [[0, 0, 0, 1]]] # concatena columnas y filas. S´olo traslaci´on
-    else: # caso general
-        theta = np.linalg.norm(omgtheta)
-        omgmat = omgmattheta / theta # omega en forma matricial 3x3 (so3) Normalizada
-        # a continuaci´on aplicamos la definici´on de matriz exponencial que vimos en clase (slide 42, tema 2)
-        G_theta=np.eye(3)*theta+(1-np.cos(theta))*omgmat+(theta-np.sin(theta))*np.dot(omgmat,omgmat)
-        R=np.eye(3)+np.sin(theta)*omgmat+(1.-np.cos(theta))*np.dot(omgmat,omgmat)
-        return np.r_[np.c_[R,np.dot(G_theta,v)/theta],[[0, 0, 0, 1]]]
+# convierte matriz se3 en una matriz de transformacion homogenea a traves de la exponencial
+def MatrixExp6(se3mat):
+	se3mat = np.array(se3mat) # vector giro en representacion matricial se3 (4x4)
+	v=se3mat[0: 3, 3] # extraemos el vector v*theta (velocidad lineal)
+	omgmattheta=se3mat[0: 3, 0: 3] # extraemos omega*theta en forma matricial 3x3 (so3)
+	omgtheta = so3ToVec(omgmattheta) # lo pasamos a forma vectorial
+	if (np.linalg.norm(omgtheta))<1.e-6: # en el caso de que no haya giro (omega despreciable)
+		return np.r_[np.c_[np.eye(3), v], [[0, 0, 0, 1]]] # concatena columnas y filas. Solo traslacion
+	else: # caso general
+		theta = np.linalg.norm(omgtheta)
+		omgmat = omgmattheta / theta # omega en forma matricial 3x3 (so3) Normalizada
+		# a continuacion aplicamos la definicion de matriz exponencial que vimos en clase (slide 42)
+		G_theta=np.eye(3)*theta+(1-np.cos(theta))*omgmat+(theta-np.sin(theta))*np.dot(omgmat,omgmat)
+		R=np.eye(3)+np.sin(theta)*omgmat+(1.-np.cos(theta))*np.dot(omgmat,omgmat)
+		return np.r_[np.c_[R,np.dot(G_theta,v)/theta],[[0, 0, 0, 1]]]
+
 
 def MatrixLog3(R): # Calcula la matriz logaritmo de una matriz de rotaci´on
     acosinput = (np.trace(R) - 1) *0.5
@@ -107,9 +109,12 @@ def Adjunta(T): # Calcula la matriz adjunta de una MTH
 
 def CinematicaDirecta(M,S,t):
     T=np.eye(4)
-    for i in range(0,numberOfIds,1): 
+	
+    for i in range(0,numberOfIds,1):
         T=np.dot(T,MatrixExp6(VecTose3(S[i]*t[i])))
-        return np.dot(T,M)
+    #print(T)
+    T=np.dot(T,M)
+    return T
 
 def Jacobiana(theta):
     # Definimos los eslabones
@@ -150,7 +155,7 @@ def main():
     parser.add_option("-a", "--ang", help="´Angulos de Euler finales para el elemento terminal en grados", action="store")
     parser.add_option("-o", "--eomg", help="Error en la orientaci´on del elemento terminal (0.01 por defecto)", action="store")
     parser.add_option("-e", "--er", help="Error en la posici´on del elemento terminal (0.001 por defecto)", action="store")
-    parser.set_defaults(seed_joints="0.5 0 0 0 0 0 0", xyz="-0.177  0.325  0.1", ang="0. -0. 28.61503162", eomg="0.01", ev="0.001")
+    parser.set_defaults(seed_joints="0 0 0 0 0 0 0", xyz="0.   0.19 0.07", ang="0 0 0", eomg="0.01", ev="0.001")
     options, arguments = parser.parse_args()
 
 #**************************************************************************************
@@ -165,13 +170,15 @@ def main():
 
     ang=str(options.ang).split()
     orientation=[]
-    for i in range (0,3,1): orientation.append(np.deg2rad(float(ang[i])))
+    for i in range (0,3,1): orientation.append((float(ang[i])))
+
+    #    for i in range (0,3,1): orientation.append(np.deg2rad(float(ang[i])))
 
     eomg=float(options.eomg)
     ev=float(options.ev)
 
     scalefactor=0.001
-    L=np.array([50, 50, 100, 50, 100, 50, 70]) * scalefactor
+    L=np.array([20, 50, 50, 50, 20, 50, 20]) * scalefactor
 
     # Calculamos la Matriz de Transformaci´on Homog´enea a partir de posiciones y ´angulos
     T=getT(orientation, r)
@@ -184,25 +191,31 @@ def main():
     M=np.array([[1,0,0,0],[0,1,0,L[2]+L[3]+L[4]+L[5]+L[6]],[0,0,1,L[0]+L[1]],[0,0,0,1]])
  
     thetalist = np.array(t).copy()
+    #print(thetalist)
     i = 0
     maxiterations = 20
     Tsb = CinematicaDirecta(M,S, thetalist) # Resuelve la Cinem´atica Directa para thetalist
+    """    
+    print(Tsb)
     print(np.linalg.inv(Tsb))
     print()
-    print(Tsb)
     print()
     print(T)
     print()
-
+    """
     Vb = MatrixLog6(np.dot(np.linalg.inv(Tsb), T)) # vector Giro para ir a la posici´on deseada en {b}
+    """   
     print(Vb)
     print()
+    """
 
     Vs = np.dot(Adjunta(Tsb), se3ToVec(Vb)) # vector Giro en el SR de la base {s}
+    """
     print(Vs)    
     print()
-
-
+    """
+    print("Resolucion de cinematica Inversa")
+    print("Partimos de: ", t," coordenadas en las articulaciones\nQueremos llegar a: ", xyz, " coordenadas xyz de TCP\nQueremos llegar a: ", ang, " en angulos de Euler")
     # condici´on de convergencia: m´odulo de velocidad angular < eomg y velocidad lineal < ev
     err = np.linalg.norm([Vs[0], Vs[1], Vs[2]]) > eomg or np.linalg.norm([Vs[3], Vs[4], Vs[5]]) > ev
     while err and i < maxiterations:
@@ -211,37 +224,42 @@ def main():
         J=np.array(J.tolist()).astype(np.float64)
         thetalist = thetalist + np.dot(np.linalg.pinv(J), Vs)
         
-        """
-        while thetalist[0] < -3.053:
+        while thetalist[0] < -3.14:
             thetalist[0]=thetalist[0]+1/2*np.pi
-        while thetalist[0] > 3.053:
+        while thetalist[0] > 3.14:
             thetalist[0]=thetalist[0]-1/2*np.pi
 
-        while thetalist[1] < -1.919:
+        while thetalist[1] < -1.57:
             thetalist[1]=thetalist[1]+1/2*np.pi
-        while thetalist[1] > 0.639:
+        while thetalist[1] > 1.57:
             thetalist[1]=thetalist[1]-1/2*np.pi
 
-        while thetalist[2] < -1.396:
+        while thetalist[2] < -1.57:
             thetalist[2]=thetalist[2]+1/2*np.pi
         while thetalist[2] > 1.57:
             thetalist[2]=thetalist[2]-1/2*np.pi
 
-        while thetalist[3] < -3.053:
+        while thetalist[3] < -1.57:
             thetalist[3]=thetalist[3]+1/2*np.pi
-        while thetalist[3] > 3.053:
+        while thetalist[3] > 1.57:
             thetalist[3]=thetalist[3]-1/2*np.pi
 
-        while thetalist[4] < -1.744:
+        while thetalist[4] < 0:
             thetalist[4]=thetalist[4]+1/2*np.pi
-        while thetalist[4] > 1.919:
+        while thetalist[4] > 0.2:
             thetalist[4]=thetalist[4]-1/2*np.pi
 
-        while thetalist[5] < -2.573:
+        while thetalist[5] < -1.57:
             thetalist[5]=thetalist[5]+1/2*np.pi
-        while thetalist[5] > 2.573:
+        while thetalist[5] > 1.57:
             thetalist[5]=thetalist[5]-1/2*np.pi
-        """
+
+        while thetalist[6] < -1.57:
+            thetalist[6]=thetalist[6]+1/2*np.pi
+        while thetalist[6] > 1.57:
+            thetalist[6]=thetalist[6]-1/2*np.pi
+        
+        
         #print(thetalist,"\n")
         i = i + 1
         Tsb = CinematicaDirecta(M, S, thetalist)
@@ -249,13 +267,48 @@ def main():
         Vs = np.dot(Adjunta(Tsb), se3ToVec(Vb)); print (Vs)
         err = np.linalg.norm([Vs[0], Vs[1], Vs[2]]) > eomg or np.linalg.norm([Vs[3], Vs[4], Vs[5]]) > ev
     
+    """
+    while thetalist[0] < -3.14:
+        thetalist[0]=thetalist[0]+1/2*np.pi
+    while thetalist[0] > 3.14:
+        thetalist[0]=thetalist[0]-1/2*np.pi
 
+    while thetalist[1] < -1.57:
+        thetalist[1]=thetalist[1]+1/2*np.pi
+    while thetalist[1] > 1.57:
+        thetalist[1]=thetalist[1]-1/2*np.pi
+
+    while thetalist[2] < -1.57:
+        thetalist[2]=thetalist[2]+1/2*np.pi
+    while thetalist[2] > 1.57:
+        thetalist[2]=thetalist[2]-1/2*np.pi
+
+    while thetalist[3] < -1.57:
+        thetalist[3]=thetalist[3]+1/2*np.pi
+    while thetalist[3] > 1.57:
+        thetalist[3]=thetalist[3]-1/2*np.pi
+
+    while thetalist[4] < 0:
+        thetalist[4]=thetalist[4]+1/2*np.pi
+    while thetalist[4] > 0.2:
+        thetalist[4]=thetalist[4]-1/2*np.pi
+
+    while thetalist[5] < -1.57:
+        thetalist[5]=thetalist[5]+1/2*np.pi
+    while thetalist[5] > 1.57:
+        thetalist[5]=thetalist[5]-1/2*np.pi
+
+    while thetalist[6] < -1.57:
+        thetalist[6]=thetalist[6]+1/2*np.pi
+    while thetalist[6] > 1.57:
+        thetalist[6]=thetalist[6]-1/2*np.pi
+    """
     
 
-    print ("\n\nCoordenadas de las articulaciones:\n", thetalist)
+    print ("\n\nCoordenadas de las articulaciones:\n", np.round(thetalist,3))
     print ("Error en w:", np.round(np.linalg.norm([Vs[0], Vs[1], Vs[2]]),8))
     print ("Error en v:", np.round(np.linalg.norm([Vs[3], Vs[4], Vs[5]]),8))
-    print ("N´umero de iteraciones:", i)
+    print ("Número de iteraciones:", i)
 
 
 if __name__=="__main__" :
