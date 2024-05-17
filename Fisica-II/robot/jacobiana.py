@@ -3,8 +3,6 @@ from lecturaRobot import *
 import numpy as np
 import sympy as sp
 import matplotlib.pyplot as plt
-from scipy.optimize import root
-
 
 # Funcion que convierte un eje de rotacion en matriz antisimetrica 3x3 (so3)
 def VecToso3(w): 
@@ -87,22 +85,10 @@ print("Rango de la matriz Jacobiana en posición 0:", rango_J)
 # Buscamos configuraciones singulares
 print("Algunas configuraciones singulares:")
 
-# Definimos la función que devuelve el rango de la matriz Jacobiana
-def funcion_a_resolver(t):
-    return np.array([J.rank() - 6 for _ in range(len(t))])
-
-# Intentamos encontrar las configuraciones singulares
-singularidades = []
-for i in range(10):
-    # Generamos un punto inicial aleatorio dentro del rango de las articulaciones
-    punto_inicial = (np.random.rand(len(t)) - 0.5) * 10
-    # Utilizamos scipy.optimize.root para encontrar la raíz de la función
-    solucion = root(funcion_a_resolver, punto_inicial)
-    if solucion.success:
-        singularidades.append({t[i]: valor for i, valor in enumerate(solucion.x)})
-print("Configuraciones singulares encontradas:", singularidades)
-
-
+rango_J=J.rank()
+condicion= rango_J < 6 # esta seria la condición para que tengas una singularidad -> rango menor a 6
+singularidades=sp.solve(condicion, (t[0], t[1], t[2], t[3], t[4], t[5],t[6]))
+print(singularidades)
 
 """
 
@@ -396,7 +382,7 @@ yy=np.r_[np.r_[y,-y], np.r_[-y,y]]
 # Calculamos los vectores giro, multiplicando por la Matriz Jacobiana
 giro=[]
 for i in range(0,400,1):
-	vjoints = np.array([-2.032, xx[i], yy[i], 0, 0, 1.097, 1.362])
+	vjoints = np.array([0, xx[i], 0, 0, 0, yy[i], 0])
 	giro.append(np.dot(Jp0,vjoints))
 
 giro=np.array(giro)
@@ -407,7 +393,7 @@ Jp0_T = np.transpose(Jp0)
 Jp0_T_inv = np.linalg.pinv(Jp0_T)
 
 for i in range(0, 400, 1):
-    taujoints = np.array([-2.032, xx[i], yy[i], 0, 0, 1.097, 1.362])
+    taujoints = np.array([0, xx[i], 0, 0, 0, yy[i], 0])
     taujoints = taujoints[np.newaxis, :]  # Asegúrate de que taujoints sea una matriz fila (1, 7)
 
     llave.append(np.dot(Jp0_T_inv, taujoints.T))
@@ -438,49 +424,54 @@ plt.tight_layout()
 plt.scatter(wx,wy, label='WX/WY')
 plt.scatter(wx,wz, label='WX/WZ')
 plt.scatter(wy,wz, label='WY/WZ')
-limitplot=8
+limitplot=1.25
 plt.ylim(top = limitplot, bottom = -limitplot)
 plt.xlim(left = limitplot, right = -limitplot)
 plt.xticks(fontsize= 10)
 plt.yticks(fontsize= 10)
 plt.tight_layout()
 plt.legend(loc='upper right', shadow=True, fontsize='x-large')
+plt.savefig("W.jpg")
 plt.show()
 
 plt.scatter(vx,vy, label='VX/VY')
 plt.scatter(vx,vz, label='VX/VZ')
 plt.scatter(vy,vz, label='VY/VZ')
+limitplot=0.75
 plt.ylim(top = limitplot, bottom = -limitplot)
 plt.xlim(left = limitplot, right = -limitplot)
 plt.xticks(fontsize= 10)
 plt.yticks(fontsize= 10)
 plt.tight_layout()
 plt.legend(loc='upper right', shadow=True, fontsize='x-large')
+plt.savefig("V.jpg")
 plt.show()
 
 plt.scatter(fwx,fwy, label='MX/MY')
 plt.scatter(fwx,fwz, label='MX/MZ')
 plt.scatter(fwy,fwz, label='MY/MZ')
+limitplot=1.75
 plt.ylim(top = limitplot, bottom = -limitplot)
 plt.xlim(left = limitplot, right = -limitplot)
 plt.xticks(fontsize= 10)
 plt.yticks(fontsize= 10)
 plt.tight_layout()
 plt.legend(loc='upper right', shadow=True, fontsize='x-large')
+plt.savefig("M.jpg")
 plt.show()
 
 plt.scatter(fvx,fvy, label='FX/FY')
 plt.scatter(fvx,fvz, label='FX/FZ')
 plt.scatter(fvy,fvz, label='FY/FZ')
-
+limitplot=3
 plt.ylim(top = limitplot, bottom = -limitplot)
 plt.xlim(left = limitplot, right = -limitplot)
 plt.xticks(fontsize= 10)
 plt.yticks(fontsize= 10)
 plt.tight_layout()
 plt.legend(loc='upper right', shadow=True, fontsize='x-large')
+plt.savefig("F.jpg")
 plt.show()
-
 
 # plt.save("Posicion0.jpg)
 
